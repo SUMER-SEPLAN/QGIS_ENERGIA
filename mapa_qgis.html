@@ -1811,5 +1811,24 @@
             }
         });
         </script>
+
+        <script> // USAR NO NOVO PROJETO - INÍCIO 
+document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('leaflet-control-layers-selector')) {
+        // Pega todos os checkboxes das camadas de interesse
+        var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
+        var labels = checkboxes.map(cb => cb.parentElement.textContent.trim());
+        var checkedSolar = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)" && cb.checked);
+        var checkedVento = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Velocidade dos ventos (m/s) (100m)" && cb.checked);
+
+        if (checkedSolar || checkedVento) {
+            window.parent.postMessage('mostrar-legenda', '*');
+        } else {
+            window.parent.postMessage('esconder-legenda', '*');
+        }
+        // FIM
+    }
+});
+</script>
     </body>
 </html>
