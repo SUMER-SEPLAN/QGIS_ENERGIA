@@ -367,8 +367,22 @@ html, body {
 }
 @media (max-width: 375px) {
   .popup-central {
-    padding: 6px;
-    font-size: 13px;
+    max-width: 98vw;
+    width: 98vw;
+    min-width: unset;
+    margin: 8px auto;
+    padding: 3px;
+    font-size: 11px;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .popup-central h3 {
+    font-size: 14px;
+  }
+  .popup-central button {
+    width: 100%;
+    font-size: 12px;
+    padding: 7px 0;
   }
 }
 @media (max-width: 600px) {
