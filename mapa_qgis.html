@@ -17,16 +17,46 @@
             height: 100%;
             padding: 0;
             margin: 0;
-        }
+        } /* USAR NO NOVO PROJETO - INICIO */
         .leaflet-top {
         margin-top: 20px !important; /* empurra os botões para baixo */
-        }
+        }/* USAR NO NOVO PROJETO - FIM */
         </style>
+        <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile -->
+        <style>
+  #close-layer-switcher {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    z-index: 9999;
+    padding: 6px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #close-layer-switcher img {
+    display: block;
+  }
+
+  @media (min-width: 769px) {
+    #close-layer-switcher {
+      display: none !important;
+    }
+  }
+</style>
+<!-- USAR NO NOVO PROJETO - fim -->
         <title>MAPA ELETROENERGÉTICO DO PIAUÍ</title>
     </head>
     <body>
         <div id="map">
         </div>
+        <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile-->
+         <button id="close-layer-switcher">
+  <img src="images/x.png" alt="Fechar" style="height: 24px; width: 24px;">
+</button><!-- USAR NO NOVO PROJETO - fim -->
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
@@ -1830,5 +1860,64 @@ document.addEventListener('change', function(e) {
     }
 });
 </script>
+<!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile -->
+<script>
+  const closeBtn = document.getElementById('close-layer-switcher');
+  const layersToggle = document.querySelector('.leaflet-control-layers-toggle');
+  const layersControl = document.querySelector('.leaflet-control-layers');
+
+  // Oculta o botão ao fechar o menu
+  closeBtn.addEventListener('click', function () {
+    if (layersControl) {
+      layersControl.classList.remove('leaflet-control-layers-expanded');
+    }
+    this.style.display = 'none';
+  });
+
+  // Mostra o botão somente quando o menu é aberto e está no mobile
+  if (layersToggle) {
+    layersToggle.addEventListener('click', function () {
+      setTimeout(() => {
+        const isExpanded = layersControl.classList.contains('leaflet-control-layers-expanded');
+        if (isExpanded && window.innerWidth <= 768) {
+          closeBtn.style.display = 'block';
+        } else {
+          closeBtn.style.display = 'none';
+        }
+      }, 100); // Pequeno delay para garantir que a classe foi aplicada
+    });
+  }
+</script>
+<script>
+let touchStartX = 0, touchStartY = 0;
+
+modalImg.addEventListener('touchstart', function (e) {
+    if (e.touches.length === 1 && escalaAtual > 1) {
+        isDragging = true;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }
+}, { passive: false });
+
+modalImg.addEventListener('touchmove', function (e) {
+    if (isDragging && e.touches.length === 1) {
+        e.preventDefault();
+        const dx = e.touches[0].clientX - touchStartX;
+        const dy = e.touches[0].clientY - touchStartY;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        posX += dx;
+        posY += dy;
+        modalImg.style.transform = `scale(${escalaAtual}) translate(${posX}px, ${posY}px)`;
+    }
+}, { passive: false });
+
+modalImg.addEventListener('touchend', function (e) {
+    if (e.touches.length === 0) {
+        isDragging = false;
+    }
+});
+</script>
+<!-- USAR NO NOVO PROJETO - fim -->
     </body>
 </html>
