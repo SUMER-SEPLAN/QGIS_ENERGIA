@@ -46,7 +46,7 @@ if (btnLegenda) {
 document.getElementById('btn-fontes').addEventListener('click', function (e) {
   e.preventDefault();
   const popup = document.getElementById('popup-fontes');
-  popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'block' : 'none';
+  popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'flex' : 'none';
 });
 
 // Fecha o popup ao clicar no botão de fechar

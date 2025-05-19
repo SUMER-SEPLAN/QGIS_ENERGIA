@@ -18,7 +18,7 @@ html, body {
   
   /* === BARRA SUPERIOR === */
   .topbar {
-    background-color: #2c3e50;
+    background-color:#2c3e50;
     color: white;
     padding: 10px 20px;
     position: fixed;
@@ -61,7 +61,7 @@ html, body {
     left: 0;
     width: 60px;
     height: calc(100% - 60px);
-    background-color: #34495e;
+    background-color: #2c3e50;
     transition: width 0.3s;
     overflow: hidden;
     z-index: 1001;
@@ -156,26 +156,19 @@ html, body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
 
-  /* === POPUP === */
   #popup-fontes {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  display: none;
+  display: none; /* Só isso aqui */
   z-index: 1005;
   background-color: rgba(0,0,0,0.5);
-}
-  #popup-fontes {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  display: none;
-  z-index: 1005;
-  background-color: rgba(0,0,0,0.5);
+
+  /* Centralização do conteúdo interno */
+  align-items: center;
+  justify-content: center;
 }
 
   
@@ -328,7 +321,8 @@ html, body {
     0%   { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-   .titulo-mobile {
+
+ .titulo-mobile {
   display: none;
 }
 .titulo-desktop {
@@ -380,22 +374,8 @@ html, body {
 }
 @media (max-width: 375px) {
   .popup-central {
-    max-width: 98vw;
-    width: 98vw;
-    min-width: unset;
-    margin: 8px auto;
-    padding: 3px;
-    font-size: 11px;
-    max-height: 85vh;
-    overflow-y: auto;
-  }
-  .popup-central h3 {
-    font-size: 14px;
-  }
-  .popup-central button {
-    width: 100%;
-    font-size: 12px;
-    padding: 7px 0;
+    padding: 6px;
+    font-size: 13px;
   }
 }
 @media (max-width: 600px) {
@@ -410,7 +390,7 @@ html, body {
     overflow-y: auto;
   }
 } 
- @media (max-width: 600px) {
+@media (max-width: 600px) {
   #legenda-img {
     width: 95vw;
     max-width: 320px;
@@ -426,4 +406,4 @@ html, body {
     max-width: 270px;
   }
 } 
-  
+
