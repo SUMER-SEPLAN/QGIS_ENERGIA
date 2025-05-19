@@ -334,6 +334,18 @@ html, body {
     white-space: normal;
   }
 }
+@media (max-width: 600px) {
+  .logo-sumer {
+    width: 145px;
+    height: auto;
+  }
+}
+@media (max-width: 375px) {
+  .logo-sumer {
+    width: 110px;
+    height: auto;
+  }
+}
   
   
   
