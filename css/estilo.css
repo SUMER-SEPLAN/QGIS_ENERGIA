@@ -397,5 +397,20 @@ html, body {
     overflow-y: auto;
   }
 } 
-  
+ @media (max-width: 600px) {
+  #legenda-img {
+    width: 95vw;
+    max-width: 320px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 375px) {
+  #legenda-img {
+    width: 98vw;
+    max-width: 270px;
+  }
+} 
   
