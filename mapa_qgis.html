@@ -94,10 +94,15 @@
         <script src="data/Linhadetransmisso500kV_25.js"></script>
         <script src="data/SubestacoesMdia_26.js"></script>
         <script src="data/SubestaesAlta_27.js"></script>
+        <script src="data/DGC_30.js"></script>
+        <script src="data/DECapuradoanual_31.js"></script>
+        <script src="data/DEClimiteanual_32.js"></script>
+        <script src="data/FECapuradoanual_33.js"></script>
+        <script src="data/FEClimiteanual_34.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-11.133231443850002,-51.22124165913666],[-2.5452774601499275,-35.17747489386324]]);
+        }).fitBounds([[-10.957041230880884,-49.4483713545173],[-2.358100982232349,-34.04641027351004]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -242,7 +247,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(64,195,46,1.0)',
-                interactive: false,
+                interactive: true,
             }
         }
         map.createPane('pane_readeaplicaodaLeidaMataAtlnticaPI_3');
@@ -250,7 +255,7 @@
         map.getPane('pane_readeaplicaodaLeidaMataAtlnticaPI_3').style['mix-blend-mode'] = 'normal';
         var layer_readeaplicaodaLeidaMataAtlnticaPI_3 = new L.geoJson(json_readeaplicaodaLeidaMataAtlnticaPI_3, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_readeaplicaodaLeidaMataAtlnticaPI_3',
             layerName: 'layer_readeaplicaodaLeidaMataAtlnticaPI_3',
             pane: 'pane_readeaplicaodaLeidaMataAtlnticaPI_3',
@@ -1787,9 +1792,642 @@
                                               img_bounds_IrradiacaoSolarAnualinclinado10Whmdia_29,
                                               {pane: 'pane_IrradiacaoSolarAnualinclinado10Whmdia_29'});
         bounds_group.addLayer(layer_IrradiacaoSolarAnualinclinado10Whmdia_29);
+        function pop_DGC_30(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_DGC_30_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.492395 && feature.properties['DEF_FEC_DGC_DGC'] <= 0.600000 ) {
+                return {
+                pane: 'pane_DGC_30',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,252,245,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.600000 && feature.properties['DEF_FEC_DGC_DGC'] <= 0.800000 ) {
+                return {
+                pane: 'pane_DGC_30',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,244,221,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.800000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.000000 ) {
+                return {
+                pane: 'pane_DGC_30',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(191,230,185,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.000000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.200000 ) {
+                return {
+                pane: 'pane_DGC_30',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(148,211,144,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.200000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.400000 ) {
+                return {
+                pane: 'pane_DGC_30',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(96,186,108,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.400000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.600000 ) {
+                return {
+                pane: 'pane_DGC_30',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(50,155,81,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.600000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.800000 ) {
+                return {
+                pane: 'pane_DGC_30',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(13,120,53,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.800000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.810000 ) {
+                return {
+                pane: 'pane_DGC_30',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,68,27,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_DGC_30');
+        map.getPane('pane_DGC_30').style.zIndex = 430;
+        map.getPane('pane_DGC_30').style['mix-blend-mode'] = 'normal';
+        var layer_DGC_30 = new L.geoJson(json_DGC_30, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DGC_30',
+            layerName: 'layer_DGC_30',
+            pane: 'pane_DGC_30',
+            onEachFeature: pop_DGC_30,
+            style: style_DGC_30_0,
+        });
+        bounds_group.addLayer(layer_DGC_30);
+        function pop_DECapuradoanual_31(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_DECapuradoanual_31_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 7.805341 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 10.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_31',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,240,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 20.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_31',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,204,184,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 30.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_31',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,143,111,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 30.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 40.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_31',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(244,77,56,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 40.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 50.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_31',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(197,23,28,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 50.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 54.878720 ) {
+                return {
+                pane: 'pane_DECapuradoanual_31',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,0,13,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_DECapuradoanual_31');
+        map.getPane('pane_DECapuradoanual_31').style.zIndex = 431;
+        map.getPane('pane_DECapuradoanual_31').style['mix-blend-mode'] = 'normal';
+        var layer_DECapuradoanual_31 = new L.geoJson(json_DECapuradoanual_31, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DECapuradoanual_31',
+            layerName: 'layer_DECapuradoanual_31',
+            pane: 'pane_DECapuradoanual_31',
+            onEachFeature: pop_DECapuradoanual_31,
+            style: style_DECapuradoanual_31_0,
+        });
+        bounds_group.addLayer(layer_DECapuradoanual_31);
+        function pop_DEClimiteanual_32(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SIST_SUBT</th>\
+                        <td class="visible-with-data" id="SIST_SUBT">' + (feature.properties['SIST_SUBT'] !== null ? autolinker.link(String(feature.properties['SIST_SUBT']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_DEClimiteanual_32_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 15.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_32',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,240,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 20.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_32',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,190,165,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 25.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_32',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,112,80,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 25.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 30.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_32',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,32,32,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 30.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 32.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_32',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,0,13,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_DEClimiteanual_32');
+        map.getPane('pane_DEClimiteanual_32').style.zIndex = 432;
+        map.getPane('pane_DEClimiteanual_32').style['mix-blend-mode'] = 'normal';
+        var layer_DEClimiteanual_32 = new L.geoJson(json_DEClimiteanual_32, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DEClimiteanual_32',
+            layerName: 'layer_DEClimiteanual_32',
+            pane: 'pane_DEClimiteanual_32',
+            onEachFeature: pop_DEClimiteanual_32,
+            style: style_DEClimiteanual_32_0,
+        });
+        bounds_group.addLayer(layer_DEClimiteanual_32);
+        function pop_FECapuradoanual_33(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_FECapuradoanual_33_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 3.204838 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 5.000000 ) {
+                return {
+                pane: 'pane_FECapuradoanual_33',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 5.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 10.000000 ) {
+                return {
+                pane: 'pane_FECapuradoanual_33',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(175,209,231,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 15.000000 ) {
+                return {
+                pane: 'pane_FECapuradoanual_33',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(62,142,196,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 19.881072 ) {
+                return {
+                pane: 'pane_FECapuradoanual_33',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_FECapuradoanual_33');
+        map.getPane('pane_FECapuradoanual_33').style.zIndex = 433;
+        map.getPane('pane_FECapuradoanual_33').style['mix-blend-mode'] = 'normal';
+        var layer_FECapuradoanual_33 = new L.geoJson(json_FECapuradoanual_33, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FECapuradoanual_33',
+            layerName: 'layer_FECapuradoanual_33',
+            pane: 'pane_FECapuradoanual_33',
+            onEachFeature: pop_FECapuradoanual_33,
+            style: style_FECapuradoanual_33_0,
+        });
+        bounds_group.addLayer(layer_FECapuradoanual_33);
+        function pop_FEClimiteanual_34(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_FEClimiteanual_34_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 6.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 10.000000 ) {
+                return {
+                pane: 'pane_FEClimiteanual_34',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 15.000000 ) {
+                return {
+                pane: 'pane_FEClimiteanual_34',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(175,209,231,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 20.000000 ) {
+                return {
+                pane: 'pane_FEClimiteanual_34',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(62,142,196,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 24.000000 ) {
+                return {
+                pane: 'pane_FEClimiteanual_34',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_FEClimiteanual_34');
+        map.getPane('pane_FEClimiteanual_34').style.zIndex = 434;
+        map.getPane('pane_FEClimiteanual_34').style['mix-blend-mode'] = 'normal';
+        var layer_FEClimiteanual_34 = new L.geoJson(json_FEClimiteanual_34, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FEClimiteanual_34',
+            layerName: 'layer_FEClimiteanual_34',
+            pane: 'pane_FEClimiteanual_34',
+            onEachFeature: pop_FEClimiteanual_34,
+            style: style_FEClimiteanual_34_0,
+        });
+        bounds_group.addLayer(layer_FEClimiteanual_34);
         var overlaysTree = [
+        {label: '<b>FEC, DEC e DGC</b>', collapsed: true, selectAllCheckbox: true, children: [
+            //USAR NO NOVO PROJETO - INICIO
+            {label: 'FEC limite anual', layer: layer_FEClimiteanual_34},
+            {label: 'FEC apurado anual', layer: layer_FECapuradoanual_33},
+            {label: 'DEC limite anual', layer: layer_DEClimiteanual_32},
+            {label: 'DEC apurado anual', layer: layer_DECapuradoanual_31},
+            {label: 'DGC', layer: layer_DGC_30},]},
+            //USAR NO NOVO PROJETO - FIM
+        {label: '<b>Potencial eólico e solar</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)", layer: layer_IrradiacaoSolarAnualinclinado10Whmdia_29},
-            {label: "Velocidade dos ventos (m/s) (100m)", layer: layer_Velocidadedosventosms100m_28},
+            {label: "Velocidade dos ventos (m/s) (100m)", layer: layer_Velocidadedosventosms100m_28},]},
         {label: '<b>Subestações</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: '<img src="legend/SubestaesAlta_27.png" /> Subestações (Alta)', layer: layer_SubestaesAlta_27},
             {label: '<img src="legend/SubestacoesMdia_26.png" /> Subestacoes (Média)', layer: layer_SubestacoesMdia_26},]},
@@ -1841,24 +2479,25 @@
             }
         });
         </script>
-
-        <script> // USAR NO NOVO PROJETO - INÍCIO 
+         <script> // USAR NO NOVO PROJETO - INÍCIO 
 document.addEventListener('change', function(e) {
     if (e.target.classList.contains('leaflet-control-layers-selector')) {
-        // Pega todos os checkboxes das camadas de interesse
         var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
-        var labels = checkboxes.map(cb => cb.parentElement.textContent.trim());
         var checkedSolar = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)" && cb.checked);
         var checkedVento = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Velocidade dos ventos (m/s) (100m)" && cb.checked);
+        var checkedFEC = checkboxes.find(cb => cb.parentElement.textContent.trim() === "FEC limite anual" && cb.checked);
 
-        if (checkedSolar || checkedVento) {
-            window.parent.postMessage('mostrar-legenda', '*');
+        if (checkedSolar) {
+            window.parent.postMessage('mostrar-legenda-solar', '*');
+        } else if (checkedVento) {
+            window.parent.postMessage('mostrar-legenda-vento', '*');
+        } else if (checkedFEC) {
+            window.parent.postMessage('mostrar-legenda-fec', '*');
         } else {
             window.parent.postMessage('esconder-legenda', '*');
         }
-        // USAR NO NOVO PROJETO - FIM
     }
-});
+}); //USAR NO NOVO PROJETO - FIM
 </script>
 <!-- USAR NO NOVO PROJETO - inicio botão fechar para mobile -->
 <script>
