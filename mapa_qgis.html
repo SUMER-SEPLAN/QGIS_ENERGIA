@@ -2482,6 +2482,31 @@
          <script> // USAR NO NOVO PROJETO - INÍCIO 
 document.addEventListener('change', function(e) {
     if (e.target.classList.contains('leaflet-control-layers-selector')) {
+        // Lista dos nomes das camadas exclusivas
+        var nomesExclusivos = [
+            "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)",
+            "Velocidade dos ventos (m/s) (100m)",
+            "FEC limite anual",
+            "FEC apurado anual",
+            "DEC apurado anual",
+            "DEC limite anual",
+            "DGC"
+        ];
+
+        // Se o checkbox ativado for de uma dessas camadas, desmarque as outras
+        var labelAtivado = e.target.parentElement.textContent.trim();
+        if (nomesExclusivos.includes(labelAtivado) && e.target.checked) {
+            var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
+            checkboxes.forEach(function(cb) {
+                var label = cb.parentElement.textContent.trim();
+                if (label !== labelAtivado && nomesExclusivos.includes(label)) {
+                    cb.checked = false;
+                    cb.dispatchEvent(new Event('change')); // dispara o evento para atualizar o mapa
+                }
+            });
+        }
+
+        // Atualiza as variáveis após possíveis mudanças
         var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
         var checkedSolar = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)" && cb.checked);
         var checkedVento = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Velocidade dos ventos (m/s) (100m)" && cb.checked);
