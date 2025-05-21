@@ -2486,6 +2486,10 @@ document.addEventListener('change', function(e) {
         var checkedSolar = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)" && cb.checked);
         var checkedVento = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Velocidade dos ventos (m/s) (100m)" && cb.checked);
         var checkedFEC = checkboxes.find(cb => cb.parentElement.textContent.trim() === "FEC limite anual" && cb.checked);
+        var checkedFECapurado = checkboxes.find(cb => cb.parentElement.textContent.trim() === "FEC apurado anual" && cb.checked);
+        var checkedDECapurado = checkboxes.find(cb => cb.parentElement.textContent.trim() === "DEC apurado anual" && cb.checked);
+        var checkedDEClimite = checkboxes.find(cb => cb.parentElement.textContent.trim() === "DEC limite anual" && cb.checked);
+        var checkedDGC = checkboxes.find(cb => cb.parentElement.textContent.trim() === "DGC" && cb.checked);
 
         if (checkedSolar) {
             window.parent.postMessage('mostrar-legenda-solar', '*');
@@ -2493,6 +2497,14 @@ document.addEventListener('change', function(e) {
             window.parent.postMessage('mostrar-legenda-vento', '*');
         } else if (checkedFEC) {
             window.parent.postMessage('mostrar-legenda-fec', '*');
+        } else if (checkedFECapurado) {
+            window.parent.postMessage('mostrar-legenda-fecap', '*');
+        } else if (checkedDECapurado) {
+            window.parent.postMessage('mostrar-legenda-decap', '*');
+        } else if (checkedDEClimite) {
+            window.parent.postMessage('mostrar-legenda-declim', '*');
+        } else if (checkedDGC) {
+            window.parent.postMessage('mostrar-legenda-dgc', '*');
         } else {
             window.parent.postMessage('esconder-legenda', '*');
         }

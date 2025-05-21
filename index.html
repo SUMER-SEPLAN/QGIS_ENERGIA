@@ -54,6 +54,18 @@
   <div id="FEClimiteanual-container">
     <img src="images/legendas_FEC_limite_anual.png" alt="Legenda do mapa" id="FEClimiteanual-img">
   </div>
+  <div id="FECapuradoanual-container">
+    <img src="images/legendas_FEC_apurado_anual.png" alt="Legenda do mapa" id="FECapuradoanual-img">
+  </div>
+  <div id="DECapuradoanual-container">
+    <img src="images/legendas_DEC_apurado_anual.png" alt="Legenda do mapa" id="DECapuradoanual-img">
+  </div>
+  <div id="DEClimiteanual-container">
+    <img src="images/legendas_DEC_limite_anual.png" alt="Legenda do mapa" id="DEClimiteanual-img">
+  </div>
+  <div id="DGC-container">
+    <img src="images/legenda_DGC.png" alt="Legenda do mapa" id="DGC-img">
+  </div>
 
   <div id="popup-fontes">
     <div class="popup-content popup-content">
@@ -118,10 +130,16 @@ window.addEventListener('message', function(event) {
   <script src="js/loader.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/popup.js"></script>
-  <script>window.addEventListener('message', function(event) {
+  <!-- Legendas -->
+  <script>
+window.addEventListener('message', function(event) {
     // Esconde todas as legendas primeiro
     document.getElementById('legenda-container').style.display = 'none';
     document.getElementById('FEClimiteanual-container').style.display = 'none';
+    document.getElementById('FECapuradoanual-container').style.display = 'none';
+    document.getElementById('DECapuradoanual-container').style.display = 'none';
+    document.getElementById('DEClimiteanual-container').style.display = 'none';
+    document.getElementById('DGC-container').style.display = 'none';
 
     if (event.data === 'mostrar-legenda-solar' || event.data === 'mostrar-legenda-vento') {
         document.getElementById('legenda-container').style.display = 'block';
@@ -129,9 +147,20 @@ window.addEventListener('message', function(event) {
     if (event.data === 'mostrar-legenda-fec') {
         document.getElementById('FEClimiteanual-container').style.display = 'block';
     }
-    if (event.data === 'esconder-legenda') {
-        // já está escondendo todas acima, mas pode manter se quiser
+    if (event.data === 'mostrar-legenda-fecap') {
+        document.getElementById('FECapuradoanual-container').style.display = 'block';
     }
-});</script>
+    if (event.data === 'mostrar-legenda-decap') {
+        document.getElementById('DECapuradoanual-container').style.display = 'block';
+    }
+    if (event.data === 'mostrar-legenda-declim') {
+        document.getElementById('DEClimiteanual-container').style.display = 'block';
+    }
+    if (event.data === 'mostrar-legenda-dgc') {
+        document.getElementById('DGC-container').style.display = 'block';
+    }
+    // "esconder-legenda" já esconde todas acima
+});
+</script>
 </body>
 </html>

@@ -415,7 +415,7 @@ html, body {
     transition: left 0.3s ease;
 }
 #FEClimiteanual-img {
-    max-width: 400px;
+    max-width: 150px;
     max-height: 250px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
@@ -435,4 +435,121 @@ html, body {
     max-width: 150px;
   }
 }
+#FECapuradoanual-container {
+    position: absolute;
+    bottom: 20px;
+    left: 70px;
+    z-index: 1002;
+    display: none;
+    transition: left 0.3s ease;
+}
+#FECapuradoanual-img {
+    max-width: 150px;
+    max-height: 250px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+@media (max-width: 600px) {
+  #FECapuradoanual-img {
+    width: 95vw;
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 375px) {
+  #FECapuradoanual-img {
+    width: 98vw;
+    max-width: 150px;
+  }
+}
+#DECapuradoanual-container {
+    position: absolute;
+    bottom: 20px;
+    left: 70px;
+    z-index: 1002;
+    display: none;
+    transition: left 0.3s ease;
+}
+#DECapuradoanual-img {
+    max-width: 150px;
+    max-height: 250px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+@media (max-width: 600px) {
+  #DECapuradoanual-img {
+    width: 95vw;
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 375px) {
+  #DECapuradoanual-img {
+    width: 98vw;
+    max-width: 150px;
+  }
+}
 
+#DEClimiteanual-container {
+    position: absolute;
+    bottom: 20px;
+    left: 70px;
+    z-index: 1002;
+    display: none;
+    transition: left 0.3s ease;
+}
+#DEClimiteanual-img {
+    max-width: 150px;
+    max-height: 250px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+@media (max-width: 600px) {
+  #DEClimiteanual-img {
+    width: 95vw;
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 375px) {
+  #DEClimiteanual-img {
+    width: 98vw;
+    max-width: 150px;
+  }
+}
+
+#DGC-container {
+    position: absolute;
+    bottom: 20px;
+    left: 70px;
+    z-index: 1002;
+    display: none;
+    transition: left 0.3s ease;
+}
+#DGC-img {
+    max-width: 150px;
+    max-height: 250px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+@media (max-width: 600px) {
+  #DGC-img {
+    width: 95vw;
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 375px) {
+  #DGC-img {
+    width: 98vw;
+    max-width: 150px;
+  }
+}
