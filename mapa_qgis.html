@@ -2482,26 +2482,47 @@
          <script> // USAR NO NOVO PROJETO - INÍCIO 
 document.addEventListener('change', function(e) {
     if (e.target.classList.contains('leaflet-control-layers-selector')) {
-        // Lista dos nomes das camadas exclusivas
-        var nomesExclusivos = [
-            "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)",
-            "Velocidade dos ventos (m/s) (100m)",
+        // Grupos exclusivos
+        var grupoFecDecDgc = [
             "FEC limite anual",
             "FEC apurado anual",
             "DEC apurado anual",
             "DEC limite anual",
             "DGC"
         ];
+        var grupoSolarVento = [
+            "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)",
+            "Velocidade dos ventos (m/s) (100m)"
+        ];
 
         var labelAtivado = e.target.parentElement.textContent.trim();
 
-        // Se for um desses, desative todos os outros via API do Leaflet
-        if (nomesExclusivos.includes(labelAtivado) && e.target.checked) {
+        // Se ativar um do grupo FEC/DEC/DGC, desativa Solar/Vento
+        if (grupoFecDecDgc.includes(labelAtivado) && e.target.checked) {
             var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
             checkboxes.forEach(function(cb) {
                 var label = cb.parentElement.textContent.trim();
-                if (label !== labelAtivado && nomesExclusivos.includes(label) && cb.checked) {
-                    cb.click(); // Isso simula o clique do usuário e faz o Leaflet ativar/desativar a camada corretamente
+                if (grupoSolarVento.includes(label) && cb.checked) {
+                    cb.click();
+                }
+                // Também desativa outros do mesmo grupo (já faz isso abaixo)
+                if (label !== labelAtivado && grupoFecDecDgc.includes(label) && cb.checked) {
+                    cb.click();
+                }
+            });
+        }
+
+        // Se ativar Solar/Vento, desativa FEC/DEC/DGC
+        if (grupoSolarVento.includes(labelAtivado) && e.target.checked) {
+            var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
+            checkboxes.forEach(function(cb) {
+                var label = cb.parentElement.textContent.trim();
+                if (grupoFecDecDgc.includes(label) && cb.checked) {
+                    cb.click();
+                }
+                // Também desativa outros do mesmo grupo (já faz isso acima)
+                if (label !== labelAtivado && grupoSolarVento.includes(label) && cb.checked) {
+                    cb.click();
                 }
             });
         }
