@@ -2493,15 +2493,15 @@ document.addEventListener('change', function(e) {
             "DGC"
         ];
 
-        // Se o checkbox ativado for de uma dessas camadas, desmarque as outras
         var labelAtivado = e.target.parentElement.textContent.trim();
+
+        // Se for um desses, desative todos os outros via API do Leaflet
         if (nomesExclusivos.includes(labelAtivado) && e.target.checked) {
             var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
             checkboxes.forEach(function(cb) {
                 var label = cb.parentElement.textContent.trim();
-                if (label !== labelAtivado && nomesExclusivos.includes(label)) {
-                    cb.checked = false;
-                    cb.dispatchEvent(new Event('change')); // dispara o evento para atualizar o mapa
+                if (label !== labelAtivado && nomesExclusivos.includes(label) && cb.checked) {
+                    cb.click(); // Isso simula o clique do usuário e faz o Leaflet ativar/desativar a camada corretamente
                 }
             });
         }
