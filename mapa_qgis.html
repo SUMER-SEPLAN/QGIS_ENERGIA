@@ -2448,11 +2448,11 @@
             {label: 'DGC', layer: layer_DGC_30},]},
             //USAR NO NOVO PROJETO - FIM
             {label: '<b>Potencial eólico e solar</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)", layer: layer_IrradiacaoSolarAnualinclinado10Whmdia_29},
+            {label: "Irradiação Solar (Anual inclinado 10° Wh/m².dia)", layer: layer_IrradiacaoSolarAnualinclinado10Whmdia_29},
             {label: "Velocidade dos ventos (m/s) (100m)", layer: layer_Velocidadedosventosms100m_28},]},
         {label: '<b>Subestações</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: '<img src="legend/SubestaesAlta_27.png" /> Subestações (Alta)', layer: layer_SubestaesAlta_27},
-            {label: '<img src="legend/SubestacoesMdia_26.png" /> Subestacoes (Média)', layer: layer_SubestacoesMdia_26},]},
+            {label: '<img src="legend/SubestacoesMdia_26.png" /> Subestações (Média)', layer: layer_SubestacoesMdia_26},]},
         {label: '<b>Linhas de transmissão e distribuição</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: '<img src="legend/Linhadetransmisso500kV_25.png" /> Linha de transmissão 500kV', layer: layer_Linhadetransmisso500kV_25},
             {label: '<img src="legend/Linhadetransmisso230kV_24.png" /> Linha de transmissão 230kV', layer: layer_Linhadetransmisso230kV_24},
@@ -2513,7 +2513,7 @@ document.addEventListener('change', function(e) {
             "DGC"
         ];
         var grupoSolarVento = [
-            "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)",
+            "Irradiação Solar (Anual inclinado 10° Wh/m².dia)",
             "Velocidade dos ventos (m/s) (100m)"
         ];
 
@@ -2551,7 +2551,7 @@ document.addEventListener('change', function(e) {
 
         // Atualiza as variáveis após possíveis mudanças
         var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
-        var checkedSolar = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)" && cb.checked);
+        var checkedSolar = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Irradiação Solar (Anual inclinado 10° Wh/m².dia)" && cb.checked);
         var checkedVento = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Velocidade dos ventos (m/s) (100m)" && cb.checked);
         var checkedFEC = checkboxes.find(cb => cb.parentElement.textContent.trim() === "FEC limite anual" && cb.checked);
         var checkedFECapurado = checkboxes.find(cb => cb.parentElement.textContent.trim() === "FEC apurado anual" && cb.checked);
