@@ -48,7 +48,7 @@
   }
 </style>
 <!-- USAR NO NOVO PROJETO - fim -->
-        <title>MAPA ELETROENERGÉTICO DO PIAUÍ</title>
+        <title>MAPA GEOENERGÉTICO DO PIAUÍ</title>
     </head>
     <body>
         <div id="map">
@@ -102,7 +102,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-10.957041230880884,-49.4483713545173],[-2.358100982232349,-34.04641027351004]]);
+        }).fitBounds([[-11.133231443850002,-51.29263795116267],[-2.5452774601499275,-35.10607860183723]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -141,7 +141,7 @@
             return this._div;
         };
         title.update = function () {
-            this._div.innerHTML = '<h2>MAPA ELETROENERGÉTICO DO PIAUÍ</h2>';
+            this._div.innerHTML = '<h2>MAPA GEOENERGÉTICO DO PIAUÍ</h2>';
         };
         title.addTo(map);
         var zoomControl = L.control.zoom({
@@ -1651,16 +1651,8 @@
         function pop_SubestacoesMdia_26(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">FAS_CON</th>\
-                        <td class="visible-with-data" id="FAS_CON">' + (feature.properties['FAS_CON'] !== null ? autolinker.link(String(feature.properties['FAS_CON']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">SIT_ATIV</th>\
                         <td class="visible-with-data" id="SIT_ATIV">' + (feature.properties['SIT_ATIV'] !== null ? autolinker.link(String(feature.properties['SIT_ATIV']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">TIP_UNID</th>\
-                        <td class="visible-with-data" id="TIP_UNID">' + (feature.properties['TIP_UNID'] !== null ? autolinker.link(String(feature.properties['TIP_UNID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">SUB</th>\
@@ -1671,16 +1663,48 @@
                         <td class="visible-with-data" id="CONJ">' + (feature.properties['CONJ'] !== null ? autolinker.link(String(feature.properties['CONJ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">MUN</th>\
-                        <td class="visible-with-data" id="MUN">' + (feature.properties['MUN'] !== null ? autolinker.link(String(feature.properties['MUN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">NOME</th>\
+                        <td class="visible-with-data" id="NOME">' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">POS</th>\
-                        <td class="visible-with-data" id="POS">' + (feature.properties['POS'] !== null ? autolinker.link(String(feature.properties['POS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">POT(MVA)</th>\
+                        <td class="visible-with-data" id="POT(MVA)">' + (feature.properties['POT(MVA)'] !== null ? autolinker.link(String(feature.properties['POT(MVA)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">DESCR</th>\
-                        <td class="visible-with-data" id="DESCR">' + (feature.properties['DESCR'] !== null ? autolinker.link(String(feature.properties['DESCR']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">POT REATIV</th>\
+                        <td class="visible-with-data" id="POT REATIV">' + (feature.properties['POT REATIV'] !== null ? autolinker.link(String(feature.properties['POT REATIV']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TENS TRANS</th>\
+                        <td class="visible-with-data" id="TENS TRANS">' + (feature.properties['TENS TRANS'] !== null ? autolinker.link(String(feature.properties['TENS TRANS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">OBSERVACAO</th>\
+                        <td class="visible-with-data" id="OBSERVACAO">' + (feature.properties['OBSERVACAO'] !== null ? autolinker.link(String(feature.properties['OBSERVACAO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">NOME_2</th>\
+                        <td class="visible-with-data" id="NOME_2">' + (feature.properties['NOME_2'] !== null ? autolinker.link(String(feature.properties['NOME_2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">POT(MVA)_2</th>\
+                        <td class="visible-with-data" id="POT(MVA)_2">' + (feature.properties['POT(MVA)_2'] !== null ? autolinker.link(String(feature.properties['POT(MVA)_2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">POT REAT_1</th>\
+                        <td class="visible-with-data" id="POT REAT_1">' + (feature.properties['POT REAT_1'] !== null ? autolinker.link(String(feature.properties['POT REAT_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TENS DE TR</th>\
+                        <td class="visible-with-data" id="TENS DE TR">' + (feature.properties['TENS DE TR'] !== null ? autolinker.link(String(feature.properties['TENS DE TR']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">X</th>\
+                        <td class="visible-with-data" id="X">' + (feature.properties['X'] !== null ? autolinker.link(String(feature.properties['X']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Y</th>\
+                        <td class="visible-with-data" id="Y">' + (feature.properties['Y'] !== null ? autolinker.link(String(feature.properties['Y']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1728,10 +1752,8 @@
         function pop_SubestaesAlta_27(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NOMELONGO'] !== null ? autolinker.link(String(feature.properties['NOMELONGO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['AGE_PRIN_NOM'] !== null ? autolinker.link(String(feature.properties['AGE_PRIN_NOM']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">NOMELONGO</th>\
+                        <td class="visible-with-data" id="NOMELONGO">' + (feature.properties['NOMELONGO'] !== null ? autolinker.link(String(feature.properties['NOMELONGO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -2418,14 +2440,14 @@
         bounds_group.addLayer(layer_FEClimiteanual_34);
         var overlaysTree = [
         {label: '<b>FEC, DEC e DGC</b>', collapsed: true, selectAllCheckbox: true, children: [
-            //USAR NO NOVO PROJETO - INICIO
+           //USAR NO NOVO PROJETO - INICIO
             {label: 'FEC limite anual', layer: layer_FEClimiteanual_34},
             {label: 'FEC apurado anual', layer: layer_FECapuradoanual_33},
             {label: 'DEC limite anual', layer: layer_DEClimiteanual_32},
             {label: 'DEC apurado anual', layer: layer_DECapuradoanual_31},
             {label: 'DGC', layer: layer_DGC_30},]},
             //USAR NO NOVO PROJETO - FIM
-        {label: '<b>Potencial eólico e solar</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: '<b>Potencial eólico e solar</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: "Irradiacao Solar (Anual inclinado 10° Wh/m².dia)", layer: layer_IrradiacaoSolarAnualinclinado10Whmdia_29},
             {label: "Velocidade dos ventos (m/s) (100m)", layer: layer_Velocidadedosventosms100m_28},]},
         {label: '<b>Subestações</b>', collapsed: true, selectAllCheckbox: true, children: [
@@ -2479,7 +2501,7 @@
             }
         });
         </script>
-         <script> // USAR NO NOVO PROJETO - INÍCIO 
+        <script> // USAR NO NOVO PROJETO - INÍCIO 
 document.addEventListener('change', function(e) {
     if (e.target.classList.contains('leaflet-control-layers-selector')) {
         // Grupos exclusivos
