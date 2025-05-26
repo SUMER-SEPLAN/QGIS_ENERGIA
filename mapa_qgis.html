@@ -2649,6 +2649,137 @@ modalImg.addEventListener('touchend', function (e) {
     }
 });
 </script>
+<!-- ...existing code... -->
+
+<!-- Adicione as legendas antes do fechamento do body -->
+<div id="legenda-container" style="display:none; position: absolute; bottom: 10px; left: 10px; z-index: 1002; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0002; padding: 8px;">
+    <img src="images/legenda_exemplo.png" alt="Legenda do mapa" id="legenda-img"
+         style="max-width: 400px; max-height: 250px; width: 100%; height: auto; display: block; margin: 0 auto;">
+</div>
+<script>
+(function() {
+  var img = document.getElementById('legenda-img');
+  if (window.innerWidth <= 375) {
+    img.style.width = '98vw';
+    img.style.maxWidth = '270px';
+  } else if (window.innerWidth <= 600) {
+    img.style.width = '95vw';
+    img.style.maxWidth = '320px';
+  }
+})();
+</script>
+<div id="FEClimiteanual-container" style="display:none; position: absolute; bottom: 10px; left: 10px; z-index: 1002; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0002; padding: 8px;">
+    <img src="images/legendas_FEC_limite_anual.png" alt="Legenda do mapa" id="FEClimiteanual-img" style="max-width: 150px; max-height: 250px;">
+</div>
+<div id="FECapuradoanual-container" style="display:none; position: absolute; bottom: 10px; left: 10px; z-index: 1002; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0002; padding: 8px;">
+    <img src="images/legendas_FEC_apurado_anual.png" alt="Legenda do mapa" id="FECapuradoanual-img" style="max-width: 150px; max-height: 250px;">
+</div>
+<div id="DECapuradoanual-container" style="display:none; position: absolute; bottom: 10px; left: 10px; z-index: 1002; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0002; padding: 8px;">
+    <img src="images/legendas_DEC_apurado_anual.png" alt="Legenda do mapa" id="DECapuradoanual-img" style="max-width: 150px; max-height: 250px;">
+</div>
+<div id="DEClimiteanual-container" style="display:none; position: absolute; bottom: 10px; left: 10px; z-index: 1002; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0002; padding: 8px;">
+    <img src="images/legendas_DEC_limite_anual.png" alt="Legenda do mapa" id="DEClimiteanual-img" style="max-width: 150px; max-height: 250px;">
+</div>
+<div id="DGC-container" style="display:none; position: absolute; bottom: 10px; left: 10px; z-index: 1002; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0002; padding: 8px;">
+    <img src="images/legenda_DGC.png" alt="Legenda do mapa" id="DGC-img" style="max-width: 150px; max-height: 250px;">
+</div>
+
+<script>
+// Função para mostrar/esconder legendas
+function mostrarLegenda(tipo) {
+    document.getElementById('legenda-container').style.display = 'none';
+    document.getElementById('FEClimiteanual-container').style.display = 'none';
+    document.getElementById('FECapuradoanual-container').style.display = 'none';
+    document.getElementById('DECapuradoanual-container').style.display = 'none';
+    document.getElementById('DEClimiteanual-container').style.display = 'none';
+    document.getElementById('DGC-container').style.display = 'none';
+
+    if (tipo === 'solar' || tipo === 'vento') {
+        document.getElementById('legenda-container').style.display = 'block';
+    }
+    if (tipo === 'fec') {
+        document.getElementById('FEClimiteanual-container').style.display = 'block';
+    }
+    if (tipo === 'fecap') {
+        document.getElementById('FECapuradoanual-container').style.display = 'block';
+    }
+    if (tipo === 'decap') {
+        document.getElementById('DECapuradoanual-container').style.display = 'block';
+    }
+    if (tipo === 'declim') {
+        document.getElementById('DEClimiteanual-container').style.display = 'block';
+    }
+    if (tipo === 'dgc') {
+        document.getElementById('DGC-container').style.display = 'block';
+    }
+}
+
+// Substitua o window.parent.postMessage pelo controle local das legendas
+document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('leaflet-control-layers-selector')) {
+        var grupoFecDecDgc = [
+            "FEC limite anual",
+            "FEC apurado anual",
+            "DEC apurado anual",
+            "DEC limite anual",
+            "DGC"
+        ];
+        var grupoSolarVento = [
+            "Irradiação Solar (Anual inclinado 10° Wh/m².dia)",
+            "Velocidade dos ventos (m/s) (100m)"
+        ];
+
+        var labelAtivado = e.target.parentElement.textContent.trim();
+
+        // Exclusividade dos grupos
+        if (grupoFecDecDgc.includes(labelAtivado) && e.target.checked) {
+            var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
+            checkboxes.forEach(function(cb) {
+                var label = cb.parentElement.textContent.trim();
+                if (grupoSolarVento.includes(label) && cb.checked) cb.click();
+                if (label !== labelAtivado && grupoFecDecDgc.includes(label) && cb.checked) cb.click();
+            });
+        }
+        if (grupoSolarVento.includes(labelAtivado) && e.target.checked) {
+            var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
+            checkboxes.forEach(function(cb) {
+                var label = cb.parentElement.textContent.trim();
+                if (grupoFecDecDgc.includes(label) && cb.checked) cb.click();
+                if (label !== labelAtivado && grupoSolarVento.includes(label) && cb.checked) cb.click();
+            });
+        }
+
+        // Atualiza as variáveis após possíveis mudanças
+        var checkboxes = Array.from(document.querySelectorAll('.leaflet-control-layers-selector'));
+        var checkedSolar = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Irradiação Solar (Anual inclinado 10° Wh/m².dia)" && cb.checked);
+        var checkedVento = checkboxes.find(cb => cb.parentElement.textContent.trim() === "Velocidade dos ventos (m/s) (100m)" && cb.checked);
+        var checkedFEC = checkboxes.find(cb => cb.parentElement.textContent.trim() === "FEC limite anual" && cb.checked);
+        var checkedFECapurado = checkboxes.find(cb => cb.parentElement.textContent.trim() === "FEC apurado anual" && cb.checked);
+        var checkedDECapurado = checkboxes.find(cb => cb.parentElement.textContent.trim() === "DEC apurado anual" && cb.checked);
+        var checkedDEClimite = checkboxes.find(cb => cb.parentElement.textContent.trim() === "DEC limite anual" && cb.checked);
+        var checkedDGC = checkboxes.find(cb => cb.parentElement.textContent.trim() === "DGC" && cb.checked);
+
+        if (checkedSolar) {
+            mostrarLegenda('solar');
+        } else if (checkedVento) {
+            mostrarLegenda('vento');
+        } else if (checkedFEC) {
+            mostrarLegenda('fec');
+        } else if (checkedFECapurado) {
+            mostrarLegenda('fecap');
+        } else if (checkedDECapurado) {
+            mostrarLegenda('decap');
+        } else if (checkedDEClimite) {
+            mostrarLegenda('declim');
+        } else if (checkedDGC) {
+            mostrarLegenda('dgc');
+        } else {
+            mostrarLegenda('none');
+        }
+    }
+});
+</script>
+<!-- ...existing code... -->
 <!-- USAR NO NOVO PROJETO - fim -->
     </body>
 </html>
