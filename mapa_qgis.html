@@ -76,29 +76,29 @@
         <script src="data/ZonadeAmortecimentodasUCsPI3Km_7.js"></script>
         <script src="data/LinhaImperial_8.js"></script>
         <script src="data/reaLitgio_9.js"></script>
-        <script src="data/OperacaoSolar_12.js"></script>
-        <script src="data/OperaoHdrica_13.js"></script>
-        <script src="data/OperaoFssil_14.js"></script>
-        <script src="data/OperaoElica_15.js"></script>
-        <script src="data/OperaoBiomassa_16.js"></script>
-        <script src="data/ConstruonoiniciadaElica_17.js"></script>
-        <script src="data/ConstruonoiniciadaSolar_18.js"></script>
-        <script src="data/ConstruoSolar_19.js"></script>
-        <script src="data/EmpreendimentosInfraplanejado_20.js"></script>
-        <script src="data/Linhadetransmisso138kVplanejada_21.js"></script>
-        <script src="data/Linhadedistribuio138kVSimplificado_22.js"></script>
-        <script src="data/Linhadedistribuio345kVSimplificado_23.js"></script>
-        <script src="data/Linhadetransmisso69k_24.js"></script>
-        <script src="data/Linhadetransmisso138kV_25.js"></script>
-        <script src="data/Linhadetransmisso230kV_26.js"></script>
-        <script src="data/Linhadetransmisso500kV_27.js"></script>
-        <script src="data/SubestaesMdia_28.js"></script>
-        <script src="data/SubestaesAlta_29.js"></script>
-        <script src="data/DGC_30.js"></script>
-        <script src="data/DECapuradoanual_31.js"></script>
-        <script src="data/DEClimiteanual_32.js"></script>
-        <script src="data/FECapuradoanual_33.js"></script>
-        <script src="data/FEClimiteanual_34.js"></script>
+        <script src="data/DGC_12.js"></script>
+        <script src="data/DECapuradoanual_13.js"></script>
+        <script src="data/DEClimiteanual_14.js"></script>
+        <script src="data/FECapuradoanual_15.js"></script>
+        <script src="data/FEClimiteanual_16.js"></script>
+        <script src="data/OperacaoSolar_17.js"></script>
+        <script src="data/OperaoHdrica_18.js"></script>
+        <script src="data/OperaoFssil_19.js"></script>
+        <script src="data/OperaoElica_20.js"></script>
+        <script src="data/OperaoBiomassa_21.js"></script>
+        <script src="data/ConstruonoiniciadaElica_22.js"></script>
+        <script src="data/ConstruonoiniciadaSolar_23.js"></script>
+        <script src="data/ConstruoSolar_24.js"></script>
+        <script src="data/EmpreendimentosInfraplanejado_25.js"></script>
+        <script src="data/Linhadetransmisso138kVplanejada_26.js"></script>
+        <script src="data/Linhadedistribuio138kVSimplificado_27.js"></script>
+        <script src="data/Linhadedistribuio345kVSimplificado_28.js"></script>
+        <script src="data/Linhadetransmisso69k_29.js"></script>
+        <script src="data/Linhadetransmisso138kV_30.js"></script>
+        <script src="data/Linhadetransmisso230kV_31.js"></script>
+        <script src="data/Linhadetransmisso500kV_32.js"></script>
+        <script src="data/SubestaesMdia_33.js"></script>
+        <script src="data/SubestaesAlta_34.js"></script>
         <script>
         //USAR NO NOVO PROJETO - INICIO
         // Defina os bounds iniciais
@@ -674,7 +674,634 @@ map.options.minZoom = map.getZoom();
                                               img_bounds_IrradiaoSolarAnualinclinado10Whmdia_11,
                                               {pane: 'pane_IrradiaoSolarAnualinclinado10Whmdia_11'});
         bounds_group.addLayer(layer_IrradiaoSolarAnualinclinado10Whmdia_11);
-        function pop_OperacaoSolar_12(feature, layer) {
+        function pop_DGC_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_DGC_12_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.492395 && feature.properties['DEF_FEC_DGC_DGC'] <= 0.600000 ) {
+                return {
+                pane: 'pane_DGC_12',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,252,245,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.600000 && feature.properties['DEF_FEC_DGC_DGC'] <= 0.800000 ) {
+                return {
+                pane: 'pane_DGC_12',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,244,221,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.800000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.000000 ) {
+                return {
+                pane: 'pane_DGC_12',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(191,230,185,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.000000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.200000 ) {
+                return {
+                pane: 'pane_DGC_12',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(148,211,144,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.200000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.400000 ) {
+                return {
+                pane: 'pane_DGC_12',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(96,186,108,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.400000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.600000 ) {
+                return {
+                pane: 'pane_DGC_12',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(50,155,81,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.600000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.800000 ) {
+                return {
+                pane: 'pane_DGC_12',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(13,120,53,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.800000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.810000 ) {
+                return {
+                pane: 'pane_DGC_12',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,68,27,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_DGC_12');
+        map.getPane('pane_DGC_12').style.zIndex = 412;
+        map.getPane('pane_DGC_12').style['mix-blend-mode'] = 'normal';
+        var layer_DGC_12 = new L.geoJson(json_DGC_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DGC_12',
+            layerName: 'layer_DGC_12',
+            pane: 'pane_DGC_12',
+            onEachFeature: pop_DGC_12,
+            style: style_DGC_12_0,
+        });
+        bounds_group.addLayer(layer_DGC_12);
+        function pop_DECapuradoanual_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_DECapuradoanual_13_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 7.805341 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 10.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_13',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,240,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 20.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_13',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,204,184,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 30.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_13',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,143,111,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 30.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 40.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_13',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(244,77,56,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 40.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 50.000000 ) {
+                return {
+                pane: 'pane_DECapuradoanual_13',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(197,23,28,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 50.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 54.878720 ) {
+                return {
+                pane: 'pane_DECapuradoanual_13',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,0,13,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_DECapuradoanual_13');
+        map.getPane('pane_DECapuradoanual_13').style.zIndex = 413;
+        map.getPane('pane_DECapuradoanual_13').style['mix-blend-mode'] = 'normal';
+        var layer_DECapuradoanual_13 = new L.geoJson(json_DECapuradoanual_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DECapuradoanual_13',
+            layerName: 'layer_DECapuradoanual_13',
+            pane: 'pane_DECapuradoanual_13',
+            onEachFeature: pop_DECapuradoanual_13,
+            style: style_DECapuradoanual_13_0,
+        });
+        bounds_group.addLayer(layer_DECapuradoanual_13);
+        function pop_DEClimiteanual_14(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SIST_SUBT</th>\
+                        <td class="visible-with-data" id="SIST_SUBT">' + (feature.properties['SIST_SUBT'] !== null ? autolinker.link(String(feature.properties['SIST_SUBT']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_DEClimiteanual_14_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 15.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_14',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,240,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 20.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_14',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,190,165,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 25.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_14',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,112,80,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 25.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 30.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_14',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,32,32,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 30.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 32.000000 ) {
+                return {
+                pane: 'pane_DEClimiteanual_14',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,0,13,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_DEClimiteanual_14');
+        map.getPane('pane_DEClimiteanual_14').style.zIndex = 414;
+        map.getPane('pane_DEClimiteanual_14').style['mix-blend-mode'] = 'normal';
+        var layer_DEClimiteanual_14 = new L.geoJson(json_DEClimiteanual_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DEClimiteanual_14',
+            layerName: 'layer_DEClimiteanual_14',
+            pane: 'pane_DEClimiteanual_14',
+            onEachFeature: pop_DEClimiteanual_14,
+            style: style_DEClimiteanual_14_0,
+        });
+        bounds_group.addLayer(layer_DEClimiteanual_14);
+        function pop_FECapuradoanual_15(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_FECapuradoanual_15_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 3.204838 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 5.000000 ) {
+                return {
+                pane: 'pane_FECapuradoanual_15',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 5.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 10.000000 ) {
+                return {
+                pane: 'pane_FECapuradoanual_15',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(175,209,231,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 15.000000 ) {
+                return {
+                pane: 'pane_FECapuradoanual_15',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(62,142,196,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 19.881072 ) {
+                return {
+                pane: 'pane_FECapuradoanual_15',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_FECapuradoanual_15');
+        map.getPane('pane_FECapuradoanual_15').style.zIndex = 415;
+        map.getPane('pane_FECapuradoanual_15').style['mix-blend-mode'] = 'normal';
+        var layer_FECapuradoanual_15 = new L.geoJson(json_FECapuradoanual_15, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FECapuradoanual_15',
+            layerName: 'layer_FECapuradoanual_15',
+            pane: 'pane_FECapuradoanual_15',
+            onEachFeature: pop_FECapuradoanual_15,
+            style: style_FECapuradoanual_15_0,
+        });
+        bounds_group.addLayer(layer_FECapuradoanual_15);
+        function pop_FEClimiteanual_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>DEF_FEC_DGC_DECXPC**</strong><br />' + (feature.properties['DEF_FEC_DGC_DECXPC**'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECXPC**']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_FEClimiteanual_16_0(feature) {
+            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 6.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 10.000000 ) {
+                return {
+                pane: 'pane_FEClimiteanual_16',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 15.000000 ) {
+                return {
+                pane: 'pane_FEClimiteanual_16',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(175,209,231,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 20.000000 ) {
+                return {
+                pane: 'pane_FEClimiteanual_16',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(62,142,196,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 24.000000 ) {
+                return {
+                pane: 'pane_FEClimiteanual_16',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(8,48,107,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_FEClimiteanual_16');
+        map.getPane('pane_FEClimiteanual_16').style.zIndex = 416;
+        map.getPane('pane_FEClimiteanual_16').style['mix-blend-mode'] = 'normal';
+        var layer_FEClimiteanual_16 = new L.geoJson(json_FEClimiteanual_16, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FEClimiteanual_16',
+            layerName: 'layer_FEClimiteanual_16',
+            pane: 'pane_FEClimiteanual_16',
+            onEachFeature: pop_FEClimiteanual_16,
+            style: style_FEClimiteanual_16_0,
+        });
+        bounds_group.addLayer(layer_FEClimiteanual_16);
+        function pop_OperacaoSolar_17(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Empreendim" colspan="2"><strong>Empreendim</strong><br />' + (feature.properties['Empreendim'] !== null ? autolinker.link(String(feature.properties['Empreendim']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -705,38 +1332,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperacaoSolar_12_0() {
+        function style_OperacaoSolar_17_0() {
             return {
-                pane: 'pane_OperacaoSolar_12',
+                pane: 'pane_OperacaoSolar_17',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperacaoSolar_12.svg',
+            iconUrl: 'markers/OperacaoSolar_17.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperacaoSolar_12');
-        map.getPane('pane_OperacaoSolar_12').style.zIndex = 412;
-        map.getPane('pane_OperacaoSolar_12').style['mix-blend-mode'] = 'normal';
-        var layer_OperacaoSolar_12 = new L.geoJson(json_OperacaoSolar_12, {
+        map.createPane('pane_OperacaoSolar_17');
+        map.getPane('pane_OperacaoSolar_17').style.zIndex = 417;
+        map.getPane('pane_OperacaoSolar_17').style['mix-blend-mode'] = 'normal';
+        var layer_OperacaoSolar_17 = new L.geoJson(json_OperacaoSolar_17, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperacaoSolar_12',
-            layerName: 'layer_OperacaoSolar_12',
-            pane: 'pane_OperacaoSolar_12',
-            onEachFeature: pop_OperacaoSolar_12,
+            dataVar: 'json_OperacaoSolar_17',
+            layerName: 'layer_OperacaoSolar_17',
+            pane: 'pane_OperacaoSolar_17',
+            onEachFeature: pop_OperacaoSolar_17,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperacaoSolar_12_0(feature));
+                return L.marker(latlng, style_OperacaoSolar_17_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperacaoSolar_12);
-        function pop_OperaoHdrica_13(feature, layer) {
+        bounds_group.addLayer(layer_OperacaoSolar_17);
+        function pop_OperaoHdrica_18(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -773,38 +1400,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperaoHdrica_13_0() {
+        function style_OperaoHdrica_18_0() {
             return {
-                pane: 'pane_OperaoHdrica_13',
+                pane: 'pane_OperaoHdrica_18',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperaoHdrica_13.svg',
+            iconUrl: 'markers/OperaoHdrica_18.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperaoHdrica_13');
-        map.getPane('pane_OperaoHdrica_13').style.zIndex = 413;
-        map.getPane('pane_OperaoHdrica_13').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoHdrica_13 = new L.geoJson(json_OperaoHdrica_13, {
+        map.createPane('pane_OperaoHdrica_18');
+        map.getPane('pane_OperaoHdrica_18').style.zIndex = 418;
+        map.getPane('pane_OperaoHdrica_18').style['mix-blend-mode'] = 'normal';
+        var layer_OperaoHdrica_18 = new L.geoJson(json_OperaoHdrica_18, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperaoHdrica_13',
-            layerName: 'layer_OperaoHdrica_13',
-            pane: 'pane_OperaoHdrica_13',
-            onEachFeature: pop_OperaoHdrica_13,
+            dataVar: 'json_OperaoHdrica_18',
+            layerName: 'layer_OperaoHdrica_18',
+            pane: 'pane_OperaoHdrica_18',
+            onEachFeature: pop_OperaoHdrica_18,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperaoHdrica_13_0(feature));
+                return L.marker(latlng, style_OperaoHdrica_18_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperaoHdrica_13);
-        function pop_OperaoFssil_14(feature, layer) {
+        bounds_group.addLayer(layer_OperaoHdrica_18);
+        function pop_OperaoFssil_19(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -841,38 +1468,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperaoFssil_14_0() {
+        function style_OperaoFssil_19_0() {
             return {
-                pane: 'pane_OperaoFssil_14',
+                pane: 'pane_OperaoFssil_19',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperaoFssil_14.svg',
+            iconUrl: 'markers/OperaoFssil_19.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperaoFssil_14');
-        map.getPane('pane_OperaoFssil_14').style.zIndex = 414;
-        map.getPane('pane_OperaoFssil_14').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoFssil_14 = new L.geoJson(json_OperaoFssil_14, {
+        map.createPane('pane_OperaoFssil_19');
+        map.getPane('pane_OperaoFssil_19').style.zIndex = 419;
+        map.getPane('pane_OperaoFssil_19').style['mix-blend-mode'] = 'normal';
+        var layer_OperaoFssil_19 = new L.geoJson(json_OperaoFssil_19, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperaoFssil_14',
-            layerName: 'layer_OperaoFssil_14',
-            pane: 'pane_OperaoFssil_14',
-            onEachFeature: pop_OperaoFssil_14,
+            dataVar: 'json_OperaoFssil_19',
+            layerName: 'layer_OperaoFssil_19',
+            pane: 'pane_OperaoFssil_19',
+            onEachFeature: pop_OperaoFssil_19,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperaoFssil_14_0(feature));
+                return L.marker(latlng, style_OperaoFssil_19_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperaoFssil_14);
-        function pop_OperaoElica_15(feature, layer) {
+        bounds_group.addLayer(layer_OperaoFssil_19);
+        function pop_OperaoElica_20(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -909,38 +1536,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperaoElica_15_0() {
+        function style_OperaoElica_20_0() {
             return {
-                pane: 'pane_OperaoElica_15',
+                pane: 'pane_OperaoElica_20',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperaoElica_15.svg',
+            iconUrl: 'markers/OperaoElica_20.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperaoElica_15');
-        map.getPane('pane_OperaoElica_15').style.zIndex = 415;
-        map.getPane('pane_OperaoElica_15').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoElica_15 = new L.geoJson(json_OperaoElica_15, {
+        map.createPane('pane_OperaoElica_20');
+        map.getPane('pane_OperaoElica_20').style.zIndex = 420;
+        map.getPane('pane_OperaoElica_20').style['mix-blend-mode'] = 'normal';
+        var layer_OperaoElica_20 = new L.geoJson(json_OperaoElica_20, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperaoElica_15',
-            layerName: 'layer_OperaoElica_15',
-            pane: 'pane_OperaoElica_15',
-            onEachFeature: pop_OperaoElica_15,
+            dataVar: 'json_OperaoElica_20',
+            layerName: 'layer_OperaoElica_20',
+            pane: 'pane_OperaoElica_20',
+            onEachFeature: pop_OperaoElica_20,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperaoElica_15_0(feature));
+                return L.marker(latlng, style_OperaoElica_20_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperaoElica_15);
-        function pop_OperaoBiomassa_16(feature, layer) {
+        bounds_group.addLayer(layer_OperaoElica_20);
+        function pop_OperaoBiomassa_21(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -977,177 +1604,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperaoBiomassa_16_0() {
+        function style_OperaoBiomassa_21_0() {
             return {
-                pane: 'pane_OperaoBiomassa_16',
+                pane: 'pane_OperaoBiomassa_21',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperaoBiomassa_16.svg',
+            iconUrl: 'markers/OperaoBiomassa_21.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperaoBiomassa_16');
-        map.getPane('pane_OperaoBiomassa_16').style.zIndex = 416;
-        map.getPane('pane_OperaoBiomassa_16').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoBiomassa_16 = new L.geoJson(json_OperaoBiomassa_16, {
+        map.createPane('pane_OperaoBiomassa_21');
+        map.getPane('pane_OperaoBiomassa_21').style.zIndex = 421;
+        map.getPane('pane_OperaoBiomassa_21').style['mix-blend-mode'] = 'normal';
+        var layer_OperaoBiomassa_21 = new L.geoJson(json_OperaoBiomassa_21, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperaoBiomassa_16',
-            layerName: 'layer_OperaoBiomassa_16',
-            pane: 'pane_OperaoBiomassa_16',
-            onEachFeature: pop_OperaoBiomassa_16,
+            dataVar: 'json_OperaoBiomassa_21',
+            layerName: 'layer_OperaoBiomassa_21',
+            pane: 'pane_OperaoBiomassa_21',
+            onEachFeature: pop_OperaoBiomassa_21,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperaoBiomassa_16_0(feature));
+                return L.marker(latlng, style_OperaoBiomassa_21_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperaoBiomassa_16);
-        function pop_ConstruonoiniciadaElica_17(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>CEG</strong><br />' + (feature.properties['CEG'] !== null ? autolinker.link(String(feature.properties['CEG']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Fase</strong><br />' + (feature.properties['Fase'] !== null ? autolinker.link(String(feature.properties['Fase']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Entrada em Operação</strong><br />' + (feature.properties['Entrada em Operação'] !== null ? autolinker.link(String(feature.properties['Entrada em Operação']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Potência Outorgada (kW)</strong><br />' + (feature.properties['Potência Outorgada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Outorgada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Potência Fiscalizada (kW)</strong><br />' + (feature.properties['Potência Fiscalizada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Fiscalizada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Latitude Decimal</strong><br />' + (feature.properties['Latitude Decimal'] !== null ? autolinker.link(String(feature.properties['Latitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Longitude Decimal</strong><br />' + (feature.properties['Longitude Decimal'] !== null ? autolinker.link(String(feature.properties['Longitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Município (s)</strong><br />' + (feature.properties['Município (s)'] !== null ? autolinker.link(String(feature.properties['Município (s)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Município-chave</strong><br />' + (feature.properties['Município-chave'] !== null ? autolinker.link(String(feature.properties['Município-chave']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_ConstruonoiniciadaElica_17_0() {
-            return {
-                pane: 'pane_ConstruonoiniciadaElica_17',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/ConstruonoiniciadaElica_17.svg',
-            iconSize: [19.0, 19.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_ConstruonoiniciadaElica_17');
-        map.getPane('pane_ConstruonoiniciadaElica_17').style.zIndex = 417;
-        map.getPane('pane_ConstruonoiniciadaElica_17').style['mix-blend-mode'] = 'normal';
-        var layer_ConstruonoiniciadaElica_17 = new L.geoJson(json_ConstruonoiniciadaElica_17, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_ConstruonoiniciadaElica_17',
-            layerName: 'layer_ConstruonoiniciadaElica_17',
-            pane: 'pane_ConstruonoiniciadaElica_17',
-            onEachFeature: pop_ConstruonoiniciadaElica_17,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_ConstruonoiniciadaElica_17_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_ConstruonoiniciadaElica_17);
-        function pop_ConstruonoiniciadaSolar_18(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Fase</strong><br />' + (feature.properties['Fase'] !== null ? autolinker.link(String(feature.properties['Fase']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Entrada em Operação</strong><br />' + (feature.properties['Entrada em Operação'] !== null ? autolinker.link(String(feature.properties['Entrada em Operação']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Potência Outorgada (kW)</strong><br />' + (feature.properties['Potência Outorgada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Outorgada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Potência Fiscalizada (kW)</strong><br />' + (feature.properties['Potência Fiscalizada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Fiscalizada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Latitude Decimal</strong><br />' + (feature.properties['Latitude Decimal'] !== null ? autolinker.link(String(feature.properties['Latitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Longitude Decimal</strong><br />' + (feature.properties['Longitude Decimal'] !== null ? autolinker.link(String(feature.properties['Longitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Município (s)</strong><br />' + (feature.properties['Município (s)'] !== null ? autolinker.link(String(feature.properties['Município (s)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Município-chave</strong><br />' + (feature.properties['Município-chave'] !== null ? autolinker.link(String(feature.properties['Município-chave']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_ConstruonoiniciadaSolar_18_0() {
-            return {
-                pane: 'pane_ConstruonoiniciadaSolar_18',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/ConstruonoiniciadaSolar_18.svg',
-            iconSize: [19.0, 19.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_ConstruonoiniciadaSolar_18');
-        map.getPane('pane_ConstruonoiniciadaSolar_18').style.zIndex = 418;
-        map.getPane('pane_ConstruonoiniciadaSolar_18').style['mix-blend-mode'] = 'normal';
-        var layer_ConstruonoiniciadaSolar_18 = new L.geoJson(json_ConstruonoiniciadaSolar_18, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_ConstruonoiniciadaSolar_18',
-            layerName: 'layer_ConstruonoiniciadaSolar_18',
-            pane: 'pane_ConstruonoiniciadaSolar_18',
-            onEachFeature: pop_ConstruonoiniciadaSolar_18,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_ConstruonoiniciadaSolar_18_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_ConstruonoiniciadaSolar_18);
-        function pop_ConstruoSolar_19(feature, layer) {
+        bounds_group.addLayer(layer_OperaoBiomassa_21);
+        function pop_ConstruonoiniciadaElica_22(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1187,38 +1675,177 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ConstruoSolar_19_0() {
+        function style_ConstruonoiniciadaElica_22_0() {
             return {
-                pane: 'pane_ConstruoSolar_19',
+                pane: 'pane_ConstruonoiniciadaElica_22',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/ConstruoSolar_19.svg',
+            iconUrl: 'markers/ConstruonoiniciadaElica_22.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_ConstruoSolar_19');
-        map.getPane('pane_ConstruoSolar_19').style.zIndex = 419;
-        map.getPane('pane_ConstruoSolar_19').style['mix-blend-mode'] = 'normal';
-        var layer_ConstruoSolar_19 = new L.geoJson(json_ConstruoSolar_19, {
+        map.createPane('pane_ConstruonoiniciadaElica_22');
+        map.getPane('pane_ConstruonoiniciadaElica_22').style.zIndex = 422;
+        map.getPane('pane_ConstruonoiniciadaElica_22').style['mix-blend-mode'] = 'normal';
+        var layer_ConstruonoiniciadaElica_22 = new L.geoJson(json_ConstruonoiniciadaElica_22, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ConstruoSolar_19',
-            layerName: 'layer_ConstruoSolar_19',
-            pane: 'pane_ConstruoSolar_19',
-            onEachFeature: pop_ConstruoSolar_19,
+            dataVar: 'json_ConstruonoiniciadaElica_22',
+            layerName: 'layer_ConstruonoiniciadaElica_22',
+            pane: 'pane_ConstruonoiniciadaElica_22',
+            onEachFeature: pop_ConstruonoiniciadaElica_22,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_ConstruoSolar_19_0(feature));
+                return L.marker(latlng, style_ConstruonoiniciadaElica_22_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ConstruoSolar_19);
-        function pop_EmpreendimentosInfraplanejado_20(feature, layer) {
+        bounds_group.addLayer(layer_ConstruonoiniciadaElica_22);
+        function pop_ConstruonoiniciadaSolar_23(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Fase</strong><br />' + (feature.properties['Fase'] !== null ? autolinker.link(String(feature.properties['Fase']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Entrada em Operação</strong><br />' + (feature.properties['Entrada em Operação'] !== null ? autolinker.link(String(feature.properties['Entrada em Operação']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Potência Outorgada (kW)</strong><br />' + (feature.properties['Potência Outorgada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Outorgada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Potência Fiscalizada (kW)</strong><br />' + (feature.properties['Potência Fiscalizada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Fiscalizada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Latitude Decimal</strong><br />' + (feature.properties['Latitude Decimal'] !== null ? autolinker.link(String(feature.properties['Latitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Longitude Decimal</strong><br />' + (feature.properties['Longitude Decimal'] !== null ? autolinker.link(String(feature.properties['Longitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Município (s)</strong><br />' + (feature.properties['Município (s)'] !== null ? autolinker.link(String(feature.properties['Município (s)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Município-chave</strong><br />' + (feature.properties['Município-chave'] !== null ? autolinker.link(String(feature.properties['Município-chave']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ConstruonoiniciadaSolar_23_0() {
+            return {
+                pane: 'pane_ConstruonoiniciadaSolar_23',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/ConstruonoiniciadaSolar_23.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ConstruonoiniciadaSolar_23');
+        map.getPane('pane_ConstruonoiniciadaSolar_23').style.zIndex = 423;
+        map.getPane('pane_ConstruonoiniciadaSolar_23').style['mix-blend-mode'] = 'normal';
+        var layer_ConstruonoiniciadaSolar_23 = new L.geoJson(json_ConstruonoiniciadaSolar_23, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ConstruonoiniciadaSolar_23',
+            layerName: 'layer_ConstruonoiniciadaSolar_23',
+            pane: 'pane_ConstruonoiniciadaSolar_23',
+            onEachFeature: pop_ConstruonoiniciadaSolar_23,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_ConstruonoiniciadaSolar_23_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ConstruonoiniciadaSolar_23);
+        function pop_ConstruoSolar_24(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CEG</strong><br />' + (feature.properties['CEG'] !== null ? autolinker.link(String(feature.properties['CEG']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Fase</strong><br />' + (feature.properties['Fase'] !== null ? autolinker.link(String(feature.properties['Fase']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Entrada em Operação</strong><br />' + (feature.properties['Entrada em Operação'] !== null ? autolinker.link(String(feature.properties['Entrada em Operação']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Potência Outorgada (kW)</strong><br />' + (feature.properties['Potência Outorgada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Outorgada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Potência Fiscalizada (kW)</strong><br />' + (feature.properties['Potência Fiscalizada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Fiscalizada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Latitude Decimal</strong><br />' + (feature.properties['Latitude Decimal'] !== null ? autolinker.link(String(feature.properties['Latitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Longitude Decimal</strong><br />' + (feature.properties['Longitude Decimal'] !== null ? autolinker.link(String(feature.properties['Longitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Município (s)</strong><br />' + (feature.properties['Município (s)'] !== null ? autolinker.link(String(feature.properties['Município (s)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Município-chave</strong><br />' + (feature.properties['Município-chave'] !== null ? autolinker.link(String(feature.properties['Município-chave']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ConstruoSolar_24_0() {
+            return {
+                pane: 'pane_ConstruoSolar_24',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/ConstruoSolar_24.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ConstruoSolar_24');
+        map.getPane('pane_ConstruoSolar_24').style.zIndex = 424;
+        map.getPane('pane_ConstruoSolar_24').style['mix-blend-mode'] = 'normal';
+        var layer_ConstruoSolar_24 = new L.geoJson(json_ConstruoSolar_24, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ConstruoSolar_24',
+            layerName: 'layer_ConstruoSolar_24',
+            pane: 'pane_ConstruoSolar_24',
+            onEachFeature: pop_ConstruoSolar_24,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_ConstruoSolar_24_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ConstruoSolar_24);
+        function pop_EmpreendimentosInfraplanejado_25(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Empreendimento</th>\
@@ -1244,9 +1871,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EmpreendimentosInfraplanejado_20_0() {
+        function style_EmpreendimentosInfraplanejado_25_0() {
             return {
-                pane: 'pane_EmpreendimentosInfraplanejado_20',
+                pane: 'pane_EmpreendimentosInfraplanejado_25',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1260,26 +1887,26 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_EmpreendimentosInfraplanejado_20');
-        map.getPane('pane_EmpreendimentosInfraplanejado_20').style.zIndex = 420;
-        map.getPane('pane_EmpreendimentosInfraplanejado_20').style['mix-blend-mode'] = 'normal';
-        var layer_EmpreendimentosInfraplanejado_20 = new L.geoJson(json_EmpreendimentosInfraplanejado_20, {
+        map.createPane('pane_EmpreendimentosInfraplanejado_25');
+        map.getPane('pane_EmpreendimentosInfraplanejado_25').style.zIndex = 425;
+        map.getPane('pane_EmpreendimentosInfraplanejado_25').style['mix-blend-mode'] = 'normal';
+        var layer_EmpreendimentosInfraplanejado_25 = new L.geoJson(json_EmpreendimentosInfraplanejado_25, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EmpreendimentosInfraplanejado_20',
-            layerName: 'layer_EmpreendimentosInfraplanejado_20',
-            pane: 'pane_EmpreendimentosInfraplanejado_20',
-            onEachFeature: pop_EmpreendimentosInfraplanejado_20,
+            dataVar: 'json_EmpreendimentosInfraplanejado_25',
+            layerName: 'layer_EmpreendimentosInfraplanejado_25',
+            pane: 'pane_EmpreendimentosInfraplanejado_25',
+            onEachFeature: pop_EmpreendimentosInfraplanejado_25,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_EmpreendimentosInfraplanejado_20_0(feature));
+                return L.circleMarker(latlng, style_EmpreendimentosInfraplanejado_25_0(feature));
             },
         });
-        bounds_group.addLayer(layer_EmpreendimentosInfraplanejado_20);
-        function pop_Linhadetransmisso138kVplanejada_21(feature, layer) {
+        bounds_group.addLayer(layer_EmpreendimentosInfraplanejado_25);
+        function pop_Linhadetransmisso138kVplanejada_26(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1292,9 +1919,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso138kVplanejada_21_0() {
+        function style_Linhadetransmisso138kVplanejada_26_0() {
             return {
-                pane: 'pane_Linhadetransmisso138kVplanejada_21',
+                pane: 'pane_Linhadetransmisso138kVplanejada_26',
                 opacity: 1,
                 color: 'rgba(13,211,99,1.0)',
                 dashArray: '',
@@ -1305,20 +1932,20 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso138kVplanejada_21');
-        map.getPane('pane_Linhadetransmisso138kVplanejada_21').style.zIndex = 421;
-        map.getPane('pane_Linhadetransmisso138kVplanejada_21').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso138kVplanejada_21 = new L.geoJson(json_Linhadetransmisso138kVplanejada_21, {
+        map.createPane('pane_Linhadetransmisso138kVplanejada_26');
+        map.getPane('pane_Linhadetransmisso138kVplanejada_26').style.zIndex = 426;
+        map.getPane('pane_Linhadetransmisso138kVplanejada_26').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso138kVplanejada_26 = new L.geoJson(json_Linhadetransmisso138kVplanejada_26, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso138kVplanejada_21',
-            layerName: 'layer_Linhadetransmisso138kVplanejada_21',
-            pane: 'pane_Linhadetransmisso138kVplanejada_21',
-            onEachFeature: pop_Linhadetransmisso138kVplanejada_21,
-            style: style_Linhadetransmisso138kVplanejada_21_0,
+            dataVar: 'json_Linhadetransmisso138kVplanejada_26',
+            layerName: 'layer_Linhadetransmisso138kVplanejada_26',
+            pane: 'pane_Linhadetransmisso138kVplanejada_26',
+            onEachFeature: pop_Linhadetransmisso138kVplanejada_26,
+            style: style_Linhadetransmisso138kVplanejada_26_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso138kVplanejada_21);
-        function pop_Linhadedistribuio138kVSimplificado_22(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso138kVplanejada_26);
+        function pop_Linhadedistribuio138kVSimplificado_27(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['TIP_CND'] !== null ? autolinker.link(String(feature.properties['TIP_CND']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1334,9 +1961,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadedistribuio138kVSimplificado_22_0() {
+        function style_Linhadedistribuio138kVSimplificado_27_0() {
             return {
-                pane: 'pane_Linhadedistribuio138kVSimplificado_22',
+                pane: 'pane_Linhadedistribuio138kVSimplificado_27',
                 opacity: 1,
                 color: 'rgba(92,205,223,1.0)',
                 dashArray: '',
@@ -1347,20 +1974,20 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadedistribuio138kVSimplificado_22');
-        map.getPane('pane_Linhadedistribuio138kVSimplificado_22').style.zIndex = 422;
-        map.getPane('pane_Linhadedistribuio138kVSimplificado_22').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadedistribuio138kVSimplificado_22 = new L.geoJson(json_Linhadedistribuio138kVSimplificado_22, {
+        map.createPane('pane_Linhadedistribuio138kVSimplificado_27');
+        map.getPane('pane_Linhadedistribuio138kVSimplificado_27').style.zIndex = 427;
+        map.getPane('pane_Linhadedistribuio138kVSimplificado_27').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadedistribuio138kVSimplificado_27 = new L.geoJson(json_Linhadedistribuio138kVSimplificado_27, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadedistribuio138kVSimplificado_22',
-            layerName: 'layer_Linhadedistribuio138kVSimplificado_22',
-            pane: 'pane_Linhadedistribuio138kVSimplificado_22',
-            onEachFeature: pop_Linhadedistribuio138kVSimplificado_22,
-            style: style_Linhadedistribuio138kVSimplificado_22_0,
+            dataVar: 'json_Linhadedistribuio138kVSimplificado_27',
+            layerName: 'layer_Linhadedistribuio138kVSimplificado_27',
+            pane: 'pane_Linhadedistribuio138kVSimplificado_27',
+            onEachFeature: pop_Linhadedistribuio138kVSimplificado_27,
+            style: style_Linhadedistribuio138kVSimplificado_27_0,
         });
-        bounds_group.addLayer(layer_Linhadedistribuio138kVSimplificado_22);
-        function pop_Linhadedistribuio345kVSimplificado_23(feature, layer) {
+        bounds_group.addLayer(layer_Linhadedistribuio138kVSimplificado_27);
+        function pop_Linhadedistribuio345kVSimplificado_28(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['TIP_CND'] !== null ? autolinker.link(String(feature.properties['TIP_CND']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1376,9 +2003,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadedistribuio345kVSimplificado_23_0() {
+        function style_Linhadedistribuio345kVSimplificado_28_0() {
             return {
-                pane: 'pane_Linhadedistribuio345kVSimplificado_23',
+                pane: 'pane_Linhadedistribuio345kVSimplificado_28',
                 opacity: 1,
                 color: 'rgba(3,78,162,1.0)',
                 dashArray: '',
@@ -1389,20 +2016,20 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadedistribuio345kVSimplificado_23');
-        map.getPane('pane_Linhadedistribuio345kVSimplificado_23').style.zIndex = 423;
-        map.getPane('pane_Linhadedistribuio345kVSimplificado_23').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadedistribuio345kVSimplificado_23 = new L.geoJson(json_Linhadedistribuio345kVSimplificado_23, {
+        map.createPane('pane_Linhadedistribuio345kVSimplificado_28');
+        map.getPane('pane_Linhadedistribuio345kVSimplificado_28').style.zIndex = 428;
+        map.getPane('pane_Linhadedistribuio345kVSimplificado_28').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadedistribuio345kVSimplificado_28 = new L.geoJson(json_Linhadedistribuio345kVSimplificado_28, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadedistribuio345kVSimplificado_23',
-            layerName: 'layer_Linhadedistribuio345kVSimplificado_23',
-            pane: 'pane_Linhadedistribuio345kVSimplificado_23',
-            onEachFeature: pop_Linhadedistribuio345kVSimplificado_23,
-            style: style_Linhadedistribuio345kVSimplificado_23_0,
+            dataVar: 'json_Linhadedistribuio345kVSimplificado_28',
+            layerName: 'layer_Linhadedistribuio345kVSimplificado_28',
+            pane: 'pane_Linhadedistribuio345kVSimplificado_28',
+            onEachFeature: pop_Linhadedistribuio345kVSimplificado_28,
+            style: style_Linhadedistribuio345kVSimplificado_28_0,
         });
-        bounds_group.addLayer(layer_Linhadedistribuio345kVSimplificado_23);
-        function pop_Linhadetransmisso69k_24(feature, layer) {
+        bounds_group.addLayer(layer_Linhadedistribuio345kVSimplificado_28);
+        function pop_Linhadetransmisso69k_29(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">FAS_CON</th>\
@@ -1432,9 +2059,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso69k_24_0() {
+        function style_Linhadetransmisso69k_29_0() {
             return {
-                pane: 'pane_Linhadetransmisso69k_24',
+                pane: 'pane_Linhadetransmisso69k_29',
                 opacity: 1,
                 color: 'rgba(232,53,135,1.0)',
                 dashArray: '',
@@ -1445,21 +2072,21 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso69k_24');
-        map.getPane('pane_Linhadetransmisso69k_24').style.zIndex = 424;
-        map.getPane('pane_Linhadetransmisso69k_24').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso69k_24 = new L.geoJson(json_Linhadetransmisso69k_24, {
+        map.createPane('pane_Linhadetransmisso69k_29');
+        map.getPane('pane_Linhadetransmisso69k_29').style.zIndex = 429;
+        map.getPane('pane_Linhadetransmisso69k_29').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso69k_29 = new L.geoJson(json_Linhadetransmisso69k_29, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso69k_24',
-            layerName: 'layer_Linhadetransmisso69k_24',
-            pane: 'pane_Linhadetransmisso69k_24',
-            onEachFeature: pop_Linhadetransmisso69k_24,
-            style: style_Linhadetransmisso69k_24_0,
+            dataVar: 'json_Linhadetransmisso69k_29',
+            layerName: 'layer_Linhadetransmisso69k_29',
+            pane: 'pane_Linhadetransmisso69k_29',
+            onEachFeature: pop_Linhadetransmisso69k_29,
+            style: style_Linhadetransmisso69k_29_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso69k_24);
-        map.addLayer(layer_Linhadetransmisso69k_24);
-        function pop_Linhadetransmisso138kV_25(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso69k_29);
+        map.addLayer(layer_Linhadetransmisso69k_29);
+        function pop_Linhadetransmisso138kV_30(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">FAS_CON</th>\
@@ -1489,9 +2116,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso138kV_25_0() {
+        function style_Linhadetransmisso138kV_30_0() {
             return {
-                pane: 'pane_Linhadetransmisso138kV_25',
+                pane: 'pane_Linhadetransmisso138kV_30',
                 opacity: 1,
                 color: 'rgba(237,237,30,1.0)',
                 dashArray: '',
@@ -1502,21 +2129,21 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso138kV_25');
-        map.getPane('pane_Linhadetransmisso138kV_25').style.zIndex = 425;
-        map.getPane('pane_Linhadetransmisso138kV_25').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso138kV_25 = new L.geoJson(json_Linhadetransmisso138kV_25, {
+        map.createPane('pane_Linhadetransmisso138kV_30');
+        map.getPane('pane_Linhadetransmisso138kV_30').style.zIndex = 430;
+        map.getPane('pane_Linhadetransmisso138kV_30').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso138kV_30 = new L.geoJson(json_Linhadetransmisso138kV_30, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso138kV_25',
-            layerName: 'layer_Linhadetransmisso138kV_25',
-            pane: 'pane_Linhadetransmisso138kV_25',
-            onEachFeature: pop_Linhadetransmisso138kV_25,
-            style: style_Linhadetransmisso138kV_25_0,
+            dataVar: 'json_Linhadetransmisso138kV_30',
+            layerName: 'layer_Linhadetransmisso138kV_30',
+            pane: 'pane_Linhadetransmisso138kV_30',
+            onEachFeature: pop_Linhadetransmisso138kV_30,
+            style: style_Linhadetransmisso138kV_30_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso138kV_25);
-        map.addLayer(layer_Linhadetransmisso138kV_25);
-        function pop_Linhadetransmisso230kV_26(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso138kV_30);
+        map.addLayer(layer_Linhadetransmisso138kV_30);
+        function pop_Linhadetransmisso230kV_31(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">NOMELONGO</th>\
@@ -1538,9 +2165,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso230kV_26_0() {
+        function style_Linhadetransmisso230kV_31_0() {
             return {
-                pane: 'pane_Linhadetransmisso230kV_26',
+                pane: 'pane_Linhadetransmisso230kV_31',
                 opacity: 1,
                 color: 'rgba(125,206,129,1.0)',
                 dashArray: '',
@@ -1551,21 +2178,21 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso230kV_26');
-        map.getPane('pane_Linhadetransmisso230kV_26').style.zIndex = 426;
-        map.getPane('pane_Linhadetransmisso230kV_26').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso230kV_26 = new L.geoJson(json_Linhadetransmisso230kV_26, {
+        map.createPane('pane_Linhadetransmisso230kV_31');
+        map.getPane('pane_Linhadetransmisso230kV_31').style.zIndex = 431;
+        map.getPane('pane_Linhadetransmisso230kV_31').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso230kV_31 = new L.geoJson(json_Linhadetransmisso230kV_31, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso230kV_26',
-            layerName: 'layer_Linhadetransmisso230kV_26',
-            pane: 'pane_Linhadetransmisso230kV_26',
-            onEachFeature: pop_Linhadetransmisso230kV_26,
-            style: style_Linhadetransmisso230kV_26_0,
+            dataVar: 'json_Linhadetransmisso230kV_31',
+            layerName: 'layer_Linhadetransmisso230kV_31',
+            pane: 'pane_Linhadetransmisso230kV_31',
+            onEachFeature: pop_Linhadetransmisso230kV_31,
+            style: style_Linhadetransmisso230kV_31_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso230kV_26);
-        map.addLayer(layer_Linhadetransmisso230kV_26);
-        function pop_Linhadetransmisso500kV_27(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso230kV_31);
+        map.addLayer(layer_Linhadetransmisso230kV_31);
+        function pop_Linhadetransmisso500kV_32(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">NOMELONGO</th>\
@@ -1586,9 +2213,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso500kV_27_0() {
+        function style_Linhadetransmisso500kV_32_0() {
             return {
-                pane: 'pane_Linhadetransmisso500kV_27',
+                pane: 'pane_Linhadetransmisso500kV_32',
                 opacity: 1,
                 color: 'rgba(202,51,94,1.0)',
                 dashArray: '',
@@ -1599,21 +2226,21 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso500kV_27');
-        map.getPane('pane_Linhadetransmisso500kV_27').style.zIndex = 427;
-        map.getPane('pane_Linhadetransmisso500kV_27').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso500kV_27 = new L.geoJson(json_Linhadetransmisso500kV_27, {
+        map.createPane('pane_Linhadetransmisso500kV_32');
+        map.getPane('pane_Linhadetransmisso500kV_32').style.zIndex = 432;
+        map.getPane('pane_Linhadetransmisso500kV_32').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso500kV_32 = new L.geoJson(json_Linhadetransmisso500kV_32, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso500kV_27',
-            layerName: 'layer_Linhadetransmisso500kV_27',
-            pane: 'pane_Linhadetransmisso500kV_27',
-            onEachFeature: pop_Linhadetransmisso500kV_27,
-            style: style_Linhadetransmisso500kV_27_0,
+            dataVar: 'json_Linhadetransmisso500kV_32',
+            layerName: 'layer_Linhadetransmisso500kV_32',
+            pane: 'pane_Linhadetransmisso500kV_32',
+            onEachFeature: pop_Linhadetransmisso500kV_32,
+            style: style_Linhadetransmisso500kV_32_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso500kV_27);
-        map.addLayer(layer_Linhadetransmisso500kV_27);
-        function pop_SubestaesMdia_28(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso500kV_32);
+        map.addLayer(layer_Linhadetransmisso500kV_32);
+        function pop_SubestaesMdia_33(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">SIT_ATIV</th>\
@@ -1679,9 +2306,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_SubestaesMdia_28_0() {
+        function style_SubestaesMdia_33_0() {
             return {
-                pane: 'pane_SubestaesMdia_28',
+                pane: 'pane_SubestaesMdia_33',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1695,26 +2322,26 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_SubestaesMdia_28');
-        map.getPane('pane_SubestaesMdia_28').style.zIndex = 428;
-        map.getPane('pane_SubestaesMdia_28').style['mix-blend-mode'] = 'normal';
-        var layer_SubestaesMdia_28 = new L.geoJson(json_SubestaesMdia_28, {
+        map.createPane('pane_SubestaesMdia_33');
+        map.getPane('pane_SubestaesMdia_33').style.zIndex = 433;
+        map.getPane('pane_SubestaesMdia_33').style['mix-blend-mode'] = 'normal';
+        var layer_SubestaesMdia_33 = new L.geoJson(json_SubestaesMdia_33, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SubestaesMdia_28',
-            layerName: 'layer_SubestaesMdia_28',
-            pane: 'pane_SubestaesMdia_28',
-            onEachFeature: pop_SubestaesMdia_28,
+            dataVar: 'json_SubestaesMdia_33',
+            layerName: 'layer_SubestaesMdia_33',
+            pane: 'pane_SubestaesMdia_33',
+            onEachFeature: pop_SubestaesMdia_33,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_SubestaesMdia_28_0(feature));
+                return L.circleMarker(latlng, style_SubestaesMdia_33_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SubestaesMdia_28);
-        function pop_SubestaesAlta_29(feature, layer) {
+        bounds_group.addLayer(layer_SubestaesMdia_33);
+        function pop_SubestaesAlta_34(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NOMELONGO" colspan="2"><strong>NOMELONGO</strong><br />' + (feature.properties['NOMELONGO'] !== null ? autolinker.link(String(feature.properties['NOMELONGO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1742,9 +2369,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_SubestaesAlta_29_0() {
+        function style_SubestaesAlta_34_0() {
             return {
-                pane: 'pane_SubestaesAlta_29',
+                pane: 'pane_SubestaesAlta_34',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -1758,685 +2385,58 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_SubestaesAlta_29');
-        map.getPane('pane_SubestaesAlta_29').style.zIndex = 429;
-        map.getPane('pane_SubestaesAlta_29').style['mix-blend-mode'] = 'normal';
-        var layer_SubestaesAlta_29 = new L.geoJson(json_SubestaesAlta_29, {
+        map.createPane('pane_SubestaesAlta_34');
+        map.getPane('pane_SubestaesAlta_34').style.zIndex = 434;
+        map.getPane('pane_SubestaesAlta_34').style['mix-blend-mode'] = 'normal';
+        var layer_SubestaesAlta_34 = new L.geoJson(json_SubestaesAlta_34, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SubestaesAlta_29',
-            layerName: 'layer_SubestaesAlta_29',
-            pane: 'pane_SubestaesAlta_29',
-            onEachFeature: pop_SubestaesAlta_29,
+            dataVar: 'json_SubestaesAlta_34',
+            layerName: 'layer_SubestaesAlta_34',
+            pane: 'pane_SubestaesAlta_34',
+            onEachFeature: pop_SubestaesAlta_34,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_SubestaesAlta_29_0(feature));
+                return L.circleMarker(latlng, style_SubestaesAlta_34_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SubestaesAlta_29);
-        function pop_DGC_30(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_DGC_30_0(feature) {
-            if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.492395 && feature.properties['DEF_FEC_DGC_DGC'] <= 0.600000 ) {
-                return {
-                pane: 'pane_DGC_30',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(247,252,245,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.600000 && feature.properties['DEF_FEC_DGC_DGC'] <= 0.800000 ) {
-                return {
-                pane: 'pane_DGC_30',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(226,244,221,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.800000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.000000 ) {
-                return {
-                pane: 'pane_DGC_30',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(191,230,185,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.000000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.200000 ) {
-                return {
-                pane: 'pane_DGC_30',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(148,211,144,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.200000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.400000 ) {
-                return {
-                pane: 'pane_DGC_30',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(96,186,108,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.400000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.600000 ) {
-                return {
-                pane: 'pane_DGC_30',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(50,155,81,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.600000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.800000 ) {
-                return {
-                pane: 'pane_DGC_30',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(13,120,53,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.800000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.810000 ) {
-                return {
-                pane: 'pane_DGC_30',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,68,27,1.0)',
-                interactive: true,
-            }
-            }
-        }
-        map.createPane('pane_DGC_30');
-        map.getPane('pane_DGC_30').style.zIndex = 430;
-        map.getPane('pane_DGC_30').style['mix-blend-mode'] = 'normal';
-        var layer_DGC_30 = new L.geoJson(json_DGC_30, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_DGC_30',
-            layerName: 'layer_DGC_30',
-            pane: 'pane_DGC_30',
-            onEachFeature: pop_DGC_30,
-            style: style_DGC_30_0,
-        });
-        bounds_group.addLayer(layer_DGC_30);
-        function pop_DECapuradoanual_31(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_DECapuradoanual_31_0(feature) {
-            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 7.805341 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 10.000000 ) {
-                return {
-                pane: 'pane_DECapuradoanual_31',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,245,240,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 20.000000 ) {
-                return {
-                pane: 'pane_DECapuradoanual_31',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(253,204,184,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 30.000000 ) {
-                return {
-                pane: 'pane_DECapuradoanual_31',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,143,111,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 30.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 40.000000 ) {
-                return {
-                pane: 'pane_DECapuradoanual_31',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(244,77,56,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 40.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 50.000000 ) {
-                return {
-                pane: 'pane_DECapuradoanual_31',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(197,23,28,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 50.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 54.878720 ) {
-                return {
-                pane: 'pane_DECapuradoanual_31',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(103,0,13,1.0)',
-                interactive: true,
-            }
-            }
-        }
-        map.createPane('pane_DECapuradoanual_31');
-        map.getPane('pane_DECapuradoanual_31').style.zIndex = 431;
-        map.getPane('pane_DECapuradoanual_31').style['mix-blend-mode'] = 'normal';
-        var layer_DECapuradoanual_31 = new L.geoJson(json_DECapuradoanual_31, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_DECapuradoanual_31',
-            layerName: 'layer_DECapuradoanual_31',
-            pane: 'pane_DECapuradoanual_31',
-            onEachFeature: pop_DECapuradoanual_31,
-            style: style_DECapuradoanual_31_0,
-        });
-        bounds_group.addLayer(layer_DECapuradoanual_31);
-        function pop_DEClimiteanual_32(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">SIST_SUBT</th>\
-                        <td class="visible-with-data" id="SIST_SUBT">' + (feature.properties['SIST_SUBT'] !== null ? autolinker.link(String(feature.properties['SIST_SUBT']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_DEClimiteanual_32_0(feature) {
-            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 15.000000 ) {
-                return {
-                pane: 'pane_DEClimiteanual_32',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,245,240,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 20.000000 ) {
-                return {
-                pane: 'pane_DEClimiteanual_32',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,190,165,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 25.000000 ) {
-                return {
-                pane: 'pane_DEClimiteanual_32',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(251,112,80,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 25.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 30.000000 ) {
-                return {
-                pane: 'pane_DEClimiteanual_32',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(211,32,32,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 30.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 32.000000 ) {
-                return {
-                pane: 'pane_DEClimiteanual_32',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(103,0,13,1.0)',
-                interactive: true,
-            }
-            }
-        }
-        map.createPane('pane_DEClimiteanual_32');
-        map.getPane('pane_DEClimiteanual_32').style.zIndex = 432;
-        map.getPane('pane_DEClimiteanual_32').style['mix-blend-mode'] = 'normal';
-        var layer_DEClimiteanual_32 = new L.geoJson(json_DEClimiteanual_32, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_DEClimiteanual_32',
-            layerName: 'layer_DEClimiteanual_32',
-            pane: 'pane_DEClimiteanual_32',
-            onEachFeature: pop_DEClimiteanual_32,
-            style: style_DEClimiteanual_32_0,
-        });
-        bounds_group.addLayer(layer_DEClimiteanual_32);
-        function pop_FECapuradoanual_33(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_FECapuradoanual_33_0(feature) {
-            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 3.204838 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 5.000000 ) {
-                return {
-                pane: 'pane_FECapuradoanual_33',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(247,251,255,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 5.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 10.000000 ) {
-                return {
-                pane: 'pane_FECapuradoanual_33',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(175,209,231,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 15.000000 ) {
-                return {
-                pane: 'pane_FECapuradoanual_33',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(62,142,196,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 19.881072 ) {
-                return {
-                pane: 'pane_FECapuradoanual_33',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(8,48,107,1.0)',
-                interactive: true,
-            }
-            }
-        }
-        map.createPane('pane_FECapuradoanual_33');
-        map.getPane('pane_FECapuradoanual_33').style.zIndex = 433;
-        map.getPane('pane_FECapuradoanual_33').style['mix-blend-mode'] = 'normal';
-        var layer_FECapuradoanual_33 = new L.geoJson(json_FECapuradoanual_33, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_FECapuradoanual_33',
-            layerName: 'layer_FECapuradoanual_33',
-            pane: 'pane_FECapuradoanual_33',
-            onEachFeature: pop_FECapuradoanual_33,
-            style: style_FECapuradoanual_33_0,
-        });
-        bounds_group.addLayer(layer_FECapuradoanual_33);
-        function pop_FEClimiteanual_34(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_DECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_DECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECApuradoAnual" colspan="2"><strong>DEF_FEC_DGC_FECApuradoAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECApuradoAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_FECLimiteAnual" colspan="2"><strong>DEF_FEC_DGC_FECLimiteAnual</strong><br />' + (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_FECLimiteAnual']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DEF_FEC_DGC_DGC" colspan="2"><strong>DEF_FEC_DGC_DGC</strong><br />' + (feature.properties['DEF_FEC_DGC_DGC'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DGC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>DEF_FEC_DGC_DECXPC**</strong><br />' + (feature.properties['DEF_FEC_DGC_DECXPC**'] !== null ? autolinker.link(String(feature.properties['DEF_FEC_DGC_DECXPC**']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_FEClimiteanual_34_0(feature) {
-            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 6.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 10.000000 ) {
-                return {
-                pane: 'pane_FEClimiteanual_34',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(247,251,255,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 15.000000 ) {
-                return {
-                pane: 'pane_FEClimiteanual_34',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(175,209,231,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 20.000000 ) {
-                return {
-                pane: 'pane_FEClimiteanual_34',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(62,142,196,1.0)',
-                interactive: true,
-            }
-            }
-            if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 24.000000 ) {
-                return {
-                pane: 'pane_FEClimiteanual_34',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(8,48,107,1.0)',
-                interactive: true,
-            }
-            }
-        }
-        map.createPane('pane_FEClimiteanual_34');
-        map.getPane('pane_FEClimiteanual_34').style.zIndex = 434;
-        map.getPane('pane_FEClimiteanual_34').style['mix-blend-mode'] = 'normal';
-        var layer_FEClimiteanual_34 = new L.geoJson(json_FEClimiteanual_34, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_FEClimiteanual_34',
-            layerName: 'layer_FEClimiteanual_34',
-            pane: 'pane_FEClimiteanual_34',
-            onEachFeature: pop_FEClimiteanual_34,
-            style: style_FEClimiteanual_34_0,
-        });
-        bounds_group.addLayer(layer_FEClimiteanual_34);
+        bounds_group.addLayer(layer_SubestaesAlta_34);
         var overlaysTree = [
+        {label: '<b>Subestações</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: '<img src="legend/SubestaesAlta_34.png" /> Subestações (Alta)', layer: layer_SubestaesAlta_34},
+            {label: '<img src="legend/SubestaesMdia_33.png" /> Subestações (Média)', layer: layer_SubestaesMdia_33},]},
+        {label: '<b>Linhas de transmissão e distribuição</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: '<img src="legend/Linhadetransmisso500kV_32.png" /> Linha de transmissão 500kV', layer: layer_Linhadetransmisso500kV_32},
+            {label: '<img src="legend/Linhadetransmisso230kV_31.png" /> Linha de transmissão 230kV', layer: layer_Linhadetransmisso230kV_31},
+            {label: '<img src="legend/Linhadetransmisso138kV_30.png" /> Linha de transmissão 138kV', layer: layer_Linhadetransmisso138kV_30},
+            {label: '<img src="legend/Linhadetransmisso69k_29.png" /> Linha de transmissão 69k', layer: layer_Linhadetransmisso69k_29},
+            {label: '<img src="legend/Linhadedistribuio345kVSimplificado_28.png" /> Linha de distribuição 34,5kV Simplificado', layer: layer_Linhadedistribuio345kVSimplificado_28},
+            {label: '<img src="legend/Linhadedistribuio138kVSimplificado_27.png" /> Linha de distribuição 13,8kV Simplificado', layer: layer_Linhadedistribuio138kVSimplificado_27},]},
+        {label: '<b>Empreendimentos de Infraestrutura planejados</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: '<img src="legend/Linhadetransmisso138kVplanejada_26.png" /> Linha de transmissão 138kV (planejada)', layer: layer_Linhadetransmisso138kVplanejada_26},
+            {label: '<img src="legend/EmpreendimentosInfraplanejado_25.png" /> Empreendimentos Infra (planejado)', layer: layer_EmpreendimentosInfraplanejado_25},]},
+        {label: '<b>Construção</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: '<img src="legend/ConstruoSolar_24.png" /> Construção - Solar', layer: layer_ConstruoSolar_24},]},
+        {label: '<b>Construção não iniciada</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: '<img src="legend/ConstruonoiniciadaSolar_23.png" /> Construção não iniciada- Solar', layer: layer_ConstruonoiniciadaSolar_23},
+            {label: '<img src="legend/ConstruonoiniciadaElica_22.png" /> Construção não iniciada - Eólica', layer: layer_ConstruonoiniciadaElica_22},]},
+        {label: '<b>Operação</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: '<img src="legend/OperaoBiomassa_21.png" /> Operação - Biomassa', layer: layer_OperaoBiomassa_21},
+            {label: '<img src="legend/OperaoElica_20.png" /> Operação - Eólica', layer: layer_OperaoElica_20},
+            {label: '<img src="legend/OperaoFssil_19.png" /> Operação - Fóssil', layer: layer_OperaoFssil_19},
+            {label: '<img src="legend/OperaoHdrica_18.png" /> Operação - Hídrica', layer: layer_OperaoHdrica_18},
+            {label: '<img src="legend/OperacaoSolar_17.png" /> Operacao - Solar', layer: layer_OperacaoSolar_17},]},
         {label: '<b>FEC, DEC e DGC</b>', collapsed: true, selectAllCheckbox: true, children: [
             //USAR NO NOVO PROJETO - INICIO
-            {label: 'FEC limite anual', layer: layer_FEClimiteanual_34},
-            {label: 'FEC apurado anual', layer: layer_FECapuradoanual_33},
-            {label: 'DEC limite anual', layer: layer_DEClimiteanual_32},
-            {label: 'DEC apurado anual', layer: layer_DECapuradoanual_31},
-            {label: 'DGC', layer: layer_DGC_30},]},
-            //USAR NO NOVO PROJETO - FIM   
-        {label: '<b>Subestações</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/SubestaesAlta_29.png" /> Subestações (Alta)', layer: layer_SubestaesAlta_29},
-            {label: '<img src="legend/SubestaesMdia_28.png" /> Subestações (Média)', layer: layer_SubestaesMdia_28},]},
-        {label: '<b>Linhas de transmissão e distribuição</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Linhadetransmisso500kV_27.png" /> Linha de transmissão 500kV', layer: layer_Linhadetransmisso500kV_27},
-            {label: '<img src="legend/Linhadetransmisso230kV_26.png" /> Linha de transmissão 230kV', layer: layer_Linhadetransmisso230kV_26},
-            {label: '<img src="legend/Linhadetransmisso138kV_25.png" /> Linha de transmissão 138kV', layer: layer_Linhadetransmisso138kV_25},
-            {label: '<img src="legend/Linhadetransmisso69k_24.png" /> Linha de transmissão 69k', layer: layer_Linhadetransmisso69k_24},
-            {label: '<img src="legend/Linhadedistribuio345kVSimplificado_23.png" /> Linha de distribuição 34,5kV Simplificado', layer: layer_Linhadedistribuio345kVSimplificado_23},
-            {label: '<img src="legend/Linhadedistribuio138kVSimplificado_22.png" /> Linha de distribuição 13,8kV Simplificado', layer: layer_Linhadedistribuio138kVSimplificado_22},]},
-        {label: '<b>Empreendimentos de Infraestrutura planejados</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Linhadetransmisso138kVplanejada_21.png" /> Linha de transmissão 138kV (planejada)', layer: layer_Linhadetransmisso138kVplanejada_21},
-            {label: '<img src="legend/EmpreendimentosInfraplanejado_20.png" /> Empreendimentos Infra (planejado)', layer: layer_EmpreendimentosInfraplanejado_20},]},
-        {label: '<b>Construção</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/ConstruoSolar_19.png" /> Construção - Solar', layer: layer_ConstruoSolar_19},]},
-        {label: '<b>Construção não iniciada</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/ConstruonoiniciadaSolar_18.png" /> Construção não iniciada- Solar', layer: layer_ConstruonoiniciadaSolar_18},
-            {label: '<img src="legend/ConstruonoiniciadaElica_17.png" /> Construção não iniciada - Eólica', layer: layer_ConstruonoiniciadaElica_17},]},
-        {label: '<b>Operação</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/OperaoBiomassa_16.png" /> Operação - Biomassa', layer: layer_OperaoBiomassa_16},
-            {label: '<img src="legend/OperaoElica_15.png" /> Operação - Eólica', layer: layer_OperaoElica_15},
-            {label: '<img src="legend/OperaoFssil_14.png" /> Operação - Fóssil', layer: layer_OperaoFssil_14},
-            {label: '<img src="legend/OperaoHdrica_13.png" /> Operação - Hídrica', layer: layer_OperaoHdrica_13},
-            {label: '<img src="legend/OperacaoSolar_12.png" /> Operacao - Solar', layer: layer_OperacaoSolar_12},]},
+            {label: 'FEC limite anual', layer: layer_FEClimiteanual_16},
+            {label: 'FEC apurado anual', layer: layer_FECapuradoanual_15},
+            {label: 'DEC limite anual', layer: layer_DEClimiteanual_14},
+            {label: 'DEC apurado anual', layer: layer_DECapuradoanual_13},
+            {label: 'DGC', layer: layer_DGC_12},]},
+            //USAR NO NOVO PROJETO - FIM
         {label: '<b>Potencial eólico e solar</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: "Irradiação Solar (Anual inclinado 10° Wh/m².dia)", layer: layer_IrradiaoSolarAnualinclinado10Whmdia_11},
             {label: "Velocidade dos ventos (m/s) (100m)", layer: layer_Velocidadedosventosms100m_10},]},
