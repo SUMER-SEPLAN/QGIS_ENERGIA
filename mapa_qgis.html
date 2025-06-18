@@ -68,37 +68,14 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
+        
         <script src="data/Municpios_2.js"></script>
-        <script src="data/readeaplicaodaLeidaMataAtlnticaPI_3.js"></script>
-        <script src="data/CorredorEcolgicoConfusesSerradaCapivaraPI_4.js"></script>
-        <script src="data/UnidadesdeConservaoEstadualPI_5.js"></script>
-        <script src="data/UnidadesdeConservaoFederalPIICMBIO2023_6.js"></script>
-        <script src="data/ZonadeAmortecimentodasUCsPI3Km_7.js"></script>
         <script src="data/LinhaImperial_8.js"></script>
         <script src="data/reaLitgio_9.js"></script>
-        <script src="data/DGC_12.js"></script>
-        <script src="data/DECapuradoanual_13.js"></script>
-        <script src="data/DEClimiteanual_14.js"></script>
-        <script src="data/FECapuradoanual_15.js"></script>
-        <script src="data/FEClimiteanual_16.js"></script>
-        <script src="data/OperacaoSolar_17.js"></script>
-        <script src="data/OperaoHdrica_18.js"></script>
-        <script src="data/OperaoFssil_19.js"></script>
-        <script src="data/OperaoElica_20.js"></script>
-        <script src="data/OperaoBiomassa_21.js"></script>
-        <script src="data/ConstruonoiniciadaElica_22.js"></script>
-        <script src="data/ConstruonoiniciadaSolar_23.js"></script>
-        <script src="data/ConstruoSolar_24.js"></script>
-        <script src="data/EmpreendimentosInfraplanejado_25.js"></script>
-        <script src="data/Linhadetransmisso138kVplanejada_26.js"></script>
-        <script src="data/Linhadedistribuio138kVSimplificado_27.js"></script>
-        <script src="data/Linhadedistribuio345kVSimplificado_28.js"></script>
         <script src="data/Linhadetransmisso69k_29.js"></script>
         <script src="data/Linhadetransmisso138kV_30.js"></script>
         <script src="data/Linhadetransmisso230kV_31.js"></script>
         <script src="data/Linhadetransmisso500kV_32.js"></script>
-        <script src="data/SubestaesMdia_33.js"></script>
-        <script src="data/SubestaesAlta_34.js"></script>
         <script>
         //USAR NO NOVO PROJETO - INICIO
         // Defina os bounds iniciais
@@ -268,7 +245,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_readeaplicaodaLeidaMataAtlnticaPI_3');
         map.getPane('pane_readeaplicaodaLeidaMataAtlnticaPI_3').style.zIndex = 403;
         map.getPane('pane_readeaplicaodaLeidaMataAtlnticaPI_3').style['mix-blend-mode'] = 'normal';
-        var layer_readeaplicaodaLeidaMataAtlnticaPI_3 = new L.geoJson(json_readeaplicaodaLeidaMataAtlnticaPI_3, {
+        var layer_readeaplicaodaLeidaMataAtlnticaPI_3 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_readeaplicaodaLeidaMataAtlnticaPI_3',
@@ -312,7 +289,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_CorredorEcolgicoConfusesSerradaCapivaraPI_4');
         map.getPane('pane_CorredorEcolgicoConfusesSerradaCapivaraPI_4').style.zIndex = 404;
         map.getPane('pane_CorredorEcolgicoConfusesSerradaCapivaraPI_4').style['mix-blend-mode'] = 'normal';
-        var layer_CorredorEcolgicoConfusesSerradaCapivaraPI_4 = new L.geoJson(json_CorredorEcolgicoConfusesSerradaCapivaraPI_4, {
+        var layer_CorredorEcolgicoConfusesSerradaCapivaraPI_4 = new L.geoJson(null, {
             attribution: '',
             interactive: false,
             dataVar: 'json_CorredorEcolgicoConfusesSerradaCapivaraPI_4',
@@ -380,7 +357,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_UnidadesdeConservaoEstadualPI_5');
         map.getPane('pane_UnidadesdeConservaoEstadualPI_5').style.zIndex = 405;
         map.getPane('pane_UnidadesdeConservaoEstadualPI_5').style['mix-blend-mode'] = 'normal';
-        var layer_UnidadesdeConservaoEstadualPI_5 = new L.geoJson(json_UnidadesdeConservaoEstadualPI_5, {
+        var layer_UnidadesdeConservaoEstadualPI_5 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_UnidadesdeConservaoEstadualPI_5',
@@ -455,7 +432,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_UnidadesdeConservaoFederalPIICMBIO2023_6');
         map.getPane('pane_UnidadesdeConservaoFederalPIICMBIO2023_6').style.zIndex = 406;
         map.getPane('pane_UnidadesdeConservaoFederalPIICMBIO2023_6').style['mix-blend-mode'] = 'normal';
-        var layer_UnidadesdeConservaoFederalPIICMBIO2023_6 = new L.geoJson(json_UnidadesdeConservaoFederalPIICMBIO2023_6, {
+        var layer_UnidadesdeConservaoFederalPIICMBIO2023_6 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_UnidadesdeConservaoFederalPIICMBIO2023_6',
@@ -513,7 +490,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_ZonadeAmortecimentodasUCsPI3Km_7');
         map.getPane('pane_ZonadeAmortecimentodasUCsPI3Km_7').style.zIndex = 407;
         map.getPane('pane_ZonadeAmortecimentodasUCsPI3Km_7').style['mix-blend-mode'] = 'normal';
-        var layer_ZonadeAmortecimentodasUCsPI3Km_7 = new L.geoJson(json_ZonadeAmortecimentodasUCsPI3Km_7, {
+        var layer_ZonadeAmortecimentodasUCsPI3Km_7 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_ZonadeAmortecimentodasUCsPI3Km_7',
@@ -772,7 +749,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_DGC_12');
         map.getPane('pane_DGC_12').style.zIndex = 412;
         map.getPane('pane_DGC_12').style['mix-blend-mode'] = 'normal';
-        var layer_DGC_12 = new L.geoJson(json_DGC_12, {
+        var layer_DGC_12 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_DGC_12',
@@ -905,7 +882,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_DECapuradoanual_13');
         map.getPane('pane_DECapuradoanual_13').style.zIndex = 413;
         map.getPane('pane_DECapuradoanual_13').style['mix-blend-mode'] = 'normal';
-        var layer_DECapuradoanual_13 = new L.geoJson(json_DECapuradoanual_13, {
+        var layer_DECapuradoanual_13 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_DECapuradoanual_13',
@@ -1027,7 +1004,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_DEClimiteanual_14');
         map.getPane('pane_DEClimiteanual_14').style.zIndex = 414;
         map.getPane('pane_DEClimiteanual_14').style['mix-blend-mode'] = 'normal';
-        var layer_DEClimiteanual_14 = new L.geoJson(json_DEClimiteanual_14, {
+        var layer_DEClimiteanual_14 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_DEClimiteanual_14',
@@ -1130,7 +1107,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_FECapuradoanual_15');
         map.getPane('pane_FECapuradoanual_15').style.zIndex = 415;
         map.getPane('pane_FECapuradoanual_15').style['mix-blend-mode'] = 'normal';
-        var layer_FECapuradoanual_15 = new L.geoJson(json_FECapuradoanual_15, {
+        var layer_FECapuradoanual_15 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_FECapuradoanual_15',
@@ -1236,7 +1213,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_FEClimiteanual_16');
         map.getPane('pane_FEClimiteanual_16').style.zIndex = 416;
         map.getPane('pane_FEClimiteanual_16').style['mix-blend-mode'] = 'normal';
-        var layer_FEClimiteanual_16 = new L.geoJson(json_FEClimiteanual_16, {
+        var layer_FEClimiteanual_16 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_FEClimiteanual_16',
@@ -1292,7 +1269,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_OperacaoSolar_17');
         map.getPane('pane_OperacaoSolar_17').style.zIndex = 417;
         map.getPane('pane_OperacaoSolar_17').style['mix-blend-mode'] = 'normal';
-        var layer_OperacaoSolar_17 = new L.geoJson(json_OperacaoSolar_17, {
+        var layer_OperacaoSolar_17 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_OperacaoSolar_17',
@@ -1360,7 +1337,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_OperaoHdrica_18');
         map.getPane('pane_OperaoHdrica_18').style.zIndex = 418;
         map.getPane('pane_OperaoHdrica_18').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoHdrica_18 = new L.geoJson(json_OperaoHdrica_18, {
+        var layer_OperaoHdrica_18 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_OperaoHdrica_18',
@@ -1428,7 +1405,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_OperaoFssil_19');
         map.getPane('pane_OperaoFssil_19').style.zIndex = 419;
         map.getPane('pane_OperaoFssil_19').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoFssil_19 = new L.geoJson(json_OperaoFssil_19, {
+        var layer_OperaoFssil_19 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_OperaoFssil_19',
@@ -1496,7 +1473,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_OperaoElica_20');
         map.getPane('pane_OperaoElica_20').style.zIndex = 420;
         map.getPane('pane_OperaoElica_20').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoElica_20 = new L.geoJson(json_OperaoElica_20, {
+        var layer_OperaoElica_20 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_OperaoElica_20',
@@ -1564,7 +1541,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_OperaoBiomassa_21');
         map.getPane('pane_OperaoBiomassa_21').style.zIndex = 421;
         map.getPane('pane_OperaoBiomassa_21').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoBiomassa_21 = new L.geoJson(json_OperaoBiomassa_21, {
+        var layer_OperaoBiomassa_21 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_OperaoBiomassa_21',
@@ -1635,7 +1612,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_ConstruonoiniciadaElica_22');
         map.getPane('pane_ConstruonoiniciadaElica_22').style.zIndex = 422;
         map.getPane('pane_ConstruonoiniciadaElica_22').style['mix-blend-mode'] = 'normal';
-        var layer_ConstruonoiniciadaElica_22 = new L.geoJson(json_ConstruonoiniciadaElica_22, {
+        var layer_ConstruonoiniciadaElica_22 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_ConstruonoiniciadaElica_22',
@@ -1703,7 +1680,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_ConstruonoiniciadaSolar_23');
         map.getPane('pane_ConstruonoiniciadaSolar_23').style.zIndex = 423;
         map.getPane('pane_ConstruonoiniciadaSolar_23').style['mix-blend-mode'] = 'normal';
-        var layer_ConstruonoiniciadaSolar_23 = new L.geoJson(json_ConstruonoiniciadaSolar_23, {
+        var layer_ConstruonoiniciadaSolar_23 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_ConstruonoiniciadaSolar_23',
@@ -1774,7 +1751,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_ConstruoSolar_24');
         map.getPane('pane_ConstruoSolar_24').style.zIndex = 424;
         map.getPane('pane_ConstruoSolar_24').style['mix-blend-mode'] = 'normal';
-        var layer_ConstruoSolar_24 = new L.geoJson(json_ConstruoSolar_24, {
+        var layer_ConstruoSolar_24 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_ConstruoSolar_24',
@@ -1835,7 +1812,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_EmpreendimentosInfraplanejado_25');
         map.getPane('pane_EmpreendimentosInfraplanejado_25').style.zIndex = 425;
         map.getPane('pane_EmpreendimentosInfraplanejado_25').style['mix-blend-mode'] = 'normal';
-        var layer_EmpreendimentosInfraplanejado_25 = new L.geoJson(json_EmpreendimentosInfraplanejado_25, {
+        var layer_EmpreendimentosInfraplanejado_25 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_EmpreendimentosInfraplanejado_25',
@@ -1880,7 +1857,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_Linhadetransmisso138kVplanejada_26');
         map.getPane('pane_Linhadetransmisso138kVplanejada_26').style.zIndex = 426;
         map.getPane('pane_Linhadetransmisso138kVplanejada_26').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso138kVplanejada_26 = new L.geoJson(json_Linhadetransmisso138kVplanejada_26, {
+        var layer_Linhadetransmisso138kVplanejada_26 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_Linhadetransmisso138kVplanejada_26',
@@ -1922,7 +1899,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_Linhadedistribuio138kVSimplificado_27');
         map.getPane('pane_Linhadedistribuio138kVSimplificado_27').style.zIndex = 427;
         map.getPane('pane_Linhadedistribuio138kVSimplificado_27').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadedistribuio138kVSimplificado_27 = new L.geoJson(json_Linhadedistribuio138kVSimplificado_27, {
+        var layer_Linhadedistribuio138kVSimplificado_27 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_Linhadedistribuio138kVSimplificado_27',
@@ -1964,7 +1941,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_Linhadedistribuio345kVSimplificado_28');
         map.getPane('pane_Linhadedistribuio345kVSimplificado_28').style.zIndex = 428;
         map.getPane('pane_Linhadedistribuio345kVSimplificado_28').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadedistribuio345kVSimplificado_28 = new L.geoJson(json_Linhadedistribuio345kVSimplificado_28, {
+        var layer_Linhadedistribuio345kVSimplificado_28 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_Linhadedistribuio345kVSimplificado_28',
@@ -2270,7 +2247,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_SubestaesMdia_33');
         map.getPane('pane_SubestaesMdia_33').style.zIndex = 433;
         map.getPane('pane_SubestaesMdia_33').style['mix-blend-mode'] = 'normal';
-        var layer_SubestaesMdia_33 = new L.geoJson(json_SubestaesMdia_33, {
+        var layer_SubestaesMdia_33 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_SubestaesMdia_33',
@@ -2333,7 +2310,7 @@ map.options.minZoom = map.getZoom();
         map.createPane('pane_SubestaesAlta_34');
         map.getPane('pane_SubestaesAlta_34').style.zIndex = 434;
         map.getPane('pane_SubestaesAlta_34').style['mix-blend-mode'] = 'normal';
-        var layer_SubestaesAlta_34 = new L.geoJson(json_SubestaesAlta_34, {
+        var layer_SubestaesAlta_34 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
             dataVar: 'json_SubestaesAlta_34',
@@ -2405,6 +2382,7 @@ map.options.minZoom = map.getZoom();
             collapsed: true,
         });
         lay.addTo(map);
+        window.parent.postMessage('esconder-loader', '*');//USAR NO NOVO PROJETO - linha unica
         setBounds();
         L.ImageOverlay.include({
             getBounds: function () {
@@ -2519,34 +2497,123 @@ document.addEventListener('change', function(e) {
   }
 </script>
 <script>
-let touchStartX = 0, touchStartY = 0;
+    // --- CONTROLE DO MODAL DE IMAGEM AMPLIADA ---
 
-modalImg.addEventListener('touchstart', function (e) {
-    if (e.touches.length === 1 && escalaAtual > 1) {
-        isDragging = true;
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-    }
-}, { passive: false });
+    // 1. Primeiro, definimos as variáveis buscando os elementos no HTML
+    const modalDiv = document.getElementById('modal-imagem-mapa');
+    const modalImg = document.getElementById('modal-img-mapa');
 
-modalImg.addEventListener('touchmove', function (e) {
-    if (isDragging && e.touches.length === 1) {
-        e.preventDefault();
-        const dx = e.touches[0].clientX - touchStartX;
-        const dy = e.touches[0].clientY - touchStartY;
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        posX += dx;
-        posY += dy;
-        modalImg.style.transform = `scale(${escalaAtual}) translate(${posX}px, ${posY}px)`;
-    }
-}, { passive: false });
+    // 2. Depois, declaramos as variáveis de controle
+    let escalaAtual = 1;
+    let isDragging = false;
+    let lastX = 0, lastY = 0;
+    let posX = 0, posY = 0;
+    let touchStartX = 0, touchStartY = 0;
+    let touchStartDist = 0;
+    let initialScale = 1;
 
-modalImg.addEventListener('touchend', function (e) {
-    if (e.touches.length === 0) {
-        isDragging = false;
+    // 3. Agora, adicionamos todas as funcionalidades
+    
+    // Função para abrir o modal e resetar a imagem
+    function abrirImagemNoMapa(src) {
+        if (modalDiv && modalImg) {
+            modalDiv.style.display = 'flex';
+            modalImg.src = src;
+            escalaAtual = 1;
+            posX = 0;
+            posY = 0;
+            modalImg.style.transform = 'scale(1) translate(0px, 0px)';
+            modalImg.style.transformOrigin = '50% 50%';
+            modalImg.style.cursor = 'pointer';
+        }
     }
-});
+
+    if (modalDiv && modalImg) {
+        // Zoom com scroll do mouse
+        modalImg.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            escalaAtual *= (e.deltaY < 0) ? 1.1 : 1/1.1;
+            if (escalaAtual < 1) escalaAtual = 1;
+            if (escalaAtual === 1) { posX = 0; posY = 0; }
+            modalImg.style.transform = `scale(${escalaAtual}) translate(${posX}px, ${posY}px)`;
+        });
+
+        // Arrasto com o mouse
+        modalImg.addEventListener('mousedown', function(e) {
+            if (escalaAtual > 1) {
+                isDragging = true;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                modalImg.style.cursor = 'grab';
+                e.preventDefault();
+            }
+        });
+
+        // Movimento do mouse
+        document.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                posX += e.clientX - lastX;
+                posY += e.clientY - lastY;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                modalImg.style.transform = `scale(${escalaAtual}) translate(${posX}px, ${posY}px)`;
+            }
+        });
+
+        // Soltar o mouse
+        document.addEventListener('mouseup', function() {
+            if (isDragging) {
+                isDragging = false;
+                modalImg.style.cursor = 'pointer';
+            }
+        });
+
+        // Eventos de toque (touch)
+        modalImg.addEventListener('touchstart', function (e) {
+            if (e.touches.length === 1 && escalaAtual > 1) {
+                isDragging = true;
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            } else if (e.touches.length === 2) {
+                e.preventDefault();
+                touchStartDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+                initialScale = escalaAtual;
+            }
+        }, { passive: false });
+
+        modalImg.addEventListener('touchmove', function (e) {
+            if (isDragging && e.touches.length === 1) {
+                e.preventDefault();
+                const dx = e.touches[0].clientX - touchStartX;
+                const dy = e.touches[0].clientY - touchStartY;
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                posX += dx;
+                posY += dy;
+                modalImg.style.transform = `scale(${escalaAtual}) translate(${posX}px, ${posY}px)`;
+            } else if (e.touches.length === 2) {
+                e.preventDefault();
+                const currentDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+                escalaAtual = Math.max(1, initialScale * (currentDist / touchStartDist));
+                if (escalaAtual === 1) { posX = 0; posY = 0; }
+                modalImg.style.transform = `scale(${escalaAtual}) translate(${posX}px, ${posY}px)`;
+            }
+        }, { passive: false });
+
+        modalImg.addEventListener('touchend', function (e) {
+            if (e.touches.length < 2) isDragging = false;
+        });
+
+        // Evita fechar o modal ao clicar na imagem
+        modalImg.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Fecha o modal ao clicar fora da imagem
+        modalDiv.onclick = function(e) {
+            if (e.target === this) modalDiv.style.display = 'none';
+        };
+    }
 </script>
 <!-- Adicione as legendas antes do fechamento do body -->
 <div id="legenda-container" style="display:none; position: absolute; bottom: 10px; left: 10px; z-index: 1002; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0002; padding: 8px;">
@@ -2677,5 +2744,60 @@ document.addEventListener('change', function(e) {
 });
 </script>
 <!-- USAR NO NOVO PROJETO - fim -->
+ <script>
+            const layerNameMap = {};
+            function findLayersInTree(tree) {
+                tree.forEach(item => {
+                    if (item.layer && item.layer.options.layerName) {
+                        layerNameMap[item.layer.options.layerName] = item.layer;
+                    }
+                    if (item.children) {
+                        findLayersInTree(item.children);
+                    }
+                });
+            }
+            findLayersInTree(overlaysTree);
+            const initiallyLoaded = new Set([
+                'layer_Municpios_2',
+                'layer_Linhadetransmisso69k_29',
+                'layer_Linhadetransmisso69k_29',
+                'layer_Linhadetransmisso138kV_30',
+                'layer_data/Linhadetransmisso230kV_31',
+                'layer_data/Linhadetransmisso500kV_32',
+                'layer_LinhaImperial_8',
+                'layer_reaLitgio_9'
+            ]);
+            function loadScript(url, callback) {
+                const script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = url;
+                script.onload = callback;
+                script.onerror = function() { console.error('Erro ao carregar script:', url); };
+                document.head.appendChild(script);
+            }
+            function loadBackgroundLayers() {
+                console.log('Iniciando carregamento de camadas em segundo plano...');
+                for (const layerName in layerNameMap) {
+              
+                    if (!initiallyLoaded.has(layerName)) {
+                        
+                        const dataUrl = `data/${layerName.replace('layer_', '')}.js`;
+                    
+                        (function(layer, name) {
+                            loadScript(dataUrl, function() {
+                                const jsonDataVar = window[`json_${name.replace('layer_', '')}`];
+                                if (jsonDataVar) {
+                                    layer.addData(jsonDataVar);
+                                    console.log(`Camada ${name} carregada em segundo plano.`);
+                                } else {
+                                    console.error(`Dados para ${name} não encontrados após carregamento.`);
+                                }
+                            });
+                        })(layerNameMap[layerName], layerName);
+                    }
+                }
+            }
+            setTimeout(loadBackgroundLayers, 500);
+        </script>
     </body>
 </html>

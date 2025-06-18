@@ -4,27 +4,32 @@
   <meta charset="UTF-8">
   <title>MAPA GEOELÉTRICO DO PIAUÍ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/dados_pi.png" type="image/png">
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
   
 
-  <!-- Barra superior -->
+ <!-- Barra superior -->
   <header class="topbar">
     <div class="topbar-left">
-      <img src="images/logo.png" alt="Logo SEPLAN" class="logo">
-      <h1 class="titulo-desktop">Secretaria de Planejamento do Estado do Piauí</h1>
-      <h1 class="titulo-mobile">SEPLAN</h1>
+      <button id="toggleMenu">☰</button>
+      <a href="https://dados.seplan.pi.gov.br/observatorio/dados-mineracao/" class="seplan-apps-bar__site-button">
+      <span class="button-text">Voltar</span>
+        <span class="button-icon">⭠</span>
+      </a>
 </div>
     <div class="topbar-right">
-      <img src="images/logos_sumer-cepro.svg" alt="Logo SUMER" class="logo-sumer">
+      <img src="images/logo-cepro-white.svg" alt="Logo CEPRO" class="logo-sumer">
+      <img src="images/logo-sumer-white.svg" alt="Logo SUMER" class="logo-sumer">
+      <a href="https://www.seplan.pi.gov.br/" target="_blank" rel="noopener noreferrer">
+        <img src="images/logo-seplan-white.svg" alt="Logo SEPLAN" class="logo">
+      </a>
       <!--img src="images/logo_cepro.png" alt="Logo CEPRO" class="logo-sumer"-->
     </div>
   </header>  
-
   <!-- Menu lateral retrátil -->
   <nav class="sidebar">
-    <button id="toggleMenu">☰</button>
     <ul>
       <li><a href="#" id="btn-sobre"><img src="images/icon1.svg" alt=""><span>Sobre o projeto</span></a></li>
       <!--li><a href="#" id="btn-legenda"><img src="images/legenda.svg" alt=""><span>Legenda</span></a></li-->
@@ -126,6 +131,9 @@ window.addEventListener('message', function(event) {
     }
     if (event.data === 'esconder-legenda') {
         document.getElementById('legenda-container').style.display = 'none';
+    }
+    if (event.data === 'esconder-loader') {
+        hideLoader();
     }
 });
 </script>
