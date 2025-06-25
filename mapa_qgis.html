@@ -69,13 +69,13 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
         
-        <script src="data/Municpios_2.js"></script>
-        <script src="data/LinhaImperial_8.js"></script>
-        <script src="data/reaLitgio_9.js"></script>
-        <script src="data/Linhadetransmisso69k_29.js"></script>
-        <script src="data/Linhadetransmisso138kV_30.js"></script>
-        <script src="data/Linhadetransmisso230kV_31.js"></script>
-        <script src="data/Linhadetransmisso500kV_32.js"></script>
+        <script src="data/Municpios_3.js"></script>
+        <script src="data/LinhaImperial_9.js"></script>
+        <script src="data/reaLitgio_10.js"></script>
+        <script src="data/Linhadetransmisso69k_30.js"></script>
+        <script src="data/Linhadetransmisso138kV_31.js"></script>
+        <script src="data/Linhadetransmisso230kV_32.js"></script>
+        <script src="data/Linhadetransmisso500kV_33.js"></script>
         <script>
         //USAR NO NOVO PROJETO - INICIO
         // Defina os bounds iniciais
@@ -177,7 +177,220 @@ map.options.minZoom = map.getZoom();
         });
         layer_OSMStandard_1;
         map.addLayer(layer_OSMStandard_1);
-        function pop_Municpios_2(feature, layer) {
+        function pop_TerritriodeDesenvolvimento_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NM_MUN'] !== null ? autolinker.link(String(feature.properties['NM_MUN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Territóri'] !== null ? autolinker.link(String(feature.properties['Territóri']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_TerritriodeDesenvolvimento_2_0(feature) {
+            switch(String(feature.properties['Territóri'])) {
+                case 'CARNAUBAIS':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(124,175,156,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'CHAPADA DAS MANGABEIRAS':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(206,174,108,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'CHAPADA VALE DO ITAIM':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(147,207,237,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'COCAIS':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(212,204,115,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'ENTRE-RIOS':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,189,78,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'PLANÍCIE LITORÂNEA':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(170,196,210,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'SERRA DA CAPIVARA':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,221,139,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'TABULEIRO DO ALTO PARNAÍBA':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(119,143,201,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'VALE DO RIO CANINDÉ':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(158,152,203,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'VALE DO RIO GUARIBAS':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,188,252,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'VALE DO RIO SAMBITO':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,255,189,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+                case 'VALE DOS RIOS PIAUÍ E ITAUEIRAS':
+                    return {
+                pane: 'pane_TerritriodeDesenvolvimento_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(189,191,193,0.7490196078431373)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_TerritriodeDesenvolvimento_2');
+        map.getPane('pane_TerritriodeDesenvolvimento_2').style.zIndex = 402;
+        map.getPane('pane_TerritriodeDesenvolvimento_2').style['mix-blend-mode'] = 'normal';
+        var layer_TerritriodeDesenvolvimento_2 = new L.geoJson(null, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_TerritriodeDesenvolvimento_2',
+            layerName: 'layer_TerritriodeDesenvolvimento_2',
+            pane: 'pane_TerritriodeDesenvolvimento_2',
+            onEachFeature: pop_TerritriodeDesenvolvimento_2,
+            style: style_TerritriodeDesenvolvimento_2_0,
+        });
+        bounds_group.addLayer(layer_TerritriodeDesenvolvimento_2);
+        function pop_Municpios_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CD_MUN'] !== null ? autolinker.link(String(feature.properties['CD_MUN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -193,9 +406,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Municpios_2_0() {
+        function style_Municpios_3_0() {
             return {
-                pane: 'pane_Municpios_2',
+                pane: 'pane_Municpios_3',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -208,21 +421,21 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Municpios_2');
-        map.getPane('pane_Municpios_2').style.zIndex = 402;
-        map.getPane('pane_Municpios_2').style['mix-blend-mode'] = 'normal';
-        var layer_Municpios_2 = new L.geoJson(json_Municpios_2, {
+        map.createPane('pane_Municpios_3');
+        map.getPane('pane_Municpios_3').style.zIndex = 403;
+        map.getPane('pane_Municpios_3').style['mix-blend-mode'] = 'normal';
+        var layer_Municpios_3 = new L.geoJson(json_Municpios_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Municpios_2',
-            layerName: 'layer_Municpios_2',
-            pane: 'pane_Municpios_2',
-            onEachFeature: pop_Municpios_2,
-            style: style_Municpios_2_0,
+            dataVar: 'json_Municpios_3',
+            layerName: 'layer_Municpios_3',
+            pane: 'pane_Municpios_3',
+            onEachFeature: pop_Municpios_3,
+            style: style_Municpios_3_0,
         });
-        bounds_group.addLayer(layer_Municpios_2);
-        map.addLayer(layer_Municpios_2);
-        function pop_readeaplicaodaLeidaMataAtlnticaPI_3(feature, layer) {
+        bounds_group.addLayer(layer_Municpios_3);
+        map.addLayer(layer_Municpios_3);
+        function pop_readeaplicaodaLeidaMataAtlnticaPI_4(feature, layer) {
             var popupContent = '<table>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -232,9 +445,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_readeaplicaodaLeidaMataAtlnticaPI_3_0() {
+        function style_readeaplicaodaLeidaMataAtlnticaPI_4_0() {
             return {
-                pane: 'pane_readeaplicaodaLeidaMataAtlnticaPI_3',
+                pane: 'pane_readeaplicaodaLeidaMataAtlnticaPI_4',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
@@ -242,20 +455,20 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_readeaplicaodaLeidaMataAtlnticaPI_3');
-        map.getPane('pane_readeaplicaodaLeidaMataAtlnticaPI_3').style.zIndex = 403;
-        map.getPane('pane_readeaplicaodaLeidaMataAtlnticaPI_3').style['mix-blend-mode'] = 'normal';
-        var layer_readeaplicaodaLeidaMataAtlnticaPI_3 = new L.geoJson(null, {
+        map.createPane('pane_readeaplicaodaLeidaMataAtlnticaPI_4');
+        map.getPane('pane_readeaplicaodaLeidaMataAtlnticaPI_4').style.zIndex = 404;
+        map.getPane('pane_readeaplicaodaLeidaMataAtlnticaPI_4').style['mix-blend-mode'] = 'normal';
+        var layer_readeaplicaodaLeidaMataAtlnticaPI_4 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_readeaplicaodaLeidaMataAtlnticaPI_3',
-            layerName: 'layer_readeaplicaodaLeidaMataAtlnticaPI_3',
-            pane: 'pane_readeaplicaodaLeidaMataAtlnticaPI_3',
-            onEachFeature: pop_readeaplicaodaLeidaMataAtlnticaPI_3,
-            style: style_readeaplicaodaLeidaMataAtlnticaPI_3_0,
+            dataVar: 'json_readeaplicaodaLeidaMataAtlnticaPI_4',
+            layerName: 'layer_readeaplicaodaLeidaMataAtlnticaPI_4',
+            pane: 'pane_readeaplicaodaLeidaMataAtlnticaPI_4',
+            onEachFeature: pop_readeaplicaodaLeidaMataAtlnticaPI_4,
+            style: style_readeaplicaodaLeidaMataAtlnticaPI_4_0,
         });
-        bounds_group.addLayer(layer_readeaplicaodaLeidaMataAtlnticaPI_3);
-        function pop_CorredorEcolgicoConfusesSerradaCapivaraPI_4(feature, layer) {
+        bounds_group.addLayer(layer_readeaplicaodaLeidaMataAtlnticaPI_4);
+        function pop_CorredorEcolgicoConfusesSerradaCapivaraPI_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Latitude'] !== null ? autolinker.link(String(feature.properties['Latitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -271,9 +484,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_CorredorEcolgicoConfusesSerradaCapivaraPI_4_0() {
+        function style_CorredorEcolgicoConfusesSerradaCapivaraPI_5_0() {
             return {
-                pane: 'pane_CorredorEcolgicoConfusesSerradaCapivaraPI_4',
+                pane: 'pane_CorredorEcolgicoConfusesSerradaCapivaraPI_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -286,20 +499,20 @@ map.options.minZoom = map.getZoom();
                 interactive: false,
             }
         }
-        map.createPane('pane_CorredorEcolgicoConfusesSerradaCapivaraPI_4');
-        map.getPane('pane_CorredorEcolgicoConfusesSerradaCapivaraPI_4').style.zIndex = 404;
-        map.getPane('pane_CorredorEcolgicoConfusesSerradaCapivaraPI_4').style['mix-blend-mode'] = 'normal';
-        var layer_CorredorEcolgicoConfusesSerradaCapivaraPI_4 = new L.geoJson(null, {
+        map.createPane('pane_CorredorEcolgicoConfusesSerradaCapivaraPI_5');
+        map.getPane('pane_CorredorEcolgicoConfusesSerradaCapivaraPI_5').style.zIndex = 405;
+        map.getPane('pane_CorredorEcolgicoConfusesSerradaCapivaraPI_5').style['mix-blend-mode'] = 'normal';
+        var layer_CorredorEcolgicoConfusesSerradaCapivaraPI_5 = new L.geoJson(null, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_CorredorEcolgicoConfusesSerradaCapivaraPI_4',
-            layerName: 'layer_CorredorEcolgicoConfusesSerradaCapivaraPI_4',
-            pane: 'pane_CorredorEcolgicoConfusesSerradaCapivaraPI_4',
-            onEachFeature: pop_CorredorEcolgicoConfusesSerradaCapivaraPI_4,
-            style: style_CorredorEcolgicoConfusesSerradaCapivaraPI_4_0,
+            dataVar: 'json_CorredorEcolgicoConfusesSerradaCapivaraPI_5',
+            layerName: 'layer_CorredorEcolgicoConfusesSerradaCapivaraPI_5',
+            pane: 'pane_CorredorEcolgicoConfusesSerradaCapivaraPI_5',
+            onEachFeature: pop_CorredorEcolgicoConfusesSerradaCapivaraPI_5,
+            style: style_CorredorEcolgicoConfusesSerradaCapivaraPI_5_0,
         });
-        bounds_group.addLayer(layer_CorredorEcolgicoConfusesSerradaCapivaraPI_4);
-        function pop_UnidadesdeConservaoEstadualPI_5(feature, layer) {
+        bounds_group.addLayer(layer_CorredorEcolgicoConfusesSerradaCapivaraPI_5);
+        function pop_UnidadesdeConservaoEstadualPI_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">nome</th>\
@@ -339,9 +552,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_UnidadesdeConservaoEstadualPI_5_0() {
+        function style_UnidadesdeConservaoEstadualPI_6_0() {
             return {
-                pane: 'pane_UnidadesdeConservaoEstadualPI_5',
+                pane: 'pane_UnidadesdeConservaoEstadualPI_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -354,20 +567,20 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_UnidadesdeConservaoEstadualPI_5');
-        map.getPane('pane_UnidadesdeConservaoEstadualPI_5').style.zIndex = 405;
-        map.getPane('pane_UnidadesdeConservaoEstadualPI_5').style['mix-blend-mode'] = 'normal';
-        var layer_UnidadesdeConservaoEstadualPI_5 = new L.geoJson(null, {
+        map.createPane('pane_UnidadesdeConservaoEstadualPI_6');
+        map.getPane('pane_UnidadesdeConservaoEstadualPI_6').style.zIndex = 406;
+        map.getPane('pane_UnidadesdeConservaoEstadualPI_6').style['mix-blend-mode'] = 'normal';
+        var layer_UnidadesdeConservaoEstadualPI_6 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_UnidadesdeConservaoEstadualPI_5',
-            layerName: 'layer_UnidadesdeConservaoEstadualPI_5',
-            pane: 'pane_UnidadesdeConservaoEstadualPI_5',
-            onEachFeature: pop_UnidadesdeConservaoEstadualPI_5,
-            style: style_UnidadesdeConservaoEstadualPI_5_0,
+            dataVar: 'json_UnidadesdeConservaoEstadualPI_6',
+            layerName: 'layer_UnidadesdeConservaoEstadualPI_6',
+            pane: 'pane_UnidadesdeConservaoEstadualPI_6',
+            onEachFeature: pop_UnidadesdeConservaoEstadualPI_6,
+            style: style_UnidadesdeConservaoEstadualPI_6_0,
         });
-        bounds_group.addLayer(layer_UnidadesdeConservaoEstadualPI_5);
-        function pop_UnidadesdeConservaoFederalPIICMBIO2023_6(feature, layer) {
+        bounds_group.addLayer(layer_UnidadesdeConservaoEstadualPI_6);
+        function pop_UnidadesdeConservaoFederalPIICMBIO2023_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">NomeUC</th>\
@@ -414,9 +627,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_UnidadesdeConservaoFederalPIICMBIO2023_6_0() {
+        function style_UnidadesdeConservaoFederalPIICMBIO2023_7_0() {
             return {
-                pane: 'pane_UnidadesdeConservaoFederalPIICMBIO2023_6',
+                pane: 'pane_UnidadesdeConservaoFederalPIICMBIO2023_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -429,20 +642,20 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_UnidadesdeConservaoFederalPIICMBIO2023_6');
-        map.getPane('pane_UnidadesdeConservaoFederalPIICMBIO2023_6').style.zIndex = 406;
-        map.getPane('pane_UnidadesdeConservaoFederalPIICMBIO2023_6').style['mix-blend-mode'] = 'normal';
-        var layer_UnidadesdeConservaoFederalPIICMBIO2023_6 = new L.geoJson(null, {
+        map.createPane('pane_UnidadesdeConservaoFederalPIICMBIO2023_7');
+        map.getPane('pane_UnidadesdeConservaoFederalPIICMBIO2023_7').style.zIndex = 407;
+        map.getPane('pane_UnidadesdeConservaoFederalPIICMBIO2023_7').style['mix-blend-mode'] = 'normal';
+        var layer_UnidadesdeConservaoFederalPIICMBIO2023_7 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_UnidadesdeConservaoFederalPIICMBIO2023_6',
-            layerName: 'layer_UnidadesdeConservaoFederalPIICMBIO2023_6',
-            pane: 'pane_UnidadesdeConservaoFederalPIICMBIO2023_6',
-            onEachFeature: pop_UnidadesdeConservaoFederalPIICMBIO2023_6,
-            style: style_UnidadesdeConservaoFederalPIICMBIO2023_6_0,
+            dataVar: 'json_UnidadesdeConservaoFederalPIICMBIO2023_7',
+            layerName: 'layer_UnidadesdeConservaoFederalPIICMBIO2023_7',
+            pane: 'pane_UnidadesdeConservaoFederalPIICMBIO2023_7',
+            onEachFeature: pop_UnidadesdeConservaoFederalPIICMBIO2023_7,
+            style: style_UnidadesdeConservaoFederalPIICMBIO2023_7_0,
         });
-        bounds_group.addLayer(layer_UnidadesdeConservaoFederalPIICMBIO2023_6);
-        function pop_ZonadeAmortecimentodasUCsPI3Km_7(feature, layer) {
+        bounds_group.addLayer(layer_UnidadesdeConservaoFederalPIICMBIO2023_7);
+        function pop_ZonadeAmortecimentodasUCsPI3Km_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">nome</th>\
@@ -472,9 +685,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ZonadeAmortecimentodasUCsPI3Km_7_0() {
+        function style_ZonadeAmortecimentodasUCsPI3Km_8_0() {
             return {
-                pane: 'pane_ZonadeAmortecimentodasUCsPI3Km_7',
+                pane: 'pane_ZonadeAmortecimentodasUCsPI3Km_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -487,22 +700,63 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_ZonadeAmortecimentodasUCsPI3Km_7');
-        map.getPane('pane_ZonadeAmortecimentodasUCsPI3Km_7').style.zIndex = 407;
-        map.getPane('pane_ZonadeAmortecimentodasUCsPI3Km_7').style['mix-blend-mode'] = 'normal';
-        var layer_ZonadeAmortecimentodasUCsPI3Km_7 = new L.geoJson(null, {
+        map.createPane('pane_ZonadeAmortecimentodasUCsPI3Km_8');
+        map.getPane('pane_ZonadeAmortecimentodasUCsPI3Km_8').style.zIndex = 408;
+        map.getPane('pane_ZonadeAmortecimentodasUCsPI3Km_8').style['mix-blend-mode'] = 'normal';
+        var layer_ZonadeAmortecimentodasUCsPI3Km_8 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ZonadeAmortecimentodasUCsPI3Km_7',
-            layerName: 'layer_ZonadeAmortecimentodasUCsPI3Km_7',
-            pane: 'pane_ZonadeAmortecimentodasUCsPI3Km_7',
-            onEachFeature: pop_ZonadeAmortecimentodasUCsPI3Km_7,
-            style: style_ZonadeAmortecimentodasUCsPI3Km_7_0,
+            dataVar: 'json_ZonadeAmortecimentodasUCsPI3Km_8',
+            layerName: 'layer_ZonadeAmortecimentodasUCsPI3Km_8',
+            pane: 'pane_ZonadeAmortecimentodasUCsPI3Km_8',
+            onEachFeature: pop_ZonadeAmortecimentodasUCsPI3Km_8,
+            style: style_ZonadeAmortecimentodasUCsPI3Km_8_0,
         });
-        bounds_group.addLayer(layer_ZonadeAmortecimentodasUCsPI3Km_7);
-        function pop_LinhaImperial_8(feature, layer) {
+        bounds_group.addLayer(layer_ZonadeAmortecimentodasUCsPI3Km_8);
+        function pop_LinhaImperial_9(feature, layer) {
             var popupContent = '<table>\
-                    <tr><td colspan="2">Linha Imperial</td></tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['area_km'] !== null ? autolinker.link(String(feature.properties['area_km']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FID_area'] !== null ? autolinker.link(String(feature.properties['FID_area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPO'] !== null ? autolinker.link(String(feature.properties['TIPO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FID_TD_PI'] !== null ? autolinker.link(String(feature.properties['FID_TD_PI']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Terri_Dese'] !== null ? autolinker.link(String(feature.properties['Terri_Dese']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FID_diss'] !== null ? autolinker.link(String(feature.properties['FID_diss']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPO_1'] !== null ? autolinker.link(String(feature.properties['TIPO_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CD_UF'] !== null ? autolinker.link(String(feature.properties['CD_UF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NM_UF'] !== null ? autolinker.link(String(feature.properties['NM_UF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SIGLA_UF'] !== null ? autolinker.link(String(feature.properties['SIGLA_UF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NM_REGIAO'] !== null ? autolinker.link(String(feature.properties['NM_REGIAO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AREA_KM2'] !== null ? autolinker.link(String(feature.properties['AREA_KM2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(String(feature.properties['layer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['path'] !== null ? autolinker.link(String(feature.properties['path']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -511,9 +765,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_LinhaImperial_8_0() {
+        function style_LinhaImperial_9_0() {
             return {
-                pane: 'pane_LinhaImperial_8',
+                pane: 'pane_LinhaImperial_9',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -523,26 +777,40 @@ map.options.minZoom = map.getZoom();
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(203,180,125,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
-        map.createPane('pane_LinhaImperial_8');
-        map.getPane('pane_LinhaImperial_8').style.zIndex = 408;
-        map.getPane('pane_LinhaImperial_8').style['mix-blend-mode'] = 'normal';
-        var layer_LinhaImperial_8 = new L.geoJson(json_LinhaImperial_8, {
+        map.createPane('pane_LinhaImperial_9');
+        map.getPane('pane_LinhaImperial_9').style.zIndex = 409;
+        map.getPane('pane_LinhaImperial_9').style['mix-blend-mode'] = 'normal';
+        var layer_LinhaImperial_9 = new L.geoJson(json_LinhaImperial_9, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_LinhaImperial_8',
-            layerName: 'layer_LinhaImperial_8',
-            pane: 'pane_LinhaImperial_8',
-            onEachFeature: pop_LinhaImperial_8,
-            style: style_LinhaImperial_8_0,
+            interactive: false,
+            dataVar: 'json_LinhaImperial_9',
+            layerName: 'layer_LinhaImperial_9',
+            pane: 'pane_LinhaImperial_9',
+            onEachFeature: pop_LinhaImperial_9,
+            style: style_LinhaImperial_9_0,
         });
-        bounds_group.addLayer(layer_LinhaImperial_8);
-        map.addLayer(layer_LinhaImperial_8);
-        function pop_reaLitgio_9(feature, layer) {
+        bounds_group.addLayer(layer_LinhaImperial_9);
+        map.addLayer(layer_LinhaImperial_9);
+        function pop_reaLitgio_10(feature, layer) {
             var popupContent = '<table>\
-                    <tr><td colspan="2">Área de Litígio</td></tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPO'] !== null ? autolinker.link(String(feature.properties['TIPO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FID_TD_PI'] !== null ? autolinker.link(String(feature.properties['FID_TD_PI']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Terri_Dese'] !== null ? autolinker.link(String(feature.properties['Terri_Dese']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FID_diss'] !== null ? autolinker.link(String(feature.properties['FID_diss']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPO_1'] !== null ? autolinker.link(String(feature.properties['TIPO_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -551,9 +819,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_reaLitgio_9_0() {
+        function style_reaLitgio_10_0() {
             return {
-                pane: 'pane_reaLitgio_9',
+                pane: 'pane_reaLitgio_10',
                 opacity: 1,
                 color: 'rgba(247,247,247,1.0)',
                 dashArray: '',
@@ -563,40 +831,40 @@ map.options.minZoom = map.getZoom();
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(150,150,150,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
-        map.createPane('pane_reaLitgio_9');
-        map.getPane('pane_reaLitgio_9').style.zIndex = 409;
-        map.getPane('pane_reaLitgio_9').style['mix-blend-mode'] = 'normal';
-        var layer_reaLitgio_9 = new L.geoJson(json_reaLitgio_9, {
+        map.createPane('pane_reaLitgio_10');
+        map.getPane('pane_reaLitgio_10').style.zIndex = 410;
+        map.getPane('pane_reaLitgio_10').style['mix-blend-mode'] = 'normal';
+        var layer_reaLitgio_10 = new L.geoJson(json_reaLitgio_10, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_reaLitgio_9',
-            layerName: 'layer_reaLitgio_9',
-            pane: 'pane_reaLitgio_9',
-            onEachFeature: pop_reaLitgio_9,
-            style: style_reaLitgio_9_0,
+            interactive: false,
+            dataVar: 'json_reaLitgio_10',
+            layerName: 'layer_reaLitgio_10',
+            pane: 'pane_reaLitgio_10',
+            onEachFeature: pop_reaLitgio_10,
+            style: style_reaLitgio_10_0,
         });
-        bounds_group.addLayer(layer_reaLitgio_9);
-        map.addLayer(layer_reaLitgio_9);
-        map.createPane('pane_Velocidadedosventosms100m_10');
-        map.getPane('pane_Velocidadedosventosms100m_10').style.zIndex = 410;
-        var img_Velocidadedosventosms100m_10 = 'data/Velocidadedosventosms100m_10.png';
-        var img_bounds_Velocidadedosventosms100m_10 = [[-10.928756349,-46.028206791],[-2.749752555,-40.370509762]];
-        var layer_Velocidadedosventosms100m_10 = new L.imageOverlay(img_Velocidadedosventosms100m_10,
-                                              img_bounds_Velocidadedosventosms100m_10,
-                                              {pane: 'pane_Velocidadedosventosms100m_10'});
-        bounds_group.addLayer(layer_Velocidadedosventosms100m_10);
-        map.createPane('pane_IrradiaoSolarAnualinclinado10Whmdia_11');
-        map.getPane('pane_IrradiaoSolarAnualinclinado10Whmdia_11').style.zIndex = 411;
-        var img_IrradiaoSolarAnualinclinado10Whmdia_11 = 'data/IrradiaoSolarAnualinclinado10Whmdia_11.png';
-        var img_bounds_IrradiaoSolarAnualinclinado10Whmdia_11 = [[-10.93,-46.03],[-2.74,-40.37]];
-        var layer_IrradiaoSolarAnualinclinado10Whmdia_11 = new L.imageOverlay(img_IrradiaoSolarAnualinclinado10Whmdia_11,
-                                              img_bounds_IrradiaoSolarAnualinclinado10Whmdia_11,
-                                              {pane: 'pane_IrradiaoSolarAnualinclinado10Whmdia_11'});
-        bounds_group.addLayer(layer_IrradiaoSolarAnualinclinado10Whmdia_11);
-        function pop_DGC_12(feature, layer) {
+        bounds_group.addLayer(layer_reaLitgio_10);
+        map.addLayer(layer_reaLitgio_10);
+        map.createPane('pane_Velocidadedosventosms100m_11');
+        map.getPane('pane_Velocidadedosventosms100m_11').style.zIndex = 411;
+        var img_Velocidadedosventosms100m_11 = 'data/Velocidadedosventosms100m_11.png';
+        var img_bounds_Velocidadedosventosms100m_11 = [[-10.928756349,-46.028206791],[-2.749752555,-40.370509762]];
+        var layer_Velocidadedosventosms100m_11 = new L.imageOverlay(img_Velocidadedosventosms100m_11,
+                                              img_bounds_Velocidadedosventosms100m_11,
+                                              {pane: 'pane_Velocidadedosventosms100m_11'});
+        bounds_group.addLayer(layer_Velocidadedosventosms100m_11);
+        map.createPane('pane_IrradiaoSolarAnualinclinado10Whmdia_12');
+        map.getPane('pane_IrradiaoSolarAnualinclinado10Whmdia_12').style.zIndex = 412;
+        var img_IrradiaoSolarAnualinclinado10Whmdia_12 = 'data/IrradiaoSolarAnualinclinado10Whmdia_12.png';
+        var img_bounds_IrradiaoSolarAnualinclinado10Whmdia_12 = [[-10.93,-46.03],[-2.74,-40.37]];
+        var layer_IrradiaoSolarAnualinclinado10Whmdia_12 = new L.imageOverlay(img_IrradiaoSolarAnualinclinado10Whmdia_12,
+                                              img_bounds_IrradiaoSolarAnualinclinado10Whmdia_12,
+                                              {pane: 'pane_IrradiaoSolarAnualinclinado10Whmdia_12'});
+        bounds_group.addLayer(layer_IrradiaoSolarAnualinclinado10Whmdia_12);
+        function pop_DGC_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -624,10 +892,10 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_DGC_12_0(feature) {
+        function style_DGC_13_0(feature) {
             if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.492395 && feature.properties['DEF_FEC_DGC_DGC'] <= 0.600000 ) {
                 return {
-                pane: 'pane_DGC_12',
+                pane: 'pane_DGC_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -642,7 +910,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.600000 && feature.properties['DEF_FEC_DGC_DGC'] <= 0.800000 ) {
                 return {
-                pane: 'pane_DGC_12',
+                pane: 'pane_DGC_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -657,7 +925,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DGC'] >= 0.800000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.000000 ) {
                 return {
-                pane: 'pane_DGC_12',
+                pane: 'pane_DGC_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -672,7 +940,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.000000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.200000 ) {
                 return {
-                pane: 'pane_DGC_12',
+                pane: 'pane_DGC_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -687,7 +955,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.200000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.400000 ) {
                 return {
-                pane: 'pane_DGC_12',
+                pane: 'pane_DGC_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -702,7 +970,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.400000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.600000 ) {
                 return {
-                pane: 'pane_DGC_12',
+                pane: 'pane_DGC_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -717,7 +985,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.600000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.800000 ) {
                 return {
-                pane: 'pane_DGC_12',
+                pane: 'pane_DGC_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -732,7 +1000,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DGC'] >= 1.800000 && feature.properties['DEF_FEC_DGC_DGC'] <= 1.810000 ) {
                 return {
-                pane: 'pane_DGC_12',
+                pane: 'pane_DGC_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -746,20 +1014,20 @@ map.options.minZoom = map.getZoom();
             }
             }
         }
-        map.createPane('pane_DGC_12');
-        map.getPane('pane_DGC_12').style.zIndex = 412;
-        map.getPane('pane_DGC_12').style['mix-blend-mode'] = 'normal';
-        var layer_DGC_12 = new L.geoJson(null, {
+        map.createPane('pane_DGC_13');
+        map.getPane('pane_DGC_13').style.zIndex = 413;
+        map.getPane('pane_DGC_13').style['mix-blend-mode'] = 'normal';
+        var layer_DGC_13 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DGC_12',
-            layerName: 'layer_DGC_12',
-            pane: 'pane_DGC_12',
-            onEachFeature: pop_DGC_12,
-            style: style_DGC_12_0,
+            dataVar: 'json_DGC_13',
+            layerName: 'layer_DGC_13',
+            pane: 'pane_DGC_13',
+            onEachFeature: pop_DGC_13,
+            style: style_DGC_13_0,
         });
-        bounds_group.addLayer(layer_DGC_12);
-        function pop_DECapuradoanual_13(feature, layer) {
+        bounds_group.addLayer(layer_DGC_13);
+        function pop_DECapuradoanual_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -787,10 +1055,10 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_DECapuradoanual_13_0(feature) {
+        function style_DECapuradoanual_14_0(feature) {
             if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 7.805341 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 10.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_13',
+                pane: 'pane_DECapuradoanual_14',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -805,7 +1073,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 20.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_13',
+                pane: 'pane_DECapuradoanual_14',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -820,7 +1088,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 30.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_13',
+                pane: 'pane_DECapuradoanual_14',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -835,7 +1103,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 30.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 40.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_13',
+                pane: 'pane_DECapuradoanual_14',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -850,7 +1118,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 40.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 50.000000 ) {
                 return {
-                pane: 'pane_DECapuradoanual_13',
+                pane: 'pane_DECapuradoanual_14',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -865,7 +1133,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DECApuradoAnual'] >= 50.000000 && feature.properties['DEF_FEC_DGC_DECApuradoAnual'] <= 54.878720 ) {
                 return {
-                pane: 'pane_DECapuradoanual_13',
+                pane: 'pane_DECapuradoanual_14',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -879,20 +1147,20 @@ map.options.minZoom = map.getZoom();
             }
             }
         }
-        map.createPane('pane_DECapuradoanual_13');
-        map.getPane('pane_DECapuradoanual_13').style.zIndex = 413;
-        map.getPane('pane_DECapuradoanual_13').style['mix-blend-mode'] = 'normal';
-        var layer_DECapuradoanual_13 = new L.geoJson(null, {
+        map.createPane('pane_DECapuradoanual_14');
+        map.getPane('pane_DECapuradoanual_14').style.zIndex = 414;
+        map.getPane('pane_DECapuradoanual_14').style['mix-blend-mode'] = 'normal';
+        var layer_DECapuradoanual_14 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DECapuradoanual_13',
-            layerName: 'layer_DECapuradoanual_13',
-            pane: 'pane_DECapuradoanual_13',
-            onEachFeature: pop_DECapuradoanual_13,
-            style: style_DECapuradoanual_13_0,
+            dataVar: 'json_DECapuradoanual_14',
+            layerName: 'layer_DECapuradoanual_14',
+            pane: 'pane_DECapuradoanual_14',
+            onEachFeature: pop_DECapuradoanual_14,
+            style: style_DECapuradoanual_14_0,
         });
-        bounds_group.addLayer(layer_DECapuradoanual_13);
-        function pop_DEClimiteanual_14(feature, layer) {
+        bounds_group.addLayer(layer_DECapuradoanual_14);
+        function pop_DEClimiteanual_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -924,10 +1192,10 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_DEClimiteanual_14_0(feature) {
+        function style_DEClimiteanual_15_0(feature) {
             if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 15.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_14',
+                pane: 'pane_DEClimiteanual_15',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -942,7 +1210,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 20.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_14',
+                pane: 'pane_DEClimiteanual_15',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -957,7 +1225,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 25.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_14',
+                pane: 'pane_DEClimiteanual_15',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -972,7 +1240,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 25.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 30.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_14',
+                pane: 'pane_DEClimiteanual_15',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -987,7 +1255,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_DECLimiteAnual'] >= 30.000000 && feature.properties['DEF_FEC_DGC_DECLimiteAnual'] <= 32.000000 ) {
                 return {
-                pane: 'pane_DEClimiteanual_14',
+                pane: 'pane_DEClimiteanual_15',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1001,20 +1269,20 @@ map.options.minZoom = map.getZoom();
             }
             }
         }
-        map.createPane('pane_DEClimiteanual_14');
-        map.getPane('pane_DEClimiteanual_14').style.zIndex = 414;
-        map.getPane('pane_DEClimiteanual_14').style['mix-blend-mode'] = 'normal';
-        var layer_DEClimiteanual_14 = new L.geoJson(null, {
+        map.createPane('pane_DEClimiteanual_15');
+        map.getPane('pane_DEClimiteanual_15').style.zIndex = 415;
+        map.getPane('pane_DEClimiteanual_15').style['mix-blend-mode'] = 'normal';
+        var layer_DEClimiteanual_15 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DEClimiteanual_14',
-            layerName: 'layer_DEClimiteanual_14',
-            pane: 'pane_DEClimiteanual_14',
-            onEachFeature: pop_DEClimiteanual_14,
-            style: style_DEClimiteanual_14_0,
+            dataVar: 'json_DEClimiteanual_15',
+            layerName: 'layer_DEClimiteanual_15',
+            pane: 'pane_DEClimiteanual_15',
+            onEachFeature: pop_DEClimiteanual_15,
+            style: style_DEClimiteanual_15_0,
         });
-        bounds_group.addLayer(layer_DEClimiteanual_14);
-        function pop_FECapuradoanual_15(feature, layer) {
+        bounds_group.addLayer(layer_DEClimiteanual_15);
+        function pop_FECapuradoanual_16(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1042,10 +1310,10 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FECapuradoanual_15_0(feature) {
+        function style_FECapuradoanual_16_0(feature) {
             if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 3.204838 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 5.000000 ) {
                 return {
-                pane: 'pane_FECapuradoanual_15',
+                pane: 'pane_FECapuradoanual_16',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1060,7 +1328,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 5.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 10.000000 ) {
                 return {
-                pane: 'pane_FECapuradoanual_15',
+                pane: 'pane_FECapuradoanual_16',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1075,7 +1343,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 15.000000 ) {
                 return {
-                pane: 'pane_FECapuradoanual_15',
+                pane: 'pane_FECapuradoanual_16',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1090,7 +1358,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_FECApuradoAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_FECApuradoAnual'] <= 19.881072 ) {
                 return {
-                pane: 'pane_FECapuradoanual_15',
+                pane: 'pane_FECapuradoanual_16',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1104,20 +1372,20 @@ map.options.minZoom = map.getZoom();
             }
             }
         }
-        map.createPane('pane_FECapuradoanual_15');
-        map.getPane('pane_FECapuradoanual_15').style.zIndex = 415;
-        map.getPane('pane_FECapuradoanual_15').style['mix-blend-mode'] = 'normal';
-        var layer_FECapuradoanual_15 = new L.geoJson(null, {
+        map.createPane('pane_FECapuradoanual_16');
+        map.getPane('pane_FECapuradoanual_16').style.zIndex = 416;
+        map.getPane('pane_FECapuradoanual_16').style['mix-blend-mode'] = 'normal';
+        var layer_FECapuradoanual_16 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FECapuradoanual_15',
-            layerName: 'layer_FECapuradoanual_15',
-            pane: 'pane_FECapuradoanual_15',
-            onEachFeature: pop_FECapuradoanual_15,
-            style: style_FECapuradoanual_15_0,
+            dataVar: 'json_FECapuradoanual_16',
+            layerName: 'layer_FECapuradoanual_16',
+            pane: 'pane_FECapuradoanual_16',
+            onEachFeature: pop_FECapuradoanual_16,
+            style: style_FECapuradoanual_16_0,
         });
-        bounds_group.addLayer(layer_FECapuradoanual_15);
-        function pop_FEClimiteanual_16(feature, layer) {
+        bounds_group.addLayer(layer_FECapuradoanual_16);
+        function pop_FEClimiteanual_17(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NOME" colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1148,10 +1416,10 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FEClimiteanual_16_0(feature) {
+        function style_FEClimiteanual_17_0(feature) {
             if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 6.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 10.000000 ) {
                 return {
-                pane: 'pane_FEClimiteanual_16',
+                pane: 'pane_FEClimiteanual_17',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1166,7 +1434,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 10.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 15.000000 ) {
                 return {
-                pane: 'pane_FEClimiteanual_16',
+                pane: 'pane_FEClimiteanual_17',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1181,7 +1449,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 15.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 20.000000 ) {
                 return {
-                pane: 'pane_FEClimiteanual_16',
+                pane: 'pane_FEClimiteanual_17',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1196,7 +1464,7 @@ map.options.minZoom = map.getZoom();
             }
             if (feature.properties['DEF_FEC_DGC_FECLimiteAnual'] >= 20.000000 && feature.properties['DEF_FEC_DGC_FECLimiteAnual'] <= 24.000000 ) {
                 return {
-                pane: 'pane_FEClimiteanual_16',
+                pane: 'pane_FEClimiteanual_17',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1210,20 +1478,20 @@ map.options.minZoom = map.getZoom();
             }
             }
         }
-        map.createPane('pane_FEClimiteanual_16');
-        map.getPane('pane_FEClimiteanual_16').style.zIndex = 416;
-        map.getPane('pane_FEClimiteanual_16').style['mix-blend-mode'] = 'normal';
-        var layer_FEClimiteanual_16 = new L.geoJson(null, {
+        map.createPane('pane_FEClimiteanual_17');
+        map.getPane('pane_FEClimiteanual_17').style.zIndex = 417;
+        map.getPane('pane_FEClimiteanual_17').style['mix-blend-mode'] = 'normal';
+        var layer_FEClimiteanual_17 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FEClimiteanual_16',
-            layerName: 'layer_FEClimiteanual_16',
-            pane: 'pane_FEClimiteanual_16',
-            onEachFeature: pop_FEClimiteanual_16,
-            style: style_FEClimiteanual_16_0,
+            dataVar: 'json_FEClimiteanual_17',
+            layerName: 'layer_FEClimiteanual_17',
+            pane: 'pane_FEClimiteanual_17',
+            onEachFeature: pop_FEClimiteanual_17,
+            style: style_FEClimiteanual_17_0,
         });
-        bounds_group.addLayer(layer_FEClimiteanual_16);
-        function pop_OperacaoSolar_17(feature, layer) {
+        bounds_group.addLayer(layer_FEClimiteanual_17);
+        function pop_OperacaoSolar_18(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Empreendim" colspan="2"><strong>Empreendim</strong><br />' + (feature.properties['Empreendim'] !== null ? autolinker.link(String(feature.properties['Empreendim']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1254,38 +1522,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperacaoSolar_17_0() {
+        function style_OperacaoSolar_18_0() {
             return {
-                pane: 'pane_OperacaoSolar_17',
+                pane: 'pane_OperacaoSolar_18',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperacaoSolar_17.svg',
+            iconUrl: 'markers/OperacaoSolar_18.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperacaoSolar_17');
-        map.getPane('pane_OperacaoSolar_17').style.zIndex = 417;
-        map.getPane('pane_OperacaoSolar_17').style['mix-blend-mode'] = 'normal';
-        var layer_OperacaoSolar_17 = new L.geoJson(null, {
+        map.createPane('pane_OperacaoSolar_18');
+        map.getPane('pane_OperacaoSolar_18').style.zIndex = 418;
+        map.getPane('pane_OperacaoSolar_18').style['mix-blend-mode'] = 'normal';
+        var layer_OperacaoSolar_18 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperacaoSolar_17',
-            layerName: 'layer_OperacaoSolar_17',
-            pane: 'pane_OperacaoSolar_17',
-            onEachFeature: pop_OperacaoSolar_17,
+            dataVar: 'json_OperacaoSolar_18',
+            layerName: 'layer_OperacaoSolar_18',
+            pane: 'pane_OperacaoSolar_18',
+            onEachFeature: pop_OperacaoSolar_18,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperacaoSolar_17_0(feature));
+                return L.marker(latlng, style_OperacaoSolar_18_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperacaoSolar_17);
-        function pop_OperaoHdrica_18(feature, layer) {
+        bounds_group.addLayer(layer_OperacaoSolar_18);
+        function pop_OperaoHdrica_19(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1322,38 +1590,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperaoHdrica_18_0() {
+        function style_OperaoHdrica_19_0() {
             return {
-                pane: 'pane_OperaoHdrica_18',
+                pane: 'pane_OperaoHdrica_19',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperaoHdrica_18.svg',
+            iconUrl: 'markers/OperaoHdrica_19.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperaoHdrica_18');
-        map.getPane('pane_OperaoHdrica_18').style.zIndex = 418;
-        map.getPane('pane_OperaoHdrica_18').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoHdrica_18 = new L.geoJson(null, {
+        map.createPane('pane_OperaoHdrica_19');
+        map.getPane('pane_OperaoHdrica_19').style.zIndex = 419;
+        map.getPane('pane_OperaoHdrica_19').style['mix-blend-mode'] = 'normal';
+        var layer_OperaoHdrica_19 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperaoHdrica_18',
-            layerName: 'layer_OperaoHdrica_18',
-            pane: 'pane_OperaoHdrica_18',
-            onEachFeature: pop_OperaoHdrica_18,
+            dataVar: 'json_OperaoHdrica_19',
+            layerName: 'layer_OperaoHdrica_19',
+            pane: 'pane_OperaoHdrica_19',
+            onEachFeature: pop_OperaoHdrica_19,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperaoHdrica_18_0(feature));
+                return L.marker(latlng, style_OperaoHdrica_19_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperaoHdrica_18);
-        function pop_OperaoFssil_19(feature, layer) {
+        bounds_group.addLayer(layer_OperaoHdrica_19);
+        function pop_OperaoFssil_20(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1390,38 +1658,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperaoFssil_19_0() {
+        function style_OperaoFssil_20_0() {
             return {
-                pane: 'pane_OperaoFssil_19',
+                pane: 'pane_OperaoFssil_20',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperaoFssil_19.svg',
+            iconUrl: 'markers/OperaoFssil_20.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperaoFssil_19');
-        map.getPane('pane_OperaoFssil_19').style.zIndex = 419;
-        map.getPane('pane_OperaoFssil_19').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoFssil_19 = new L.geoJson(null, {
+        map.createPane('pane_OperaoFssil_20');
+        map.getPane('pane_OperaoFssil_20').style.zIndex = 420;
+        map.getPane('pane_OperaoFssil_20').style['mix-blend-mode'] = 'normal';
+        var layer_OperaoFssil_20 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperaoFssil_19',
-            layerName: 'layer_OperaoFssil_19',
-            pane: 'pane_OperaoFssil_19',
-            onEachFeature: pop_OperaoFssil_19,
+            dataVar: 'json_OperaoFssil_20',
+            layerName: 'layer_OperaoFssil_20',
+            pane: 'pane_OperaoFssil_20',
+            onEachFeature: pop_OperaoFssil_20,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperaoFssil_19_0(feature));
+                return L.marker(latlng, style_OperaoFssil_20_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperaoFssil_19);
-        function pop_OperaoElica_20(feature, layer) {
+        bounds_group.addLayer(layer_OperaoFssil_20);
+        function pop_OperaoElica_21(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1458,38 +1726,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperaoElica_20_0() {
+        function style_OperaoElica_21_0() {
             return {
-                pane: 'pane_OperaoElica_20',
+                pane: 'pane_OperaoElica_21',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperaoElica_20.svg',
+            iconUrl: 'markers/OperaoElica_21.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperaoElica_20');
-        map.getPane('pane_OperaoElica_20').style.zIndex = 420;
-        map.getPane('pane_OperaoElica_20').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoElica_20 = new L.geoJson(null, {
+        map.createPane('pane_OperaoElica_21');
+        map.getPane('pane_OperaoElica_21').style.zIndex = 421;
+        map.getPane('pane_OperaoElica_21').style['mix-blend-mode'] = 'normal';
+        var layer_OperaoElica_21 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperaoElica_20',
-            layerName: 'layer_OperaoElica_20',
-            pane: 'pane_OperaoElica_20',
-            onEachFeature: pop_OperaoElica_20,
+            dataVar: 'json_OperaoElica_21',
+            layerName: 'layer_OperaoElica_21',
+            pane: 'pane_OperaoElica_21',
+            onEachFeature: pop_OperaoElica_21,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperaoElica_20_0(feature));
+                return L.marker(latlng, style_OperaoElica_21_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperaoElica_20);
-        function pop_OperaoBiomassa_21(feature, layer) {
+        bounds_group.addLayer(layer_OperaoElica_21);
+        function pop_OperaoBiomassa_22(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1526,177 +1794,38 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_OperaoBiomassa_21_0() {
+        function style_OperaoBiomassa_22_0() {
             return {
-                pane: 'pane_OperaoBiomassa_21',
+                pane: 'pane_OperaoBiomassa_22',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/OperaoBiomassa_21.svg',
+            iconUrl: 'markers/OperaoBiomassa_22.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_OperaoBiomassa_21');
-        map.getPane('pane_OperaoBiomassa_21').style.zIndex = 421;
-        map.getPane('pane_OperaoBiomassa_21').style['mix-blend-mode'] = 'normal';
-        var layer_OperaoBiomassa_21 = new L.geoJson(null, {
+        map.createPane('pane_OperaoBiomassa_22');
+        map.getPane('pane_OperaoBiomassa_22').style.zIndex = 422;
+        map.getPane('pane_OperaoBiomassa_22').style['mix-blend-mode'] = 'normal';
+        var layer_OperaoBiomassa_22 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OperaoBiomassa_21',
-            layerName: 'layer_OperaoBiomassa_21',
-            pane: 'pane_OperaoBiomassa_21',
-            onEachFeature: pop_OperaoBiomassa_21,
+            dataVar: 'json_OperaoBiomassa_22',
+            layerName: 'layer_OperaoBiomassa_22',
+            pane: 'pane_OperaoBiomassa_22',
+            onEachFeature: pop_OperaoBiomassa_22,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_OperaoBiomassa_21_0(feature));
+                return L.marker(latlng, style_OperaoBiomassa_22_0(feature));
             },
         });
-        bounds_group.addLayer(layer_OperaoBiomassa_21);
-        function pop_ConstruonoiniciadaElica_22(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>CEG</strong><br />' + (feature.properties['CEG'] !== null ? autolinker.link(String(feature.properties['CEG']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Fase</strong><br />' + (feature.properties['Fase'] !== null ? autolinker.link(String(feature.properties['Fase']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Entrada em Operação</strong><br />' + (feature.properties['Entrada em Operação'] !== null ? autolinker.link(String(feature.properties['Entrada em Operação']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Potência Outorgada (kW)</strong><br />' + (feature.properties['Potência Outorgada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Outorgada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Potência Fiscalizada (kW)</strong><br />' + (feature.properties['Potência Fiscalizada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Fiscalizada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Latitude Decimal</strong><br />' + (feature.properties['Latitude Decimal'] !== null ? autolinker.link(String(feature.properties['Latitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Longitude Decimal</strong><br />' + (feature.properties['Longitude Decimal'] !== null ? autolinker.link(String(feature.properties['Longitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Município (s)</strong><br />' + (feature.properties['Município (s)'] !== null ? autolinker.link(String(feature.properties['Município (s)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Município-chave</strong><br />' + (feature.properties['Município-chave'] !== null ? autolinker.link(String(feature.properties['Município-chave']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_ConstruonoiniciadaElica_22_0() {
-            return {
-                pane: 'pane_ConstruonoiniciadaElica_22',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/ConstruonoiniciadaElica_22.svg',
-            iconSize: [19.0, 19.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_ConstruonoiniciadaElica_22');
-        map.getPane('pane_ConstruonoiniciadaElica_22').style.zIndex = 422;
-        map.getPane('pane_ConstruonoiniciadaElica_22').style['mix-blend-mode'] = 'normal';
-        var layer_ConstruonoiniciadaElica_22 = new L.geoJson(null, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_ConstruonoiniciadaElica_22',
-            layerName: 'layer_ConstruonoiniciadaElica_22',
-            pane: 'pane_ConstruonoiniciadaElica_22',
-            onEachFeature: pop_ConstruonoiniciadaElica_22,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_ConstruonoiniciadaElica_22_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_ConstruonoiniciadaElica_22);
-        function pop_ConstruonoiniciadaSolar_23(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Fase</strong><br />' + (feature.properties['Fase'] !== null ? autolinker.link(String(feature.properties['Fase']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Entrada em Operação</strong><br />' + (feature.properties['Entrada em Operação'] !== null ? autolinker.link(String(feature.properties['Entrada em Operação']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Potência Outorgada (kW)</strong><br />' + (feature.properties['Potência Outorgada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Outorgada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Potência Fiscalizada (kW)</strong><br />' + (feature.properties['Potência Fiscalizada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Fiscalizada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Latitude Decimal</strong><br />' + (feature.properties['Latitude Decimal'] !== null ? autolinker.link(String(feature.properties['Latitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Longitude Decimal</strong><br />' + (feature.properties['Longitude Decimal'] !== null ? autolinker.link(String(feature.properties['Longitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Município (s)</strong><br />' + (feature.properties['Município (s)'] !== null ? autolinker.link(String(feature.properties['Município (s)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Município-chave</strong><br />' + (feature.properties['Município-chave'] !== null ? autolinker.link(String(feature.properties['Município-chave']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_ConstruonoiniciadaSolar_23_0() {
-            return {
-                pane: 'pane_ConstruonoiniciadaSolar_23',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/ConstruonoiniciadaSolar_23.svg',
-            iconSize: [19.0, 19.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_ConstruonoiniciadaSolar_23');
-        map.getPane('pane_ConstruonoiniciadaSolar_23').style.zIndex = 423;
-        map.getPane('pane_ConstruonoiniciadaSolar_23').style['mix-blend-mode'] = 'normal';
-        var layer_ConstruonoiniciadaSolar_23 = new L.geoJson(null, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_ConstruonoiniciadaSolar_23',
-            layerName: 'layer_ConstruonoiniciadaSolar_23',
-            pane: 'pane_ConstruonoiniciadaSolar_23',
-            onEachFeature: pop_ConstruonoiniciadaSolar_23,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_ConstruonoiniciadaSolar_23_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_ConstruonoiniciadaSolar_23);
-        function pop_ConstruoSolar_24(feature, layer) {
+        bounds_group.addLayer(layer_OperaoBiomassa_22);
+        function pop_ConstruonoiniciadaElica_23(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1736,38 +1865,177 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ConstruoSolar_24_0() {
+        function style_ConstruonoiniciadaElica_23_0() {
             return {
-                pane: 'pane_ConstruoSolar_24',
+                pane: 'pane_ConstruonoiniciadaElica_23',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/ConstruoSolar_24.svg',
+            iconUrl: 'markers/ConstruonoiniciadaElica_23.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_ConstruoSolar_24');
-        map.getPane('pane_ConstruoSolar_24').style.zIndex = 424;
-        map.getPane('pane_ConstruoSolar_24').style['mix-blend-mode'] = 'normal';
-        var layer_ConstruoSolar_24 = new L.geoJson(null, {
+        map.createPane('pane_ConstruonoiniciadaElica_23');
+        map.getPane('pane_ConstruonoiniciadaElica_23').style.zIndex = 423;
+        map.getPane('pane_ConstruonoiniciadaElica_23').style['mix-blend-mode'] = 'normal';
+        var layer_ConstruonoiniciadaElica_23 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ConstruoSolar_24',
-            layerName: 'layer_ConstruoSolar_24',
-            pane: 'pane_ConstruoSolar_24',
-            onEachFeature: pop_ConstruoSolar_24,
+            dataVar: 'json_ConstruonoiniciadaElica_23',
+            layerName: 'layer_ConstruonoiniciadaElica_23',
+            pane: 'pane_ConstruonoiniciadaElica_23',
+            onEachFeature: pop_ConstruonoiniciadaElica_23,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_ConstruoSolar_24_0(feature));
+                return L.marker(latlng, style_ConstruonoiniciadaElica_23_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ConstruoSolar_24);
-        function pop_EmpreendimentosInfraplanejado_25(feature, layer) {
+        bounds_group.addLayer(layer_ConstruonoiniciadaElica_23);
+        function pop_ConstruonoiniciadaSolar_24(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Fase</strong><br />' + (feature.properties['Fase'] !== null ? autolinker.link(String(feature.properties['Fase']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Entrada em Operação</strong><br />' + (feature.properties['Entrada em Operação'] !== null ? autolinker.link(String(feature.properties['Entrada em Operação']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Potência Outorgada (kW)</strong><br />' + (feature.properties['Potência Outorgada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Outorgada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Potência Fiscalizada (kW)</strong><br />' + (feature.properties['Potência Fiscalizada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Fiscalizada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Latitude Decimal</strong><br />' + (feature.properties['Latitude Decimal'] !== null ? autolinker.link(String(feature.properties['Latitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Longitude Decimal</strong><br />' + (feature.properties['Longitude Decimal'] !== null ? autolinker.link(String(feature.properties['Longitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Município (s)</strong><br />' + (feature.properties['Município (s)'] !== null ? autolinker.link(String(feature.properties['Município (s)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Município-chave</strong><br />' + (feature.properties['Município-chave'] !== null ? autolinker.link(String(feature.properties['Município-chave']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ConstruonoiniciadaSolar_24_0() {
+            return {
+                pane: 'pane_ConstruonoiniciadaSolar_24',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/ConstruonoiniciadaSolar_24.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ConstruonoiniciadaSolar_24');
+        map.getPane('pane_ConstruonoiniciadaSolar_24').style.zIndex = 424;
+        map.getPane('pane_ConstruonoiniciadaSolar_24').style['mix-blend-mode'] = 'normal';
+        var layer_ConstruonoiniciadaSolar_24 = new L.geoJson(null, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ConstruonoiniciadaSolar_24',
+            layerName: 'layer_ConstruonoiniciadaSolar_24',
+            pane: 'pane_ConstruonoiniciadaSolar_24',
+            onEachFeature: pop_ConstruonoiniciadaSolar_24,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_ConstruonoiniciadaSolar_24_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ConstruonoiniciadaSolar_24);
+        function pop_ConstruoSolar_25(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Empreendimento</strong><br />' + (feature.properties['Empreendimento'] !== null ? autolinker.link(String(feature.properties['Empreendimento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CEG</strong><br />' + (feature.properties['CEG'] !== null ? autolinker.link(String(feature.properties['CEG']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Fase</strong><br />' + (feature.properties['Fase'] !== null ? autolinker.link(String(feature.properties['Fase']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Entrada em Operação</strong><br />' + (feature.properties['Entrada em Operação'] !== null ? autolinker.link(String(feature.properties['Entrada em Operação']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Potência Outorgada (kW)</strong><br />' + (feature.properties['Potência Outorgada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Outorgada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Potência Fiscalizada (kW)</strong><br />' + (feature.properties['Potência Fiscalizada (kW)'] !== null ? autolinker.link(String(feature.properties['Potência Fiscalizada (kW)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Latitude Decimal</strong><br />' + (feature.properties['Latitude Decimal'] !== null ? autolinker.link(String(feature.properties['Latitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Longitude Decimal</strong><br />' + (feature.properties['Longitude Decimal'] !== null ? autolinker.link(String(feature.properties['Longitude Decimal']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Município (s)</strong><br />' + (feature.properties['Município (s)'] !== null ? autolinker.link(String(feature.properties['Município (s)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Município-chave</strong><br />' + (feature.properties['Município-chave'] !== null ? autolinker.link(String(feature.properties['Município-chave']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ConstruoSolar_25_0() {
+            return {
+                pane: 'pane_ConstruoSolar_25',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/ConstruoSolar_25.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ConstruoSolar_25');
+        map.getPane('pane_ConstruoSolar_25').style.zIndex = 425;
+        map.getPane('pane_ConstruoSolar_25').style['mix-blend-mode'] = 'normal';
+        var layer_ConstruoSolar_25 = new L.geoJson(null, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ConstruoSolar_25',
+            layerName: 'layer_ConstruoSolar_25',
+            pane: 'pane_ConstruoSolar_25',
+            onEachFeature: pop_ConstruoSolar_25,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_ConstruoSolar_25_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ConstruoSolar_25);
+        function pop_EmpreendimentosInfraplanejado_26(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Empreendimento</th>\
@@ -1793,9 +2061,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EmpreendimentosInfraplanejado_25_0() {
+        function style_EmpreendimentosInfraplanejado_26_0() {
             return {
-                pane: 'pane_EmpreendimentosInfraplanejado_25',
+                pane: 'pane_EmpreendimentosInfraplanejado_26',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1809,26 +2077,26 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_EmpreendimentosInfraplanejado_25');
-        map.getPane('pane_EmpreendimentosInfraplanejado_25').style.zIndex = 425;
-        map.getPane('pane_EmpreendimentosInfraplanejado_25').style['mix-blend-mode'] = 'normal';
-        var layer_EmpreendimentosInfraplanejado_25 = new L.geoJson(null, {
+        map.createPane('pane_EmpreendimentosInfraplanejado_26');
+        map.getPane('pane_EmpreendimentosInfraplanejado_26').style.zIndex = 426;
+        map.getPane('pane_EmpreendimentosInfraplanejado_26').style['mix-blend-mode'] = 'normal';
+        var layer_EmpreendimentosInfraplanejado_26 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EmpreendimentosInfraplanejado_25',
-            layerName: 'layer_EmpreendimentosInfraplanejado_25',
-            pane: 'pane_EmpreendimentosInfraplanejado_25',
-            onEachFeature: pop_EmpreendimentosInfraplanejado_25,
+            dataVar: 'json_EmpreendimentosInfraplanejado_26',
+            layerName: 'layer_EmpreendimentosInfraplanejado_26',
+            pane: 'pane_EmpreendimentosInfraplanejado_26',
+            onEachFeature: pop_EmpreendimentosInfraplanejado_26,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_EmpreendimentosInfraplanejado_25_0(feature));
+                return L.circleMarker(latlng, style_EmpreendimentosInfraplanejado_26_0(feature));
             },
         });
-        bounds_group.addLayer(layer_EmpreendimentosInfraplanejado_25);
-        function pop_Linhadetransmisso138kVplanejada_26(feature, layer) {
+        bounds_group.addLayer(layer_EmpreendimentosInfraplanejado_26);
+        function pop_Linhadetransmisso138kVplanejada_27(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1841,9 +2109,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso138kVplanejada_26_0() {
+        function style_Linhadetransmisso138kVplanejada_27_0() {
             return {
-                pane: 'pane_Linhadetransmisso138kVplanejada_26',
+                pane: 'pane_Linhadetransmisso138kVplanejada_27',
                 opacity: 1,
                 color: 'rgba(13,211,99,1.0)',
                 dashArray: '',
@@ -1854,20 +2122,20 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso138kVplanejada_26');
-        map.getPane('pane_Linhadetransmisso138kVplanejada_26').style.zIndex = 426;
-        map.getPane('pane_Linhadetransmisso138kVplanejada_26').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso138kVplanejada_26 = new L.geoJson(null, {
+        map.createPane('pane_Linhadetransmisso138kVplanejada_27');
+        map.getPane('pane_Linhadetransmisso138kVplanejada_27').style.zIndex = 427;
+        map.getPane('pane_Linhadetransmisso138kVplanejada_27').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso138kVplanejada_27 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso138kVplanejada_26',
-            layerName: 'layer_Linhadetransmisso138kVplanejada_26',
-            pane: 'pane_Linhadetransmisso138kVplanejada_26',
-            onEachFeature: pop_Linhadetransmisso138kVplanejada_26,
-            style: style_Linhadetransmisso138kVplanejada_26_0,
+            dataVar: 'json_Linhadetransmisso138kVplanejada_27',
+            layerName: 'layer_Linhadetransmisso138kVplanejada_27',
+            pane: 'pane_Linhadetransmisso138kVplanejada_27',
+            onEachFeature: pop_Linhadetransmisso138kVplanejada_27,
+            style: style_Linhadetransmisso138kVplanejada_27_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso138kVplanejada_26);
-        function pop_Linhadedistribuio138kVSimplificado_27(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso138kVplanejada_27);
+        function pop_Linhadedistribuio138kVSimplificado_28(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['TIP_CND'] !== null ? autolinker.link(String(feature.properties['TIP_CND']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1883,9 +2151,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadedistribuio138kVSimplificado_27_0() {
+        function style_Linhadedistribuio138kVSimplificado_28_0() {
             return {
-                pane: 'pane_Linhadedistribuio138kVSimplificado_27',
+                pane: 'pane_Linhadedistribuio138kVSimplificado_28',
                 opacity: 1,
                 color: 'rgba(92,205,223,1.0)',
                 dashArray: '',
@@ -1896,20 +2164,20 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadedistribuio138kVSimplificado_27');
-        map.getPane('pane_Linhadedistribuio138kVSimplificado_27').style.zIndex = 427;
-        map.getPane('pane_Linhadedistribuio138kVSimplificado_27').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadedistribuio138kVSimplificado_27 = new L.geoJson(null, {
+        map.createPane('pane_Linhadedistribuio138kVSimplificado_28');
+        map.getPane('pane_Linhadedistribuio138kVSimplificado_28').style.zIndex = 428;
+        map.getPane('pane_Linhadedistribuio138kVSimplificado_28').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadedistribuio138kVSimplificado_28 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadedistribuio138kVSimplificado_27',
-            layerName: 'layer_Linhadedistribuio138kVSimplificado_27',
-            pane: 'pane_Linhadedistribuio138kVSimplificado_27',
-            onEachFeature: pop_Linhadedistribuio138kVSimplificado_27,
-            style: style_Linhadedistribuio138kVSimplificado_27_0,
+            dataVar: 'json_Linhadedistribuio138kVSimplificado_28',
+            layerName: 'layer_Linhadedistribuio138kVSimplificado_28',
+            pane: 'pane_Linhadedistribuio138kVSimplificado_28',
+            onEachFeature: pop_Linhadedistribuio138kVSimplificado_28,
+            style: style_Linhadedistribuio138kVSimplificado_28_0,
         });
-        bounds_group.addLayer(layer_Linhadedistribuio138kVSimplificado_27);
-        function pop_Linhadedistribuio345kVSimplificado_28(feature, layer) {
+        bounds_group.addLayer(layer_Linhadedistribuio138kVSimplificado_28);
+        function pop_Linhadedistribuio345kVSimplificado_29(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['TIP_CND'] !== null ? autolinker.link(String(feature.properties['TIP_CND']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1925,9 +2193,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadedistribuio345kVSimplificado_28_0() {
+        function style_Linhadedistribuio345kVSimplificado_29_0() {
             return {
-                pane: 'pane_Linhadedistribuio345kVSimplificado_28',
+                pane: 'pane_Linhadedistribuio345kVSimplificado_29',
                 opacity: 1,
                 color: 'rgba(3,78,162,1.0)',
                 dashArray: '',
@@ -1938,20 +2206,20 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadedistribuio345kVSimplificado_28');
-        map.getPane('pane_Linhadedistribuio345kVSimplificado_28').style.zIndex = 428;
-        map.getPane('pane_Linhadedistribuio345kVSimplificado_28').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadedistribuio345kVSimplificado_28 = new L.geoJson(null, {
+        map.createPane('pane_Linhadedistribuio345kVSimplificado_29');
+        map.getPane('pane_Linhadedistribuio345kVSimplificado_29').style.zIndex = 429;
+        map.getPane('pane_Linhadedistribuio345kVSimplificado_29').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadedistribuio345kVSimplificado_29 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadedistribuio345kVSimplificado_28',
-            layerName: 'layer_Linhadedistribuio345kVSimplificado_28',
-            pane: 'pane_Linhadedistribuio345kVSimplificado_28',
-            onEachFeature: pop_Linhadedistribuio345kVSimplificado_28,
-            style: style_Linhadedistribuio345kVSimplificado_28_0,
+            dataVar: 'json_Linhadedistribuio345kVSimplificado_29',
+            layerName: 'layer_Linhadedistribuio345kVSimplificado_29',
+            pane: 'pane_Linhadedistribuio345kVSimplificado_29',
+            onEachFeature: pop_Linhadedistribuio345kVSimplificado_29,
+            style: style_Linhadedistribuio345kVSimplificado_29_0,
         });
-        bounds_group.addLayer(layer_Linhadedistribuio345kVSimplificado_28);
-        function pop_Linhadetransmisso69k_29(feature, layer) {
+        bounds_group.addLayer(layer_Linhadedistribuio345kVSimplificado_29);
+        function pop_Linhadetransmisso69k_30(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">FAS_CON</th>\
@@ -1981,9 +2249,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso69k_29_0() {
+        function style_Linhadetransmisso69k_30_0() {
             return {
-                pane: 'pane_Linhadetransmisso69k_29',
+                pane: 'pane_Linhadetransmisso69k_30',
                 opacity: 1,
                 color: 'rgba(232,53,135,1.0)',
                 dashArray: '',
@@ -1994,21 +2262,21 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso69k_29');
-        map.getPane('pane_Linhadetransmisso69k_29').style.zIndex = 429;
-        map.getPane('pane_Linhadetransmisso69k_29').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso69k_29 = new L.geoJson(json_Linhadetransmisso69k_29, {
+        map.createPane('pane_Linhadetransmisso69k_30');
+        map.getPane('pane_Linhadetransmisso69k_30').style.zIndex = 430;
+        map.getPane('pane_Linhadetransmisso69k_30').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso69k_30 = new L.geoJson(json_Linhadetransmisso69k_30, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso69k_29',
-            layerName: 'layer_Linhadetransmisso69k_29',
-            pane: 'pane_Linhadetransmisso69k_29',
-            onEachFeature: pop_Linhadetransmisso69k_29,
-            style: style_Linhadetransmisso69k_29_0,
+            dataVar: 'json_Linhadetransmisso69k_30',
+            layerName: 'layer_Linhadetransmisso69k_30',
+            pane: 'pane_Linhadetransmisso69k_30',
+            onEachFeature: pop_Linhadetransmisso69k_30,
+            style: style_Linhadetransmisso69k_30_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso69k_29);
-        map.addLayer(layer_Linhadetransmisso69k_29);
-        function pop_Linhadetransmisso138kV_30(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso69k_30);
+        map.addLayer(layer_Linhadetransmisso69k_30);
+        function pop_Linhadetransmisso138kV_31(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">FAS_CON</th>\
@@ -2038,9 +2306,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso138kV_30_0() {
+        function style_Linhadetransmisso138kV_31_0() {
             return {
-                pane: 'pane_Linhadetransmisso138kV_30',
+                pane: 'pane_Linhadetransmisso138kV_31',
                 opacity: 1,
                 color: 'rgba(237,237,30,1.0)',
                 dashArray: '',
@@ -2051,21 +2319,21 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso138kV_30');
-        map.getPane('pane_Linhadetransmisso138kV_30').style.zIndex = 430;
-        map.getPane('pane_Linhadetransmisso138kV_30').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso138kV_30 = new L.geoJson(json_Linhadetransmisso138kV_30, {
+        map.createPane('pane_Linhadetransmisso138kV_31');
+        map.getPane('pane_Linhadetransmisso138kV_31').style.zIndex = 431;
+        map.getPane('pane_Linhadetransmisso138kV_31').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso138kV_31 = new L.geoJson(json_Linhadetransmisso138kV_31, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso138kV_30',
-            layerName: 'layer_Linhadetransmisso138kV_30',
-            pane: 'pane_Linhadetransmisso138kV_30',
-            onEachFeature: pop_Linhadetransmisso138kV_30,
-            style: style_Linhadetransmisso138kV_30_0,
+            dataVar: 'json_Linhadetransmisso138kV_31',
+            layerName: 'layer_Linhadetransmisso138kV_31',
+            pane: 'pane_Linhadetransmisso138kV_31',
+            onEachFeature: pop_Linhadetransmisso138kV_31,
+            style: style_Linhadetransmisso138kV_31_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso138kV_30);
-        map.addLayer(layer_Linhadetransmisso138kV_30);
-        function pop_Linhadetransmisso230kV_31(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso138kV_31);
+        map.addLayer(layer_Linhadetransmisso138kV_31);
+        function pop_Linhadetransmisso230kV_32(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">NOMELONGO</th>\
@@ -2087,9 +2355,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso230kV_31_0() {
+        function style_Linhadetransmisso230kV_32_0() {
             return {
-                pane: 'pane_Linhadetransmisso230kV_31',
+                pane: 'pane_Linhadetransmisso230kV_32',
                 opacity: 1,
                 color: 'rgba(125,206,129,1.0)',
                 dashArray: '',
@@ -2100,21 +2368,21 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso230kV_31');
-        map.getPane('pane_Linhadetransmisso230kV_31').style.zIndex = 431;
-        map.getPane('pane_Linhadetransmisso230kV_31').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso230kV_31 = new L.geoJson(json_Linhadetransmisso230kV_31, {
+        map.createPane('pane_Linhadetransmisso230kV_32');
+        map.getPane('pane_Linhadetransmisso230kV_32').style.zIndex = 432;
+        map.getPane('pane_Linhadetransmisso230kV_32').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso230kV_32 = new L.geoJson(json_Linhadetransmisso230kV_32, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso230kV_31',
-            layerName: 'layer_Linhadetransmisso230kV_31',
-            pane: 'pane_Linhadetransmisso230kV_31',
-            onEachFeature: pop_Linhadetransmisso230kV_31,
-            style: style_Linhadetransmisso230kV_31_0,
+            dataVar: 'json_Linhadetransmisso230kV_32',
+            layerName: 'layer_Linhadetransmisso230kV_32',
+            pane: 'pane_Linhadetransmisso230kV_32',
+            onEachFeature: pop_Linhadetransmisso230kV_32,
+            style: style_Linhadetransmisso230kV_32_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso230kV_31);
-        map.addLayer(layer_Linhadetransmisso230kV_31);
-        function pop_Linhadetransmisso500kV_32(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso230kV_32);
+        map.addLayer(layer_Linhadetransmisso230kV_32);
+        function pop_Linhadetransmisso500kV_33(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">NOMELONGO</th>\
@@ -2135,9 +2403,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Linhadetransmisso500kV_32_0() {
+        function style_Linhadetransmisso500kV_33_0() {
             return {
-                pane: 'pane_Linhadetransmisso500kV_32',
+                pane: 'pane_Linhadetransmisso500kV_33',
                 opacity: 1,
                 color: 'rgba(202,51,94,1.0)',
                 dashArray: '',
@@ -2148,21 +2416,313 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_Linhadetransmisso500kV_32');
-        map.getPane('pane_Linhadetransmisso500kV_32').style.zIndex = 432;
-        map.getPane('pane_Linhadetransmisso500kV_32').style['mix-blend-mode'] = 'normal';
-        var layer_Linhadetransmisso500kV_32 = new L.geoJson(json_Linhadetransmisso500kV_32, {
+        map.createPane('pane_Linhadetransmisso500kV_33');
+        map.getPane('pane_Linhadetransmisso500kV_33').style.zIndex = 433;
+        map.getPane('pane_Linhadetransmisso500kV_33').style['mix-blend-mode'] = 'normal';
+        var layer_Linhadetransmisso500kV_33 = new L.geoJson(json_Linhadetransmisso500kV_33, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Linhadetransmisso500kV_32',
-            layerName: 'layer_Linhadetransmisso500kV_32',
-            pane: 'pane_Linhadetransmisso500kV_32',
-            onEachFeature: pop_Linhadetransmisso500kV_32,
-            style: style_Linhadetransmisso500kV_32_0,
+            dataVar: 'json_Linhadetransmisso500kV_33',
+            layerName: 'layer_Linhadetransmisso500kV_33',
+            pane: 'pane_Linhadetransmisso500kV_33',
+            onEachFeature: pop_Linhadetransmisso500kV_33,
+            style: style_Linhadetransmisso500kV_33_0,
         });
-        bounds_group.addLayer(layer_Linhadetransmisso500kV_32);
-        map.addLayer(layer_Linhadetransmisso500kV_32);
-        function pop_SubestaesMdia_33(feature, layer) {
+        bounds_group.addLayer(layer_Linhadetransmisso500kV_33);
+        map.addLayer(layer_Linhadetransmisso500kV_33);
+        function pop_SubestacoesMdia_34(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">FAS_CON</th>\
+                        <td class="visible-with-data" id="FAS_CON">' + (feature.properties['FAS_CON'] !== null ? autolinker.link(String(feature.properties['FAS_CON']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SIT_ATIV</th>\
+                        <td class="visible-with-data" id="SIT_ATIV">' + (feature.properties['SIT_ATIV'] !== null ? autolinker.link(String(feature.properties['SIT_ATIV']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TIP_UNID</th>\
+                        <td class="visible-with-data" id="TIP_UNID">' + (feature.properties['TIP_UNID'] !== null ? autolinker.link(String(feature.properties['TIP_UNID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SUB</th>\
+                        <td class="visible-with-data" id="SUB">' + (feature.properties['SUB'] !== null ? autolinker.link(String(feature.properties['SUB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CONJ</th>\
+                        <td class="visible-with-data" id="CONJ">' + (feature.properties['CONJ'] !== null ? autolinker.link(String(feature.properties['CONJ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUN</th>\
+                        <td class="visible-with-data" id="MUN">' + (feature.properties['MUN'] !== null ? autolinker.link(String(feature.properties['MUN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">POS</th>\
+                        <td class="visible-with-data" id="POS">' + (feature.properties['POS'] !== null ? autolinker.link(String(feature.properties['POS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DESCR</th>\
+                        <td class="visible-with-data" id="DESCR">' + (feature.properties['DESCR'] !== null ? autolinker.link(String(feature.properties['DESCR']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['POT(MVA)'] !== null ? autolinker.link(String(feature.properties['POT(MVA)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['POT REATIVA(MVAr)'] !== null ? autolinker.link(String(feature.properties['POT REATIVA(MVAr)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TENS TRANSF'] !== null ? autolinker.link(String(feature.properties['TENS TRANSF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBSERVACAO'] !== null ? autolinker.link(String(feature.properties['OBSERVACAO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_SubestacoesMdia_34_0() {
+            return {
+                pane: 'pane_SubestacoesMdia_34',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_SubestacoesMdia_34');
+        map.getPane('pane_SubestacoesMdia_34').style.zIndex = 434;
+        map.getPane('pane_SubestacoesMdia_34').style['mix-blend-mode'] = 'normal';
+        var layer_SubestacoesMdia_34 = new L.geoJson(null, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SubestacoesMdia_34',
+            layerName: 'layer_SubestacoesMdia_34',
+            pane: 'pane_SubestacoesMdia_34',
+            onEachFeature: pop_SubestacoesMdia_34,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_SubestacoesMdia_34_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_SubestacoesMdia_34);
+        function pop_Unio_35(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_ID'] !== null ? autolinker.link(String(feature.properties['COD_ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DIST'] !== null ? autolinker.link(String(feature.properties['DIST']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PAC_1'] !== null ? autolinker.link(String(feature.properties['PAC_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PAC_2'] !== null ? autolinker.link(String(feature.properties['PAC_2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FAS_CON'] !== null ? autolinker.link(String(feature.properties['FAS_CON']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SIT_ATIV'] !== null ? autolinker.link(String(feature.properties['SIT_ATIV']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIP_UNID'] !== null ? autolinker.link(String(feature.properties['TIP_UNID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['P_N_OPE'] !== null ? autolinker.link(String(feature.properties['P_N_OPE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CAP_ELO'] !== null ? autolinker.link(String(feature.properties['CAP_ELO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COR_NOM'] !== null ? autolinker.link(String(feature.properties['COR_NOM']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TLCD'] !== null ? autolinker.link(String(feature.properties['TLCD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DAT_CON'] !== null ? autolinker.link(String(feature.properties['DAT_CON']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SUB'] !== null ? autolinker.link(String(feature.properties['SUB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CONJ'] !== null ? autolinker.link(String(feature.properties['CONJ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MUN'] !== null ? autolinker.link(String(feature.properties['MUN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['POS'] !== null ? autolinker.link(String(feature.properties['POS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DESCR'] !== null ? autolinker.link(String(feature.properties['DESCR']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOME'] !== null ? autolinker.link(String(feature.properties['NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['POT(MVA)'] !== null ? autolinker.link(String(feature.properties['POT(MVA)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['POT REATIVA(MVAr)'] !== null ? autolinker.link(String(feature.properties['POT REATIVA(MVAr)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TENS TRANSF'] !== null ? autolinker.link(String(feature.properties['TENS TRANSF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBSERVACAO'] !== null ? autolinker.link(String(feature.properties['OBSERVACAO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOME_2'] !== null ? autolinker.link(String(feature.properties['NOME_2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['POT(MVA)_2'] !== null ? autolinker.link(String(feature.properties['POT(MVA)_2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['POT REATIVA(MVAr)_2'] !== null ? autolinker.link(String(feature.properties['POT REATIVA(MVAr)_2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TENS DE TRANSF(kV)'] !== null ? autolinker.link(String(feature.properties['TENS DE TRANSF(kV)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COORDENADAS'] !== null ? autolinker.link(String(feature.properties['COORDENADAS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['X'] !== null ? autolinker.link(String(feature.properties['X']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Y'] !== null ? autolinker.link(String(feature.properties['Y']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Unio_35_0() {
+            return {
+                pane: 'pane_Unio_35',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Unio_35');
+        map.getPane('pane_Unio_35').style.zIndex = 435;
+        map.getPane('pane_Unio_35').style['mix-blend-mode'] = 'normal';
+        var layer_Unio_35 = new L.geoJson(null, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Unio_35',
+            layerName: 'layer_Unio_35',
+            pane: 'pane_Unio_35',
+            onEachFeature: pop_Unio_35,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Unio_35_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Unio_35);
+        map.addLayer(layer_Unio_35);
+        function pop_SubestaesAlta_36(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">NOMELONGO</th>\
+                        <td class="visible-with-data" id="NOMELONGO">' + (feature.properties['NOMELONGO'] !== null ? autolinker.link(String(feature.properties['NOMELONGO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['val_tensaoprimario_kv'] !== null ? autolinker.link(String(feature.properties['val_tensaoprimario_kv']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['val_tensaosecundario_kv'] !== null ? autolinker.link(String(feature.properties['val_tensaosecundario_kv']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['val_tensaoterciario_kv'] !== null ? autolinker.link(String(feature.properties['val_tensaoterciario_kv']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['val_potencianominal_mva'] !== null ? autolinker.link(String(feature.properties['val_potencianominal_mva']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nom_tipoderede'] !== null ? autolinker.link(String(feature.properties['nom_tipoderede']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_SubestaesAlta_36_0() {
+            return {
+                pane: 'pane_SubestaesAlta_36',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_SubestaesAlta_36');
+        map.getPane('pane_SubestaesAlta_36').style.zIndex = 436;
+        map.getPane('pane_SubestaesAlta_36').style['mix-blend-mode'] = 'normal';
+        var layer_SubestaesAlta_36 = new L.geoJson(null, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SubestaesAlta_36',
+            layerName: 'layer_SubestaesAlta_36',
+            pane: 'pane_SubestaesAlta_36',
+            onEachFeature: pop_SubestaesAlta_36,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_SubestaesAlta_36_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_SubestaesAlta_36);
+        function pop_SubestaesMdia_37(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">SIT_ATIV</th>\
@@ -2228,9 +2788,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_SubestaesMdia_33_0() {
+        function style_SubestaesMdia_37_0() {
             return {
-                pane: 'pane_SubestaesMdia_33',
+                pane: 'pane_SubestaesMdia_37',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -2244,26 +2804,26 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_SubestaesMdia_33');
-        map.getPane('pane_SubestaesMdia_33').style.zIndex = 433;
-        map.getPane('pane_SubestaesMdia_33').style['mix-blend-mode'] = 'normal';
-        var layer_SubestaesMdia_33 = new L.geoJson(null, {
+        map.createPane('pane_SubestaesMdia_37');
+        map.getPane('pane_SubestaesMdia_37').style.zIndex = 437;
+        map.getPane('pane_SubestaesMdia_37').style['mix-blend-mode'] = 'normal';
+        var layer_SubestaesMdia_37 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SubestaesMdia_33',
-            layerName: 'layer_SubestaesMdia_33',
-            pane: 'pane_SubestaesMdia_33',
-            onEachFeature: pop_SubestaesMdia_33,
+            dataVar: 'json_SubestaesMdia_37',
+            layerName: 'layer_SubestaesMdia_37',
+            pane: 'pane_SubestaesMdia_37',
+            onEachFeature: pop_SubestaesMdia_37,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_SubestaesMdia_33_0(feature));
+                return L.circleMarker(latlng, style_SubestaesMdia_37_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SubestaesMdia_33);
-        function pop_SubestaesAlta_34(feature, layer) {
+        bounds_group.addLayer(layer_SubestaesMdia_37);
+        function pop_SubestaesAlta_38(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NOMELONGO" colspan="2"><strong>NOMELONGO</strong><br />' + (feature.properties['NOMELONGO'] !== null ? autolinker.link(String(feature.properties['NOMELONGO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -2291,9 +2851,9 @@ map.options.minZoom = map.getZoom();
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_SubestaesAlta_34_0() {
+        function style_SubestaesAlta_38_0() {
             return {
-                pane: 'pane_SubestaesAlta_34',
+                pane: 'pane_SubestaesAlta_38',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -2307,69 +2867,73 @@ map.options.minZoom = map.getZoom();
                 interactive: true,
             }
         }
-        map.createPane('pane_SubestaesAlta_34');
-        map.getPane('pane_SubestaesAlta_34').style.zIndex = 434;
-        map.getPane('pane_SubestaesAlta_34').style['mix-blend-mode'] = 'normal';
-        var layer_SubestaesAlta_34 = new L.geoJson(null, {
+        map.createPane('pane_SubestaesAlta_38');
+        map.getPane('pane_SubestaesAlta_38').style.zIndex = 438;
+        map.getPane('pane_SubestaesAlta_38').style['mix-blend-mode'] = 'normal';
+        var layer_SubestaesAlta_38 = new L.geoJson(null, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SubestaesAlta_34',
-            layerName: 'layer_SubestaesAlta_34',
-            pane: 'pane_SubestaesAlta_34',
-            onEachFeature: pop_SubestaesAlta_34,
+            dataVar: 'json_SubestaesAlta_38',
+            layerName: 'layer_SubestaesAlta_38',
+            pane: 'pane_SubestaesAlta_38',
+            onEachFeature: pop_SubestaesAlta_38,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_SubestaesAlta_34_0(feature));
+                return L.circleMarker(latlng, style_SubestaesAlta_38_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SubestaesAlta_34);
+        bounds_group.addLayer(layer_SubestaesAlta_38);
         var overlaysTree = [
         {label: '<b>Subestações</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/SubestaesAlta_34.png" /> Subestações (Alta)', layer: layer_SubestaesAlta_34},
-            {label: '<img src="legend/SubestaesMdia_33.png" /> Subestações (Média)', layer: layer_SubestaesMdia_33},]},
+            {label: '<img src="legend/SubestaesAlta_38.png" /> Subestações (Alta)', layer: layer_SubestaesAlta_38},
+            {label: '<img src="legend/SubestaesMdia_37.png" /> Subestações (Média)', layer: layer_SubestaesMdia_37},
+            {label: '<img src="legend/SubestaesAlta_36.png" /> Subestações (Alta)', layer: layer_SubestaesAlta_36},
+            {label: '<img src="legend/Unio_35.png" /> União', layer: layer_Unio_35},
+            {label: '<img src="legend/SubestacoesMdia_34.png" /> Subestacoes (Média)', layer: layer_SubestacoesMdia_34},]},
         {label: '<b>Linhas de transmissão e distribuição</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Linhadetransmisso500kV_32.png" /> Linha de transmissão 500kV', layer: layer_Linhadetransmisso500kV_32},
-            {label: '<img src="legend/Linhadetransmisso230kV_31.png" /> Linha de transmissão 230kV', layer: layer_Linhadetransmisso230kV_31},
-            {label: '<img src="legend/Linhadetransmisso138kV_30.png" /> Linha de transmissão 138kV', layer: layer_Linhadetransmisso138kV_30},
-            {label: '<img src="legend/Linhadetransmisso69k_29.png" /> Linha de transmissão 69k', layer: layer_Linhadetransmisso69k_29},
-            {label: '<img src="legend/Linhadedistribuio345kVSimplificado_28.png" /> Linha de distribuição 34,5kV Simplificado', layer: layer_Linhadedistribuio345kVSimplificado_28},
-            {label: '<img src="legend/Linhadedistribuio138kVSimplificado_27.png" /> Linha de distribuição 13,8kV Simplificado', layer: layer_Linhadedistribuio138kVSimplificado_27},]},
+            {label: '<img src="legend/Linhadetransmisso500kV_33.png" /> Linha de transmissão 500kV', layer: layer_Linhadetransmisso500kV_33},
+            {label: '<img src="legend/Linhadetransmisso230kV_32.png" /> Linha de transmissão 230kV', layer: layer_Linhadetransmisso230kV_32},
+            {label: '<img src="legend/Linhadetransmisso138kV_31.png" /> Linha de transmissão 138kV', layer: layer_Linhadetransmisso138kV_31},
+            {label: '<img src="legend/Linhadetransmisso69k_30.png" /> Linha de transmissão 69k', layer: layer_Linhadetransmisso69k_30},
+            {label: '<img src="legend/Linhadedistribuio345kVSimplificado_29.png" /> Linha de distribuição 34,5kV Simplificado', layer: layer_Linhadedistribuio345kVSimplificado_29},
+            {label: '<img src="legend/Linhadedistribuio138kVSimplificado_28.png" /> Linha de distribuição 13,8kV Simplificado', layer: layer_Linhadedistribuio138kVSimplificado_28},]},
         {label: '<b>Empreendimentos de Infraestrutura planejados</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Linhadetransmisso138kVplanejada_26.png" /> Linha de transmissão 138kV (planejada)', layer: layer_Linhadetransmisso138kVplanejada_26},
-            {label: '<img src="legend/EmpreendimentosInfraplanejado_25.png" /> Empreendimentos Infra (planejado)', layer: layer_EmpreendimentosInfraplanejado_25},]},
+            {label: '<img src="legend/Linhadetransmisso138kVplanejada_27.png" /> Linha de transmissão 138kV (planejada)', layer: layer_Linhadetransmisso138kVplanejada_27},
+            {label: '<img src="legend/EmpreendimentosInfraplanejado_26.png" /> Empreendimentos Infra (planejado)', layer: layer_EmpreendimentosInfraplanejado_26},]},
         {label: '<b>Construção</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/ConstruoSolar_24.png" /> Construção - Solar', layer: layer_ConstruoSolar_24},]},
+            {label: '<img src="legend/ConstruoSolar_25.png" /> Construção - Solar', layer: layer_ConstruoSolar_25},]},
         {label: '<b>Construção não iniciada</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/ConstruonoiniciadaSolar_23.png" /> Construção não iniciada- Solar', layer: layer_ConstruonoiniciadaSolar_23},
-            {label: '<img src="legend/ConstruonoiniciadaElica_22.png" /> Construção não iniciada - Eólica', layer: layer_ConstruonoiniciadaElica_22},]},
+            {label: '<img src="legend/ConstruonoiniciadaSolar_24.png" /> Construção não iniciada- Solar', layer: layer_ConstruonoiniciadaSolar_24},
+            {label: '<img src="legend/ConstruonoiniciadaElica_23.png" /> Construção não iniciada - Eólica', layer: layer_ConstruonoiniciadaElica_23},]},
         {label: '<b>Operação</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: '<img src="legend/OperaoBiomassa_21.png" /> Operação - Biomassa', layer: layer_OperaoBiomassa_21},
-            {label: '<img src="legend/OperaoElica_20.png" /> Operação - Eólica', layer: layer_OperaoElica_20},
-            {label: '<img src="legend/OperaoFssil_19.png" /> Operação - Fóssil', layer: layer_OperaoFssil_19},
-            {label: '<img src="legend/OperaoHdrica_18.png" /> Operação - Hídrica', layer: layer_OperaoHdrica_18},
-            {label: '<img src="legend/OperacaoSolar_17.png" /> Operacao - Solar', layer: layer_OperacaoSolar_17},]},
+            {label: '<img src="legend/OperaoBiomassa_22.png" /> Operação - Biomassa', layer: layer_OperaoBiomassa_22},
+            {label: '<img src="legend/OperaoElica_21.png" /> Operação - Eólica', layer: layer_OperaoElica_21},
+            {label: '<img src="legend/OperaoFssil_20.png" /> Operação - Fóssil', layer: layer_OperaoFssil_20},
+            {label: '<img src="legend/OperaoHdrica_19.png" /> Operação - Hídrica', layer: layer_OperaoHdrica_19},
+            {label: '<img src="legend/OperacaoSolar_18.png" /> Operacao - Solar', layer: layer_OperacaoSolar_18},]},
         {label: '<b>FEC, DEC e DGC</b>', collapsed: true, selectAllCheckbox: true, children: [
-            //USAR NO NOVO PROJETO - INICIO
-            {label: 'FEC limite anual', layer: layer_FEClimiteanual_16},
-            {label: 'FEC apurado anual', layer: layer_FECapuradoanual_15},
-            {label: 'DEC limite anual', layer: layer_DEClimiteanual_14},
-            {label: 'DEC apurado anual', layer: layer_DECapuradoanual_13},
-            {label: 'DGC', layer: layer_DGC_12},]},
-            //USAR NO NOVO PROJETO - FIM
+             //USAR NO NOVO PROJETO - INICIO
+            {label: 'FEC limite anual', layer: layer_FEClimiteanual_17},
+            {label: 'FEC apurado anual', layer: layer_FECapuradoanual_16},
+            {label: 'DEC limite anual', layer: layer_DEClimiteanual_15},
+            {label: 'DEC apurado anual', layer: layer_DECapuradoanual_14},
+            {label: 'DGC', layer: layer_DGC_13},]},
+            //USAR NO NOVO PROJETO - FIM   
         {label: '<b>Potencial eólico e solar</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: "Irradiação Solar (Anual inclinado 10° Wh/m².dia)", layer: layer_IrradiaoSolarAnualinclinado10Whmdia_11},
-            {label: "Velocidade dos ventos (m/s) (100m)", layer: layer_Velocidadedosventosms100m_10},]},
-            {label: '<img src="legend/reaLitgio_9.png" /> Área Litígio'},//USAR NO NOVO PROJETO - linha unica
-            {label: '<img src="legend/LinhaImperial_8.png" /> Linha Imperial'},//USAR NO NOVO PROJETO - linha unica
-            {label: '<img src="legend/ZonadeAmortecimentodasUCsPI3Km_7.png" /> Zona de Amortecimento das UC\'s-PI - 3Km', layer: layer_ZonadeAmortecimentodasUCsPI3Km_7},
-            {label: '<img src="legend/UnidadesdeConservaoFederalPIICMBIO2023_6.png" /> Unidades de Conservação Federal-PI (ICMBIO 2023)', layer: layer_UnidadesdeConservaoFederalPIICMBIO2023_6},
-            {label: '<img src="legend/UnidadesdeConservaoEstadualPI_5.png" /> Unidades de Conservação Estadual-PI', layer: layer_UnidadesdeConservaoEstadualPI_5},
-            {label: '<img src="legend/CorredorEcolgicoConfusesSerradaCapivaraPI_4.png" /> Corredor Ecológico - Confusões Serra da Capivara-PI', layer: layer_CorredorEcolgicoConfusesSerradaCapivaraPI_4},
-            {label: '<img src="legend/readeaplicaodaLeidaMataAtlnticaPI_3.png" /> Área de aplicação da Lei da Mata Atlântica-PI', layer: layer_readeaplicaodaLeidaMataAtlnticaPI_3},
-            {label: '<img src="legend/Municpios_2.png" /> Municípios', layer: layer_Municpios_2},
+            {label: "Irradiação Solar (Anual inclinado 10° Wh/m².dia)", layer: layer_IrradiaoSolarAnualinclinado10Whmdia_12},
+            {label: "Velocidade dos ventos (m/s) (100m)", layer: layer_Velocidadedosventosms100m_11},]},
+            {label: '<img src="legend/reaLitgio_10.png" /> Área Litígio'},//USAR NO NOVO PROJETO - linha unica
+            {label: '<img src="legend/LinhaImperial_9.png" /> Linha Imperial'},//USAR NO NOVO PROJETO - linha unica
+            {label: '<img src="legend/ZonadeAmortecimentodasUCsPI3Km_8.png" /> Zona de Amortecimento das UC\'s-PI - 3Km', layer: layer_ZonadeAmortecimentodasUCsPI3Km_8},
+            {label: '<img src="legend/UnidadesdeConservaoFederalPIICMBIO2023_7.png" /> Unidades de Conservação Federal-PI (ICMBIO 2023)', layer: layer_UnidadesdeConservaoFederalPIICMBIO2023_7},
+            {label: '<img src="legend/UnidadesdeConservaoEstadualPI_6.png" /> Unidades de Conservação Estadual-PI', layer: layer_UnidadesdeConservaoEstadualPI_6},
+            {label: '<img src="legend/CorredorEcolgicoConfusesSerradaCapivaraPI_5.png" /> Corredor Ecológico - Confusões Serra da Capivara-PI', layer: layer_CorredorEcolgicoConfusesSerradaCapivaraPI_5},
+            {label: '<img src="legend/readeaplicaodaLeidaMataAtlnticaPI_4.png" /> Área de aplicação da Lei da Mata Atlântica-PI', layer: layer_readeaplicaodaLeidaMataAtlnticaPI_4},
+            {label: '<img src="legend/Municpios_3.png" /> Municípios', layer: layer_Municpios_3},
+            {label: 'Território de Desenvolvimento', layer: layer_TerritriodeDesenvolvimento_2},//USAR NO NOVO PROJETO - linha unica
             {label: "OSM Standard", layer: layer_OSMStandard_1},
             {label: "Google Satellite", layer: layer_GoogleSatellite_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
@@ -2758,14 +3322,14 @@ document.addEventListener('change', function(e) {
             }
             findLayersInTree(overlaysTree);
             const initiallyLoaded = new Set([
-                'layer_Municpios_2',
-                'layer_Linhadetransmisso69k_29',
-                'layer_Linhadetransmisso69k_29',
-                'layer_Linhadetransmisso138kV_30',
-                'layer_data/Linhadetransmisso230kV_31',
-                'layer_data/Linhadetransmisso500kV_32',
-                'layer_LinhaImperial_8',
-                'layer_reaLitgio_9'
+                'layer_Municpios_3',
+                'layer_Linhadetransmisso69k_30',
+                'layer_Linhadetransmisso69k_30',
+                'layer_Linhadetransmisso138kV_31',
+                'layer_data/Linhadetransmisso230kV_32',
+                'layer_data/Linhadetransmisso500kV_33',
+                'layer_LinhaImperial_9',
+                'layer_reaLitgio_10'
             ]);
             function loadScript(url, callback) {
                 const script = document.createElement("script");

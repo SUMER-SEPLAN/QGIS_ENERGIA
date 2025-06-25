@@ -1,1 +1,0 @@
-var json_Linhadetransmisso138kVplanejada_26 = {"type":"FeatureCollection","name":"Linhadetransmisso138kVplanejada_26","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":1.0},"geometry":{"type":"MultiLineString","coordinates":[[[-45.20361111,-7.6325],[-44.495,-7.29083333]]]}}]}

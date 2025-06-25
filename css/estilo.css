@@ -1,11 +1,3 @@
-/*@font-face {
-    font-family: 'Montserrat';
-    src: url('../webfonts/Montserrat-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }  */
-
-/* === GERAL === */
 html, body {
     margin: 0;
     padding: 0;
@@ -16,7 +8,6 @@ html, body {
     overflow: hidden;
   }
   
-  /* === BARRA SUPERIOR === */
   .topbar {
     background-color:#2c3e50;
      color: white;
@@ -28,21 +19,21 @@ html, body {
     z-index: 1000;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* separa esquerda e direita */
+    justify-content: space-between;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
   
   .topbar-left {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Permite que este contêiner expanda */
-    min-width: 0; /* Ajuda a evitar problemas de overflow com conteúdo longo em flex items */
+    flex-grow: 1;
+    min-width: 0;
   }
 
   .topbar-right {
-    display: flex; /* Adicionado para alinhar itens internos */
-    align-items: center; /* Adicionado para alinhar itens internos verticalmente */
-    margin-right: 232px; /* Move o bloco de logos um pouco para a esquerda */
+    display: flex;
+    align-items: center;
+    margin-right: 232px;
   }
   
   .logo {
@@ -62,29 +53,26 @@ html, body {
     box-shadow: none !important;
   }
   
-  /* === MENU LATERAL === */
   .sidebar {
     position: fixed;
-    top: 64px; /* Ajustado para altura da topbar */
+    top: 64px;
     left: 0;
-    width: 0; /* Começa recolhido */
-    height: calc(100vh - 64px); /* Ocupa o restante da altura da tela */
-    background-color: #2c3e50; /* Restaurar cor de fundo */
+    width: 0;
+    height: calc(100vh - 64px);
+    background-color: #2c3e50;
     transition: width 0.3s ease;
-    overflow-x: hidden; /* Esconde o conteúdo quando recolhido */
+    overflow-x: hidden;
     z-index: 1001;
-    /* display: none !important; */ /* Removido para controlar via width */
-    padding-top: 10px; /* Espaçamento no topo dos itens do menu */
+    padding-top: 10px;
   }
   
-  /* Estilos para o botão #toggleMenu agora na topbar */
   #toggleMenu {
-    background-color: transparent; /* Remove o fundo anterior */
-    color: white; /* Mantém a cor do ícone */
-    font-size: 24px; /* Ajuste o tamanho conforme necessário */
+    background-color: transparent;
+    color: white;
+    font-size: 24px;
     border: none;
-    padding: 0 10px; /* Ajuste o preenchimento */
-    margin-right: 15px; /* Espaçamento à direita do botão */
+    padding: 0 10px;
+    margin-right: 15px;
     cursor: pointer;
   }
   
@@ -127,20 +115,18 @@ html, body {
     margin-left: 5px;
   }
   
-  /* Esconde o texto quando a sidebar está recolhida */
   .sidebar:not(.expandido) a span {
     display: none;
   }
   
-  /* === ÁREA DO MAPA === */
   .content {
     position: absolute;
-    top: 64px;       /* altura da topbar */
-    left: 0;         /* Posição inicial */
+    top: 64px;
+    left: 0;
     right: 0;
     bottom: 0;
     z-index: 0;
-    transition: margin-left 0.3s ease; /* Para animar o deslocamento */
+    transition: margin-left 0.3s ease;
   }
   
   .content iframe {
@@ -152,9 +138,9 @@ html, body {
   #legenda-container {
     position: absolute;
     bottom: 20px;
-    left: 70px; /* logo ao lado da barra lateral (60px) + espaço */
+    left: 70px;
     z-index: 1002;
-    display: none; /* começa invisível */
+    display: none;
     transition: left 0.3s ease;
   }
   
@@ -171,11 +157,9 @@ html, body {
   left: 0;
   height: 100%;
   width: 100%;
-  display: none; /* Só isso aqui */
+  display: none;
   z-index: 1005;
   background-color: rgba(0,0,0,0.5);
-
-  /* Centralização do conteúdo interno */
   align-items: center;
   justify-content: center;
 }
@@ -206,7 +190,6 @@ html, body {
     cursor: pointer;
   }
   
-  /* Rodapé do menu lateral */
 .sidebar-bottom {
     position: absolute;
     bottom: 10px;
@@ -224,7 +207,6 @@ html, body {
     gap: 10px;
   }
   
-  /* Popup central */
   #popup-sobre {
     position: fixed;
     top: 0;
@@ -245,10 +227,10 @@ html, body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     font-size: 14px;
     line-height: 1.4;
-    margin: 100px auto; /* centralizado verticalmente */
+    margin: 100px auto;
     position: relative;
-    max-height: 75vh; /* Limita a altura a 85% da altura da tela */
-    overflow-y: auto; /* Adiciona a barra de rolagem vertical SE necessário */
+    max-height: 75vh;
+    overflow-y: auto;
 }
   
   .popup-central h3 {
@@ -265,7 +247,6 @@ html, body {
     cursor: pointer;
   }
 
-  /* Popup instruções */
   #popup-instrucoes {
     position: fixed;
     top: 0;
@@ -281,7 +262,6 @@ html, body {
     filter: brightness(0) saturate(100%) invert(69%) sepia(73%) saturate(387%) hue-rotate(101deg) brightness(94%) contrast(92%);
   }
 
-  /* Loader Animação */
   #loader {
     position: fixed;
     top: 0;
@@ -312,8 +292,6 @@ html, body {
     object-fit: contain;
   }
   
-  
-  /* borda animada circular ao redor do logo */
   .loader-bar {
     position: absolute;
     top: -5px;
@@ -323,7 +301,7 @@ html, body {
     border-radius: 50%;
     border: 4px solid transparent;
     border-top: 4px solid #2c3e50;
-    animation: spin 0.6s linear infinite; /* atualizado abaixo */
+    animation: spin 0.6s linear infinite;
     z-index: 1;
     box-sizing: border-box;
   }
@@ -346,34 +324,33 @@ html, body {
   }
   .titulo-mobile {
     display: block;
-    font-size: 19px; /* ajuste o tamanho conforme desejar */
+    font-size: 19px;
     line-height: 1.2;
     font-weight: normal;
     white-space: normal;
   }
 .topbar {
-    height: 54px; /* Altura menor para a topbar no celular */
-    padding: 5px 10px; /* Ajuste o padding se necessário */
+    height: 54px;
+    padding: 5px 10px;
   }
   .sidebar {
-    top: 54px; /* Ajusta o topo da sidebar para a nova altura da topbar */
-    height: calc(100vh - 50px); /* Ajusta a altura da sidebar */
+    top: 54px;
+    height: calc(100vh - 50px);
     white-space: normal;
   }
   .topbar-right {
-    /* display: none; */ /* Mantém visível no celular */
-    margin-right: 10px; /* Reduz a margem direita para celular, ajuste conforme necessário */
+    margin-right: 10px;
   }
   .logo {
-    height: 40px; /* Altura específica para .logo no celular */
-    margin-right: 10px; /* Ajuste a margem se necessário */
+    height: 40px;
+    margin-right: 10px;
   }
   .logo-sumer {
-    height: 30px; /* Altura específica para .logo-sumer no celular */
-    margin-right: 15px; /* Ajuste a margem específica do logo-sumer se necessário */
+    height: 30px;
+    margin-right: 15px;
   }
   .content {
-    top: 54px; /* Ajusta o topo do conteúdo para a nova altura da topbar */
+    top: 54px;
   }
 }
 @media (max-width: 600px) {
@@ -576,52 +553,51 @@ html, body {
     max-width: 150px;
   }
 }
-/* Estilo para o novo botão "Site da SEPLAN" */
 .seplan-apps-bar__site-button {
-    display: flex; /* Alterado de none para flex para exibir o botão */
-    background-color: #f0f0f0; /* Substituindo var(--gray-1) - um cinza claro */
-    color: #2c3e50; /* Substituindo var(--blue-warm-vivid-70) - verde escuro para contraste com o fundo claro */
+    display: flex;
+    background-color: #f0f0f0;
+    color: #2c3e50;
     padding: 0 14px;
     border-radius: 6px;
-    font-size: .875rem; /* Aproximadamente 14px */
+    font-size: .875rem;
     font-weight: 600;
     height: 30px;
     text-decoration: none;
     transition: background-color .2s;
     align-items: center;
     justify-content: center;
-    margin-right: 15px; /* Espaçamento para separar dos logos */
+    margin-right: 15px;
 }
 .seplan-apps-bar__site-button .button-icon {
-    display: none; /* Esconde o ícone por padrão */
-    font-size: 1.5em; /* Tamanho inicial do ícone, pode ser ajustado */
+    display: none;
+    font-size: 1.5em;
     line-height: 1;
 }
 
 .seplan-apps-bar__site-button:hover {
-    background-color: #e0e0e0; /* Um cinza um pouco mais escuro para o hover */
-    color: #2c3e50; /* Verde um pouco mais escuro no hover */
+    background-color: #e0e0e0;
+    color: #2c3e50;
 }
 @media (max-width: 600px) {
   .seplan-apps-bar__site-button .button-text {
-    display: none; /* Esconde o texto "Voltar" no celular */
+    display: none;
   }
   .seplan-apps-bar__site-button .button-icon {
-    display: inline; /* Mostra o ícone no celular */
+    display: inline;
   }
   .seplan-apps-bar__site-button {
-    font-size: .75rem; /* Reduz o tamanho da fonte base do botão */
-    padding: 0 10px; /* Ajusta o padding para o ícone */
-    height: 28px; /* Ajusta a altura se necessário */
+    font-size: .75rem;
+    padding: 0 10px;
+    height: 28px;
   }
 }
 @media (max-width: 360px) {
   .seplan-apps-bar__site-button {
-    font-size: .65rem; /* Reduz ainda mais o tamanho da fonte base do botão */
-    padding: 0 8px;   /* Ajusta o padding para o ícone menor */
-    height: 26px;     /* Ajusta a altura se necessário */
+    font-size: .65rem;
+    padding: 0 8px;
+    height: 26px;
   }
   .seplan-apps-bar__site-button .button-icon {
-    font-size: 1.4em; /* Ajusta o tamanho do ícone se o ajuste da fonte do botão não for suficiente */
+    font-size: 1.4em;
   }
 }
